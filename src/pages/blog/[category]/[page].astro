@@ -1,0 +1,79 @@
+---
+import fetchData from "../../../lib/fetchData";
+import type FetchData from "../../../interfaces/FetchData";
+import type BlogPage from "../../../interfaces/BlogPage";
+import type BlogItem from "../../../interfaces/BlogItem";
+import Layout from "../../../layouts/Layout.astro";
+
+export async function getStaticPaths({ paginate }: any) {
+  const queryCats = `
+		query Query {
+			catsModel {
+				_id
+				url
+			}
+		}
+	`;
+
+  const queryPosts = `
+		query Query {
+			blogModel {
+				category
+			}
+		}
+	`;
+
+  const { catsModel }: FetchData = await fetchData(queryCats);
+  const { blogModel }: FetchData = await fetchData(queryPosts);
+
+  if (!catsModel || !blogModel) {
+    return [];
+  }
+
+  return catsModel.flatMap((cat) => {
+    const filteredPosts = blogModel.filter((item: BlogItem) => item.category._id === cat._id);
+    return paginate(filteredPosts, {
+      params: { category: cat.url },
+      pageSize: 1,
+    });
+  });
+}
+
+const { page } = Astro.props as { page: BlogPage };
+
+const query = `
+query Query($filter: JsonType, $limit: Int, $skip: Int) {
+	blogModel(filter: $filter, limit: $limit, skip: $skip) {
+		_id
+		_created
+    title
+    perex
+		category
+    image
+		author {
+			name
+			title
+			photo
+		}
+  }
+	catsModel {
+		_id
+		title
+		url
+	}
+}
+`;
+
+const variables = {
+  filter: {
+    "category._id": page.data[0].category._id,
+  },
+  limit: page.size,
+  skip: page.start,
+};
+
+const { blogModel, catsModel }: FetchData = await fetchData(query, variables);
+---
+
+<Layout title={`${catsModel?.find((cat) => cat._id === page.data[0].category._id)?.title} - Stranka ${page.currentPage} - Human Design`} description="">
+</Layout>

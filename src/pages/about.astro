@@ -1,0 +1,32 @@
+---
+import Layout from "../layouts/Layout.astro";
+import fetchData from "../lib/fetchData";
+import type FetchData from "../interfaces/FetchData";
+
+const query = `
+query Query {
+	teamModel {
+    name
+    title
+    photo
+    quote
+		text
+		award
+    counters {
+      number
+      text
+    }
+    certificates {
+      title
+      text
+      image
+    }
+  }
+}
+`;
+
+const { teamModel }: FetchData = await fetchData(query);
+---
+
+<Layout title="O nás" description="">
+</Layout>

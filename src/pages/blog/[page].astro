@@ -1,0 +1,61 @@
+---
+import fetchData from "../../lib/fetchData";
+import type FetchData from "../../interfaces/FetchData";
+import type BlogPage from "../../interfaces/BlogPage";
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths({ paginate }: any) {
+  const queryIds = `
+		query Query {
+			blogModel {
+				title
+			}
+		}
+	`;
+
+  const { blogModel }: FetchData = await fetchData(queryIds);
+
+  if (!blogModel) {
+    return [];
+  }
+
+  return paginate(blogModel, { pageSize: 2 });
+}
+
+const { page } = Astro.props as { page: BlogPage };
+
+const queryPost = `
+query Query($limit: Int, $skip: Int) {
+  blogModel(limit: $limit, skip: $skip) {
+			_id
+			_created
+			title
+			text
+			category
+			tags
+			image
+			contributors {
+				name
+				title
+				photo
+			}
+		}
+		catsModel {
+			_id
+			title
+			url
+		}
+	}
+
+`;
+
+const variables = {
+  limit: page.size,
+  skip: page.start,
+};
+
+const { blogModel, catsModel }: FetchData = await fetchData(queryPost, variables);
+---
+
+<Layout title={`Blog - Stranka ${page.currentPage} - Human Design`} description="">
+</Layout>

@@ -1,0 +1,69 @@
+---
+import fetchData from "../../lib/fetchData";
+import type FetchData from "../../interfaces/FetchData";
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const queryIds = `
+		query Query {
+			blogModel {
+				_id
+			}
+		}
+	`;
+
+  const { blogModel }: FetchData = await fetchData(queryIds);
+
+  if (!blogModel) {
+    return [];
+  }
+
+  return blogModel.map((blog) => {
+    return {
+      params: {
+        id: blog._id,
+      },
+    };
+  });
+}
+
+const queryPost = `
+	query Query($id: String) {
+		blogModel(_id: $id) {
+			_created
+			title
+			text
+			category
+			tags
+			image
+			contributors {
+				name
+				title
+				photo
+			}
+		}
+		catsModel {
+			_id
+			title
+			url
+		}
+	}
+`;
+
+const variables = {
+  id: Astro.params.id,
+};
+
+const { blogModel, catsModel }: FetchData = await fetchData(queryPost, variables);
+
+if (!blogModel || !catsModel) {
+  console.error("Error fetching data");
+  return;
+}
+
+// Get the data (0 index, because the query returns an array by default)
+const data = blogModel[0];
+---
+
+<Layout title={`${data.title} - Human Design`} description="">
+</Layout>
