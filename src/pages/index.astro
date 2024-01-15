@@ -1,7 +1,13 @@
 ---
-import Layout from "../layouts/Layout.astro";
 import fetchData from "../lib/fetchData";
 import type FetchData from "../interfaces/FetchData";
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/sections/index/Hero.tsx";
+import Infographic01 from "../components/sections/index/Infographic01.tsx";
+import Infographic02 from "../components/sections/index/Infographic02.tsx";
+import Services from "../components/sections/index/Services.tsx";
+import Cta01 from "../components/sections/index/Cta01.tsx";
+import Faq from "../components/sections/index/Faq.tsx";
 
 const query = `
 query Query {
@@ -16,4 +22,10 @@ const { faqModel }: FetchData = await fetchData(query);
 ---
 
 <Layout title="Home" description="">
+	<Hero />
+	<Infographic01 />
+	<Infographic02 />
+	<Services />
+	<Cta01 />
+	<Faq />
 </Layout>

@@ -4,6 +4,10 @@ import type FetchData from "../../../interfaces/FetchData";
 import type BlogPage from "../../../interfaces/BlogPage";
 import type BlogItem from "../../../interfaces/BlogItem";
 import Layout from "../../../layouts/Layout.astro";
+import BlogHeader from "../../../components/sections/blog/BlogHeader.tsx";
+import BlogGrid from "../../../components/sections/blog/BlogGrid.tsx";
+import BlogPagination from "../../../components/sections/blog/BlogPagination.tsx";
+import Subscribe from "../../../components/sections/blog/Subscribe.tsx";
 
 export async function getStaticPaths({ paginate }: any) {
   const queryCats = `
@@ -76,4 +80,8 @@ const { blogModel, catsModel }: FetchData = await fetchData(query, variables);
 ---
 
 <Layout title={`${catsModel?.find((cat) => cat._id === page.data[0].category._id)?.title} - Stranka ${page.currentPage} - Human Design`} description="">
+	<BlogHeader />
+	<BlogGrid />
+	<BlogPagination />
+	<Subscribe />
 </Layout>

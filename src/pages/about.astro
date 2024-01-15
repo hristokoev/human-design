@@ -1,7 +1,8 @@
 ---
-import Layout from "../layouts/Layout.astro";
 import fetchData from "../lib/fetchData";
 import type FetchData from "../interfaces/FetchData";
+import Layout from "../layouts/Layout.astro";
+import Team from "../components/sections/about/Team.tsx";
 
 const query = `
 query Query {
@@ -29,4 +30,5 @@ const { teamModel }: FetchData = await fetchData(query);
 ---
 
 <Layout title="O nás" description="">
+	<Team />
 </Layout>

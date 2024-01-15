@@ -1,7 +1,9 @@
 ---
-import Layout from "../layouts/Layout.astro";
 import fetchData from "../lib/fetchData";
 import type FetchData from "../interfaces/FetchData";
+import Layout from "../layouts/Layout.astro";
+import Contact01 from "../components/sections/contact/Contact01.tsx";
+import Contact02 from "../components/sections/contact/Contact02.tsx";
 
 const query = `
 query Query {
@@ -23,4 +25,6 @@ const { teamModel }: FetchData = await fetchData(query);
 ---
 
 <Layout title="Kontakt" description="">
+	<Contact01 />
+	<Contact02 />
 </Layout>

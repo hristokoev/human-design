@@ -3,6 +3,10 @@ import fetchData from "../../lib/fetchData";
 import type FetchData from "../../interfaces/FetchData";
 import type BlogPage from "../../interfaces/BlogPage";
 import Layout from "../../layouts/Layout.astro";
+import BlogHeader from "../../components/sections/blog/BlogHeader.tsx";
+import BlogGrid from "../../components/sections/blog/BlogGrid.tsx";
+import BlogPagination from "../../components/sections/blog/BlogPagination.tsx";
+import Subscribe from "../../components/sections/blog/Subscribe.tsx";
 
 export async function getStaticPaths({ paginate }: any) {
   const queryIds = `
@@ -58,4 +62,8 @@ const { blogModel, catsModel }: FetchData = await fetchData(queryPost, variables
 ---
 
 <Layout title={`Blog - Stranka ${page.currentPage} - Human Design`} description="">
+	<BlogHeader />
+	<BlogGrid />
+	<BlogPagination />
+	<Subscribe />
 </Layout>

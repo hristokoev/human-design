@@ -2,6 +2,10 @@
 import fetchData from "../../lib/fetchData";
 import type FetchData from "../../interfaces/FetchData";
 import Layout from "../../layouts/Layout.astro";
+import PostHeader from "../../components/sections/blog/PostHeader.tsx";
+import PostContent from "../../components/sections/blog/PostContent.tsx";
+import Cta02 from "../../components/sections/blog/Cta02.tsx";
+import Recommended from "../../components/sections/blog/Recommended.tsx";
 
 export async function getStaticPaths() {
   const queryIds = `
@@ -66,4 +70,8 @@ const data = blogModel[0];
 ---
 
 <Layout title={`${data.title} - Human Design`} description="">
+	<PostHeader />
+	<PostContent />
+	<Cta02 />
+	<Recommended />
 </Layout>
