@@ -1,4 +1,13 @@
 ---
+import "../css/theme.css";
+import '@fontsource-variable/cuprum';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import '@fontsource/roboto/900.css';
+import Header from '../components/Header.tsx';
+import Footer from '../components/Footer.tsx';
+
 interface Props {
   title: string;
   description: string;
@@ -18,8 +27,10 @@ const { title, description } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
+		<!-- <Header /> -->
     <main>
       <slot />
     </main>
+		<!-- <Footer /> -->
   </body>
 </html>

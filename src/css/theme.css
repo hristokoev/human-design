@@ -1,0 +1,58 @@
+/* Typography */
+
+body {
+	color: #FFFFFF;
+  font-family: 'Roboto', sans-serif;
+}
+
+.font-cuprum {
+	font-family: 'Cuprum Variable', sans-serif;
+}
+
+/* Container */
+
+.container {
+	@apply w-full mx-auto max-w-9xl;
+	@apply px-8;
+}
+
+@screen sm {
+	.container {
+		@apply px-12;
+	}
+}
+
+@screen md {
+	.container {
+		@apply px-16;
+	}
+}
+
+@screen lg {
+	.container {
+		@apply px-20;
+	}
+}
+
+@screen xl {
+	.container {
+		@apply px-24;
+	}
+}
+
+/* Button */
+
+.btn {
+	@apply inline-flex items-center justify-center;
+	@apply px-6 py-2;
+	@apply transition duration-200 ease-in-out;
+}
+
+/*  */
+
+.text-gradient {
+	background: linear-gradient(115deg, #56592C 4.5%, #E6C453 15.5%, #F0CD5B 65%, #D1A617 100%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}

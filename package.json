@@ -13,6 +13,8 @@
     "@astrojs/check": "^0.4.1",
     "@astrojs/react": "^3.0.9",
     "@astrojs/tailwind": "^5.1.0",
+    "@fontsource-variable/cuprum": "^5.0.19",
+    "@fontsource/roboto": "^5.0.8",
     "@types/react": "^18.2.47",
     "@types/react-dom": "^18.2.18",
     "astro": "^4.1.2",
