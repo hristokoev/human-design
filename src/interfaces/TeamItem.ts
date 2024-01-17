@@ -26,7 +26,7 @@ export default interface TeamItem {
 	links?: Links[];
 	quote: string;
 	story?: Story[];
-	award?: string;
+	award?: Image;
 	counters?: Counters[];
 	certificates: Certificates[];
 }

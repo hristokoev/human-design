@@ -3,6 +3,7 @@ import fetchData from "../lib/fetchData";
 import type FetchData from "../interfaces/FetchData";
 import Layout from "../layouts/Layout.astro";
 import Team from "../components/sections/about/Team.tsx";
+import type TeamItem from "../interfaces/TeamItem";
 
 const query = `
 query Query {
@@ -29,9 +30,9 @@ query Query {
 }
 `;
 
-const { teamModel }: FetchData = await fetchData(query);
+const { teamModel: data }: FetchData = await fetchData(query);
 ---
 
 <Layout title="O nás" description="">
-	<Team />
+	<Team teamItems={data as TeamItem[]} />
 </Layout>

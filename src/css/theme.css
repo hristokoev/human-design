@@ -56,6 +56,12 @@ body {
 	@apply transition duration-200 ease-in-out;
 }
 
+.btn-lg {
+	@apply inline-flex items-center justify-center;
+	@apply px-12 py-4;
+	@apply transition duration-200 ease-in-out;
+}
+
 /* Input */
 
 .input {
