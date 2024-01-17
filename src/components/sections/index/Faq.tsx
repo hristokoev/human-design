@@ -1,8 +1,8 @@
-import Accordion from "../../Accordion";
-import type { AccordionProps } from "../../Accordion";
+import Accordion from "../../FaqItem";
+import type { FaqItemProps } from "../../FaqItem";
 
 interface FaqProps {
-	faqs: AccordionProps[] 
+	faqs: FaqItemProps[] 
 }
 
 export default function Faq({ faqs }: FaqProps) {

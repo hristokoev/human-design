@@ -8,7 +8,7 @@ import Infographic02 from "../components/sections/index/Infographic02.tsx";
 import Services from "../components/sections/index/Services.tsx";
 import Cta01 from "../components/sections/index/Cta01.tsx";
 import Faq from "../components/sections/index/Faq.tsx";
-import type { AccordionProps } from "../components/Accordion.tsx";
+import type { FaqItemProps } from "../components/FaqItem.tsx";
 
 const query = `
 query Query {
@@ -19,7 +19,7 @@ query Query {
 }
 `;
 
-const { faqModel }: FetchData = await fetchData(query);
+const { faqModel: data }: FetchData = await fetchData(query);
 ---
 
 <Layout title="Home" description="">
@@ -28,5 +28,6 @@ const { faqModel }: FetchData = await fetchData(query);
   <Infographic02 />
   <Services />
   <Cta01 />
-  <Faq faqs={faqModel as AccordionProps[]} client:load />
+  <Faq faqs={data as FaqItemProps[]} client:load />
 </Layout>
+../components/FaqItem.tsx
