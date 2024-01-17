@@ -48,6 +48,14 @@ body {
 	@apply transition duration-200 ease-in-out;
 }
 
+/* Input */
+
+.input {
+	@apply block w-full;
+	@apply px-4 py-2;
+	@apply transition duration-200 ease-in-out;
+}
+
 /*  */
 
 .text-gradient {

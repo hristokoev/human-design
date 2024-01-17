@@ -4,6 +4,7 @@ import type FetchData from "../interfaces/FetchData";
 import Layout from "../layouts/Layout.astro";
 import Contact01 from "../components/sections/contact/Contact01.tsx";
 import Contact02 from "../components/sections/contact/Contact02.tsx";
+import type TeamItem from "../interfaces/TeamItem";
 
 const query = `
 query Query {
@@ -21,10 +22,10 @@ query Query {
 }
 `;
 
-const { teamModel }: FetchData = await fetchData(query);
+const { teamModel: data }: FetchData = await fetchData(query);
 ---
 
 <Layout title="Kontakt" description="">
-	<Contact01 />
+	<Contact01 teamItems={data as TeamItem[]} />
 	<Contact02 />
 </Layout>
