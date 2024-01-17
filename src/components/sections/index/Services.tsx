@@ -1,5 +1,4 @@
 import Card02 from "../../cards/Card02";
-import type { Card02Props } from "../../cards/Card02";
 import ImagePerson from "../../../assets/images/card-person.png";
 import ImagePersons from "../../../assets/images/card-persons.png";
 import ImageTeams from "../../../assets/images/card-teams.png";
@@ -9,7 +8,7 @@ import ImageCompany from "../../../assets/images/card-company.png";
 
 export default function Services() {
 
-	const cardsConsultation: Card02Props[] = [
+	const cardsConsultation = [
 		{
 			image: ImagePerson.src,
 			title: "Konzultace pro jednotlivce",
@@ -33,7 +32,7 @@ export default function Services() {
 		}
 	];
 
-	const cardsPrograms: Card02Props[] = [
+	const cardsPrograms = [
 		{
 			image: ImageAlone.src,
 			title: "Podnikám v souladu se sebou",
@@ -50,7 +49,7 @@ export default function Services() {
 		},
 	];
 
-	const cardsLectures: Card02Props[] = [
+	const cardsLectures = [
 		{
 			image: ImageCompany.src,
 			title: "Přednášky ve firmách",

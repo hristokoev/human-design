@@ -1,12 +1,6 @@
-interface CardProps {
-	title: string;
-	text: string;
-	button: string;
-}
-
 export default function Infographic01() {
 
-	const data: CardProps[] = [
+	const data = [
 		{
 			title: "Osobní Konzultace",
 			text: "Začněte s osobní konzultací vvašeho jedinečného nastavení. Na základě vaší osobní zkušenosti se pobavíme o tom, co dál. ",

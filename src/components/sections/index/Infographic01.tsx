@@ -1,5 +1,4 @@
 import Card01 from "../../cards/Card01";
-import type { Card01Props } from "../../cards/Card01";
 import ImageCard01 from "../../../assets/images/card-infographic-01.png";
 import ImageCard02 from "../../../assets/images/card-infographic-02.png";
 import ImageCard03 from "../../../assets/images/card-infographic-03.png";
@@ -7,7 +6,7 @@ import ImageCard04 from "../../../assets/images/card-infographic-04.png";
 
 export default function Infographic02() {
 
-	const cards: Card01Props[] = [
+	const cards= [
 		{
 			image: ImageCard01.src,
 			text: "Human Design je skvělý nástroj, který vám pomůže lépe porozumět, jak fungujete."

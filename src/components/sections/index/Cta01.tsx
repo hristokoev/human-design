@@ -2,8 +2,6 @@ export default function Cta() {
 
 	return (
 
-
-
 		<section className="bg-gradient-to-r from-[#FFE89B] via-[#DDA900] to-[#DFC059]">
 
 			<div className="container">
