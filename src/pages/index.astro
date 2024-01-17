@@ -23,6 +23,7 @@ const { faqModel: data }: FetchData = await fetchData(query);
 ---
 
 <Layout title="Home" description="">
+	
   <Hero />
   <Infographic01 />
   <Infographic02 />
@@ -30,4 +31,3 @@ const { faqModel: data }: FetchData = await fetchData(query);
   <Cta01 />
   <Faq faqs={data as FaqItemProps[]} client:load />
 </Layout>
-../components/FaqItem.tsx

@@ -1,3 +1,11 @@
+html {
+	scroll-behavior: smooth;
+}
+
+main {
+	@apply min-h-screen;
+}
+
 /* Typography */
 
 body {
