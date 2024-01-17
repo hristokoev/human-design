@@ -2,10 +2,10 @@ import Accordion from "../../FaqItem";
 import type { FaqItemProps } from "../../FaqItem";
 
 interface FaqProps {
-	faqs: FaqItemProps[] 
+	faqItems: FaqItemProps[] 
 }
 
-export default function Faq({ faqs }: FaqProps) {
+export default function Faq({ faqItems }: FaqProps) {
 
 	return (
 
@@ -41,8 +41,8 @@ export default function Faq({ faqs }: FaqProps) {
 
 							<ul className="border-t border-black">
 								{
-									faqs.map((faq, index) => (
-										<Accordion key={index} question={faq.question} answer={faq.answer} id={`faqs-${index}`} active={faq.active} />
+									faqItems.map((faqItem, index) => (
+										<Accordion key={index} question={faqItem.question} answer={faqItem.answer} id={`faqs-${index}`} active={faqItem.active} />
 									))
 								}
 							</ul>

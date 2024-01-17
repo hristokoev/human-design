@@ -29,5 +29,5 @@ const { faqModel: data }: FetchData = await fetchData(query);
   <Infographic02 />
   <Services />
   <Cta01 />
-  <Faq faqs={data as FaqItemProps[]} client:load />
+  <Faq faqItems={data as FaqItemProps[]} client:load />
 </Layout>
