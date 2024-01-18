@@ -53,12 +53,16 @@ body {
 .btn {
 	@apply inline-flex items-center justify-center;
 	@apply px-6 py-2;
+	@apply font-bold;
+	@apply border-2 rounded-3xl;
 	@apply transition duration-200 ease-in-out;
 }
 
 .btn-lg {
 	@apply inline-flex items-center justify-center;
 	@apply px-12 py-4;
+	@apply font-bold;
+	@apply rounded-3xl;
 	@apply transition duration-200 ease-in-out;
 }
 
@@ -67,14 +71,43 @@ body {
 .input {
 	@apply block w-full;
 	@apply px-4 py-2;
+	@apply border-2;
 	@apply transition duration-200 ease-in-out;
 }
 
-/*  */
+/* Cards */
+
+.card-white {
+	@apply p-8 mx-auto flex flex-col items-center gap-y-4;
+	@apply bg-white text-petroleum-900;
+	@apply rounded-3xl;
+	@apply border border-petroleum-900/10 shadow-xl shadow-petroleum-900/10;
+}
+
+.card-gold {
+	@apply p-8 mx-auto flex flex-col items-center gap-y-4;
+	@apply bg-gradient-to-br from-gold-300  to-gold-500 text-white;
+	@apply rounded-3xl;
+	@apply border border-gold-900/10 shadow-xl shadow-gold-900/10;
+}
+
+.card-service {
+	@apply p-12;
+	@apply bg-white text-petroleum-900;
+	@apply rounded-3xl;
+	@apply border border-petroleum-900/10 shadow-xl shadow-petroleum-900/10;
+}
+
+/* Text UI */
 
 .text-gradient {
+	@apply bg-clip-text text-transparent;
+	@apply bg-[linear-gradient(to_right,theme(colors.gold.500),theme(colors.gold.300),theme(colors.gold.400),theme(colors.gold.600))] bg-[length:100%_auto];
+}
+
+/* .text-gradient {
 	background: linear-gradient(115deg, #56592C 4.5%, #E6C453 15.5%, #F0CD5B 65%, #D1A617 100%);
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
-}
+} */

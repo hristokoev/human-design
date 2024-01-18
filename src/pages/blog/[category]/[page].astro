@@ -85,7 +85,7 @@ const { blogModel: posts, catsModel: cats }: FetchData = await fetchData(query, 
 
 <Layout title={`${cats?.find((cat) => cat._id === page.data[0].category._id)?.title} - Stranka ${page.currentPage} - Human Design`} description="">
 	<BlogHeader />
-	<BlogGrid posts={posts as BlogItem[]} cats={cats as CategoryItem[]} />
-	<BlogPagination />
+	<BlogGrid posts={posts as BlogItem[]} cats={cats as CategoryItem[]} pageData={page} />
+	<BlogPagination pageData={page} />
 	<Subscribe />
 </Layout>

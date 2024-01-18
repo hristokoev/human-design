@@ -2,14 +2,14 @@ import Accordion from "../../FaqItem";
 import type { FaqItemProps } from "../../FaqItem";
 
 interface FaqProps {
-	faqItems: FaqItemProps[] 
+	faqItems: FaqItemProps[];
 }
 
 export default function Faq({ faqItems }: FaqProps) {
 
 	return (
 
-		<section className="text-black">
+		<section className="text-petroleum-900">
 
 			<div className="container">
 
@@ -29,7 +29,7 @@ export default function Faq({ faqItems }: FaqProps) {
 							</p>
 
 							<div>
-								<a className="btn border-2 border-black hover:bg-black/10 rounded-3xl" href="#">
+								<a className="btn border-petroleum-900 hover:bg-petroleum-900 hover:text-white" href="#">
 									Kontaktujte nás
 								</a>
 							</div>
@@ -39,7 +39,7 @@ export default function Faq({ faqItems }: FaqProps) {
 						{/* FAQ Items */}
 						<div className="grow flex flex-col gap-y-4">
 
-							<ul className="border-t border-black">
+							<ul className="border-t border-petroleum-900">
 								{
 									faqItems.map((faqItem, index) => (
 										<Accordion key={index} question={faqItem.question} answer={faqItem.answer} id={`faqs-${index}`} active={faqItem.active} />
@@ -57,6 +57,6 @@ export default function Faq({ faqItems }: FaqProps) {
 
 		</section>
 
-	);
+	)
 
 }

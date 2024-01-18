@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react';
 export interface FaqItemProps {
 	question: string;
 	answer: string;
-	id: string,
-	active?: boolean
+	id: string;
+	active?: boolean;
 }
 
 export default function FaqItem({ question, answer, id, active = false }: FaqItemProps) {
@@ -17,10 +17,10 @@ export default function FaqItem({ question, answer, id, active = false }: FaqIte
 
 	return (
 
-		<li className="border-b border-black">
+		<li className="border-b border-petroleum-900">
 
 			<h4 className="py-6 font-bold">
-				<button className="flex w-full"
+				<button className="flex w-full text-lg"
 					onClick={(e) => { e.preventDefault(); setIsOpen(!isOpen); }}
 					aria-expanded={isOpen}
 					aria-controls={`item-text-${id}`}
@@ -36,7 +36,7 @@ export default function FaqItem({ question, answer, id, active = false }: FaqIte
 				id={`item-text-${id}`}
 				role="region"
 				aria-labelledby={`item-title-${id}`}
-				className={`grid text-sm text-zinc-500 overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
+				className={`grid text-zinc-500 overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
 			>
 				<div className="overflow-hidden">
 					<p className="px-px pb-6">
@@ -47,5 +47,5 @@ export default function FaqItem({ question, answer, id, active = false }: FaqIte
 
 		</li>
 
-	);
+	)
 }

@@ -1,25 +1,25 @@
 import type Image from "./Image";
 
-interface Category {
+interface CategoryProps {
 	_model: string;
 	_id: string;
 }
 
-interface Person {
+interface PersonProps {
 	name: string;
 	title: string;
 	photo: Image;
 }
 
-export default interface BlogItem {
+export default interface BlogItemProps {
 	_id: string;
 	_created: number;
 	title: string;
 	perex: string;
 	text: string;
-	category: Category;
+	category: CategoryProps;
 	tags?: string[];
 	image: Image;
-	author: Person;
-	contributors?: Person[];
+	author: PersonProps;
+	contributors?: PersonProps[];
 }

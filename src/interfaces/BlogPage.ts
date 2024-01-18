@@ -1,18 +1,18 @@
-import type BlogItem from "./BlogItem";
+import type BlogItemProps from "./BlogItem";
 
-interface Url {
+interface UrlProps {
 	current: string;
 	next: string;
 	prev: string;
 }
 
-export default interface BlogPage {
-	data: BlogItem[];
+export default interface BlogPageProps {
+	data: BlogItemProps[];
 	start: number;
 	end: number;
 	size: number;
 	total: number;
 	currentPage: number;
 	lastPage: number;
-	url: Url;
+	url: UrlProps;
 }

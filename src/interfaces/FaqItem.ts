@@ -1,4 +1,4 @@
-export default interface FaqItem {
+export default interface FaqItemProps {
 	question: string;
 	answer: string;
 }

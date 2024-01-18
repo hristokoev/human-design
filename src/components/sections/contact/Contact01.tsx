@@ -1,15 +1,15 @@
 import LinkIcon from "../../LinkIcon";
-import type TeamItem from "../../../interfaces/TeamItem";
+import type TeamItemProps from "../../../interfaces/TeamItem";
 
 interface Contact01Props {
-	teamItems: TeamItem[];
+	teamItems: TeamItemProps[];
 }
 
 export default function Contact01({ teamItems }: Contact01Props) {
 
 	return (
 
-		<section className="text-black">
+		<section className="text-petroleum-900">
 
 			<div className="container">
 
@@ -19,7 +19,7 @@ export default function Contact01({ teamItems }: Contact01Props) {
 
 						<div className="flex flex-col gap-y-8 text-center">
 
-							<h2 className="text-petrolleum text-6xl font-bold text-center drop-shadow-[0_4px_15px_rgba(54,99,115,0.25)]">
+							<h2 className="text-petroleum-900 text-6xl font-bold text-center">
 								Kontakt
 							</h2>
 
@@ -41,7 +41,9 @@ export default function Contact01({ teamItems }: Contact01Props) {
 											</svg>
 											Email
 										</span>
-										<a href="mailto:info@hdprofirmy.cz" className="underline hover:no-underline">info@hdprofirmy.cz</a>
+										<div>
+											<a href="mailto:info@hdprofirmy.cz" className="underline hover:no-underline">info@hdprofirmy.cz</a>
+										</div>
 									</div>
 
 									<div className="flex flex-col gap-y-4">
@@ -51,7 +53,9 @@ export default function Contact01({ teamItems }: Contact01Props) {
 											</svg>
 											Telefon
 										</span>
-										<a href="tel:+420123456789" className="underline hover:no-underline">+420 123 456 789</a>
+										<div>
+											<a href="tel:+420123456789" className="underline hover:no-underline">+420 123 456 789</a>
+										</div>
 									</div>
 
 									<div className="flex flex-col gap-y-4">
@@ -63,10 +67,9 @@ export default function Contact01({ teamItems }: Contact01Props) {
 										</span>
 										<a>Pavle Hanuše 252/4, Pražské Předměstí<br />500 02 Hradec Králové</a>
 									</div>
-
-									<a href="#" className="flex items-center gap-2 hover:text-[#FAC61B] group">
+									<a href="#" className="flex items-center gap-2 group font-bold hover:text-gold-400">
 										Kudy k nám?
-										<svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg" className="group-hover:rotate-90 transition-all duration-150 ease-in-out">
+										<svg viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 group-hover:translate-x-1 transition-all duration-150 ease-in-out">
 											<path fillRule="evenodd" clipRule="evenodd" d="M12.7979 10.0992C12.9787 10.28 12.9787 10.5731 12.7979 10.754L8.07708 15.4747C7.89625 15.6556 7.60312 15.6556 7.42229 15.4747L7.20398 15.2565C7.02315 15.0756 7.02315 14.7825 7.20398 14.6016L11.3791 10.4266L7.20398 6.25149C7.02315 6.07066 7.02315 5.77753 7.20398 5.5967L7.42229 5.37839C7.60312 5.19756 7.89625 5.19756 8.07708 5.37839L12.7979 10.0992Z" fill="black" />
 										</svg>
 									</a>
@@ -79,12 +82,16 @@ export default function Contact01({ teamItems }: Contact01Props) {
 										teamItems.map((item, i) => (
 											<div className="flex gap-8 items-center" key={i}>
 												<div className="pr-4 py-4">
-													<img src={"https://humandesign-admin.occamy.cz/storage/uploads" + item.photo.path} alt="" className="h-28 w-28 lg:w-40 lg:h-40 object-cover shadow-xl shadow-black/25 rounded-full" />
+													<img src={"https://humandesign-admin.occamy.cz/storage/uploads" + item.avatar.path} alt="" className="h-28 w-28 lg:w-40 lg:h-40 object-cover shadow-xl shadow-petroleum-950/25 rounded-full" />
 												</div>
 												<div className="flex flex-col gap-y-2">
-													<p className="text-[#D4AF37] text-xl lg:text-3xl font-semibold">{item.name}</p>
-													<p className="text-sm lg:text-base">{item.email}</p>
-													<p className="text-sm lg:text-base">{item.phone}</p>
+													<p className="text-xl lg:text-3xl font-semibold text-gradient">{item.name}</p>
+													<div>
+														<a href={`mailto:${item.email}`} className="text-sm lg:text-base hover:text-gold-400 transition-all duration-150 ease-in-out">{item.email}</a>
+													</div>
+													<div>
+														<a href={`tel:${item.phone}`} className="text-sm lg:text-base hover:text-gold-400 transition-all duration-150 ease-in-out">{item.phone}</a>
+													</div>
 													<div className="flex gap-2">
 														{item.links?.map((link, j) => (
 															<div key={j}>
@@ -112,28 +119,28 @@ export default function Contact01({ teamItems }: Contact01Props) {
 										<div className="flex flex-col sm:flex-row gap-6">
 											<div className="grow flex flex-col gap-y-2">
 												<label htmlFor="firstName">Jméno *</label>
-												<input type="text" id="firstName" className="input border border-black rounded-2xl" required />
+												<input type="text" id="firstName" className="input border-petroleum-900 rounded-3xl" required />
 											</div>
 											<div className="grow flex flex-col gap-y-2">
 												<label htmlFor="lastName">Příjmení *</label>
-												<input type="text" id="lastName" className="input border border-black rounded-2xl" required />
+												<input type="text" id="lastName" className="input border-petroleum-900 rounded-3xl" required />
 											</div>
 										</div>
 
 										<div className="flex flex-col sm:flex-row gap-6">
 											<div className="grow flex flex-col gap-y-2">
 												<label htmlFor="email">Email *</label>
-												<input type="email" id="email" className="input border border-black rounded-2xl" required />
+												<input type="email" id="email" className="input border-petroleum-900 rounded-3xl" required />
 											</div>
 											<div className="grow flex flex-col gap-y-2">
 												<label htmlFor="phone">Telefon</label>
-												<input type="tel" id="phone" className="input border border-black rounded-2xl" />
+												<input type="tel" id="phone" className="input border-petroleum-900 rounded-3xl" />
 											</div>
 										</div>
 
 										<div className="flex flex-col gap-y-2">
 											<label htmlFor="subject">Která služba vás zajímá nejvíce? *</label>
-											<select name="subject" id="subject" className="grow input border border-black rounded-2xl" required >
+											<select name="subject" id="subject" className="grow input border-petroleum-900 rounded-3xl" required >
 												<option value="0" disabled selected>Vyberte...</option>
 												<option value="1">Obecný dotaz</option>
 												<option value="2">Obchodní dotaz</option>
@@ -143,7 +150,7 @@ export default function Contact01({ teamItems }: Contact01Props) {
 
 										<div className="flex flex-col gap-y-2">
 											<label htmlFor="message">Zpráva *</label>
-											<textarea name="message" id="message" cols={30} rows={10} className="input border border-black rounded-2xl" required></textarea>
+											<textarea name="message" id="message" cols={30} rows={10} className="input border-petroleum-900 rounded-3xl" required></textarea>
 										</div>
 
 										<div className="flex justify-center items-center gap-x-2">
@@ -152,7 +159,7 @@ export default function Contact01({ teamItems }: Contact01Props) {
 										</div>
 
 										<div className="flex justify-center">
-											<button className="btn border-2 border-black text-white bg-black hover:text-black hover:bg-white rounded-2xl">Odeslat</button>
+											<button className="btn text-white bg-petroleum-900 hover:bg-petroleum-700 border-transparent">Odeslat</button>
 										</div>
 
 									</form>
@@ -161,107 +168,12 @@ export default function Contact01({ teamItems }: Contact01Props) {
 
 								{/* Map */}
 								<div>
-									<div className="w-auto h-96 border bg-neutral-500 text-white border-black flex justify-center items-center">
+									<div className="w-auto h-96 bg-petroleum-900 text-white border-petroleum-900 flex justify-center items-center">
 										<span className="text-7xl uppercase font-black">MAPY.CZ</span>
 									</div>
 								</div>
 
 							</div>
-
-						</div>
-
-					</div>
-
-					<div className="mt-24 flex flex-col">
-
-						<div className="flex flex-col gap-y-8 text-center">
-
-							<h2 className="text-petrolleum text-6xl font-bold text-center drop-shadow-[0_4px_15px_rgba(54,99,115,0.25)]">
-								Máte zájem o rozvoj svého podnikání?
-							</h2>
-
-							<span>Objednejte se!</span>
-
-						</div>
-
-						{/* Form */}
-						<div className="mt-24">
-
-							<form className="grow flex flex-col gap-y-8 max-w-3xl mx-auto">
-
-								<div className="flex flex-col sm:flex-row gap-6">
-									<div className="grow flex flex-col gap-y-2">
-										<label htmlFor="firstName">Jméno *</label>
-										<input type="text" id="firstName" className="input border border-black rounded-2xl" required />
-									</div>
-									<div className="grow flex flex-col gap-y-2">
-										<label htmlFor="lastName">Příjmení *</label>
-										<input type="text" id="lastName" className="input border border-black rounded-2xl" required />
-									</div>
-								</div>
-
-								<div className="flex flex-col sm:flex-row gap-6">
-									<div className="grow flex flex-col gap-y-2">
-										<label htmlFor="email">Email *</label>
-										<input type="email" id="email" className="input border border-black rounded-2xl" required />
-									</div>
-									<div className="grow flex flex-col gap-y-2">
-										<label htmlFor="phone">Telefon</label>
-										<input type="tel" id="phone" className="input border border-black rounded-2xl" />
-									</div>
-								</div>
-
-								<div className="flex flex-col gap-y-2">
-									<label htmlFor="service">Jakou službu poptáváte? *</label>
-									<select name="subject" id="service" className="grow input border border-black rounded-2xl" required >
-										<option value="0" disabled selected>Vyberte...</option>
-										<option value="1">Obecný dotaz</option>
-										<option value="2">Obchodní dotaz</option>
-										<option value="3">Technický dotaz</option>
-									</select>
-								</div>
-
-								<div className="flex flex-col sm:flex-row gap-6">
-									<div className="grow flex flex-col gap-y-2">
-										<label htmlFor="birthDate">Datum narození *</label>
-										<input type="text" id="birthDate" className="input border border-black rounded-2xl" required />
-									</div>
-									<div className="grow flex flex-col gap-y-2">
-										<label htmlFor="birthTime">Čas narození *</label>
-										<input type="text" id="birthTime" className="input border border-black rounded-2xl" required />
-									</div>
-								</div>
-
-								<div className="flex flex-col sm:flex-row gap-6">
-									<div className="grow flex flex-col gap-y-2">
-										<label htmlFor="birtCountry">Země, kde jste se narodili *</label>
-										<input type="text" id="birtCountry" className="input border border-black rounded-2xl" required />
-									</div>
-									<div className="grow flex flex-col gap-y-2">
-										<label htmlFor="birthCity">Město, kde jste se narodili *</label>
-										<input type="text" id="birthCity" className="input border border-black rounded-2xl" required />
-									</div>
-								</div>
-
-								<div className="flex justify-center items-center gap-x-2">
-									<span>Proč tyto informace potřebujeme? <a href="#" className="underline hover:no-underline">Zjistit více</a>.</span>
-								</div>
-
-								<div className="flex flex-col gap-y-2">
-									<label htmlFor="message">Zpráva *</label>
-									<textarea name="message" id="message" cols={30} rows={10} className="input border border-black rounded-2xl" required></textarea>
-								</div>
-
-								<div className="flex justify-center items-center gap-x-2">
-									<input type="checkbox" id="gdpr" className="mr-2 w-4 h-4 cursor-pointer" required />
-									<span>Souhlasím s <a href="#" className="underline hover:no-underline">Použití a zpracování osobních údajů</a></span>
-								</div>
-
-								<div className="flex justify-center">
-									<button className="btn border-2 border-black text-white bg-black hover:text-black hover:bg-white rounded-2xl">Objednat</button>
-								</div>
-
-							</form>
 
 						</div>
 
@@ -273,6 +185,6 @@ export default function Contact01({ teamItems }: Contact01Props) {
 
 		</section>
 
-	);
+	)
 
 }

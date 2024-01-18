@@ -2,16 +2,16 @@ export default function Cta() {
 
 	return (
 
-		<section className="bg-gradient-to-r from-[#FFE89B] via-[#DDA900] to-[#DFC059]">
+		<section className="bg-[linear-gradient(125deg,theme(colors.gold.300),theme(colors.gold.400),theme(colors.gold.400),theme(colors.gold.400),theme(colors.gold.600))] bg-[length:100%_auto];">
 
 			<div className="container">
 
 				<div className="py-24">
 
-					<div className="flex flex-col justify-center gap-y-8 text-center">
+					<div className="flex flex-col justify-center gap-y-12 text-center">
 
-						<h2 className="text-5xl font-bold drop-shadow-[0_4px_15px_rgba(54,99,115,0.25)]">
-							Zaujal vás Human design?
+						<h2 className="text-6xl font-bold">
+							Zaujal vás Human Design?
 						</h2>
 
 						<p className="text-xl">
@@ -19,7 +19,8 @@ export default function Cta() {
 						</p>
 
 						<div className="w-48 mx-auto">
-							<a href="#" className="w-full btn border-2 border-white hover:bg-white/10 rounded-3xl">E-shop!</a>
+							
+							<a href="#" className="w-full btn hover:bg-white/10 shadow-2xl shadow-gold-900/50">E-shop!</a>
 						</div>
 
 					</div>
@@ -30,6 +31,6 @@ export default function Cta() {
 
 		</section>
 
-	);
+	)
 
 }

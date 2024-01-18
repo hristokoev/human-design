@@ -1,13 +1,13 @@
 
 
-import type BlogItem from "./BlogItem";
-import type CategoryItem from "./CategoryItem";
-import type FaqItem from "./FaqItem";
-import type TeamItem from "./TeamItem";
+import type BlogItemProps from "./BlogItem";
+import type CategoryItemProps from "./CategoryItem";
+import type FaqItemProps from "./FaqItem";
+import type TeamItemProps from "./TeamItem";
 
-export default interface FetchData {
-	blogModel?: BlogItem[];
-	catsModel?: CategoryItem[];
-	faqModel?: FaqItem[];
-	teamModel?: TeamItem[];
+export default interface FetchDataProps {
+	blogModel?: BlogItemProps[];
+	catsModel?: CategoryItemProps[];
+	faqModel?: FaqItemProps[];
+	teamModel?: TeamItemProps[];
 }

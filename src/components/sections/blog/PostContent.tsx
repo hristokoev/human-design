@@ -1,7 +1,7 @@
-import type BlogItem from "../../../interfaces/BlogItem";
+import type BlogItemProps from "../../../interfaces/BlogItem";
 
 interface PostHeaderProps {
-	post: BlogItem;
+	post: BlogItemProps;
 }
 
 export default function PostContent({ post }: PostHeaderProps) {
@@ -20,7 +20,7 @@ export default function PostContent({ post }: PostHeaderProps) {
 
 	return (
 
-		<section className="text-black">
+		<section className="text-petroleum-900">
 
 			<div className="container">
 
@@ -48,9 +48,7 @@ export default function PostContent({ post }: PostHeaderProps) {
 
 							</div>
 
-							<div>
-
-									
+							<div>									
 
 							</div>
 
@@ -58,7 +56,7 @@ export default function PostContent({ post }: PostHeaderProps) {
 
 						<div className="col-span-3">
 
-							<div dangerouslySetInnerHTML={{ __html: sanitizedHtml }} className="space-y-3 "/>
+							<div dangerouslySetInnerHTML={{ __html: sanitizedHtml }} className="space-y-3"/>
 
 						</div>
 
@@ -70,6 +68,6 @@ export default function PostContent({ post }: PostHeaderProps) {
 
 		</section>
 
-	);
+	)
 
 }

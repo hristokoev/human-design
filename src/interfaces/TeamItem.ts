@@ -1,32 +1,33 @@
 import type Image from "./Image";
 import type Links from "./Links";
 
-interface Story {
+interface StoryProps {
 	date: string;
 	text: string;
 }
 
-interface Counters {
+interface CountersProps {
 	number: number;
 	text: string;
 }
 
-interface Certificates {
+interface CertificatesProps {
 	title: string;
 	text: string;
 	image: Image;
 }
 
-export default interface TeamItem {
+export default interface TeamItemProps {
 	name: string;
 	title: string;
 	photo: Image;
+	avatar: Image;
 	email?: string;
 	phone?: string;
 	links?: Links[];
 	quote: string;
-	story?: Story[];
+	story?: StoryProps[];
 	award?: Image;
-	counters?: Counters[];
-	certificates: Certificates[];
+	counters?: CountersProps[];
+	certificates: CertificatesProps[];
 }

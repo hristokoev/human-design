@@ -2,23 +2,21 @@ export default function BlogHeader() {
 
 	return (
 
-		<section className="text-black">
+		<section className="text-petroleum-900">
 
 			<div className="container">
 
-				<div className="pt-32 pb-24">
+				<div className="pt-32 pb-16">
 
 					<div className="flex flex-col gap-y-4 text-center">
 
-						<span className="font-bold">Blog</span>
-
 						<div>
 
-							<h1 className="py-2 text-gradient text-6xl font-bold text-center">
+							<h1 className="py-2 text-6xl font-bold text-center text-gradient">
 								Human Design pro firmy a podnikání
 							</h1>
 
-							<h2 className="text-petrolleum text-5xl font-bold text-center">
+							<h2 className="text-petroleum-900 text-5xl font-bold text-center">
 								Aktuality a Příspěvky
 							</h2>
 
@@ -34,5 +32,5 @@ export default function BlogHeader() {
 
 		</section>
 
-	);
+	)
 }

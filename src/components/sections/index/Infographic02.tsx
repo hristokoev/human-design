@@ -15,7 +15,7 @@ export default function Infographic01() {
 
 	return (
 
-		<section className="bg-gradient-to-br from-[#DEBA44] to-[#BB9417]">
+		<section className="bg-gradient-to-br from-gold-400 to-gold-600">
 
 			<div className="container">
 
@@ -23,7 +23,7 @@ export default function Infographic01() {
 
 					<div className="flex flex-col gap-y-8">
 
-						<h2 className="text-8xl font-bold text-center drop-shadow-[0_4px_15px_rgba(54,99,115,0.25)]">
+						<h2 className="text-8xl font-bold text-center">
 							Jak začít?
 						</h2>
 
@@ -48,8 +48,8 @@ export default function Infographic01() {
 						</div>
 
 						<div className="flex justify-center">
-							<span className="text-2xl text-center drop-shadow-[0_4px_15px_rgba(54,99,115,0.25)]">
-								Mám již nějakou předchozí zkušenost s <span className="font-bold bg-gradient-to-l from-[#FFE799] from-0% to-[#FFD445] to-35% bg-clip-text text-transparent">Human Designem</span>?
+							<span className="text-2xl text-center">
+								Mám již nějakou předchozí zkušenost s <span className="font-bold">Human Designem</span>?
 							</span>
 						</div>
 
@@ -65,7 +65,10 @@ export default function Infographic01() {
 						<div className="flex flex-col md:flex-row md:justify-evenly gap-8 text-center">
 							{
 								data.map((card, index) => (
+
 									<>
+
+										{/* Mobile */}
 										{index === 0 && (
 											<div className="flex justify-center md:hidden">
 												<svg width="283" height="136" viewBox="0 0 283 136" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -82,7 +85,9 @@ export default function Infographic01() {
 												</svg>
 											</div>
 										)}
-										<div key={index} className="p-8 mx-auto flex flex-col items-center gap-y-4 bg-gradient-to-br from-[#DFBA3F] to-[#DFBA3F] rounded-3xl shadow-[0_4px_15px_0_rgba(54,99,115,0.15) max-w-96">
+
+										{/* Desktop */}
+										<div key={index} className="card-gold max-w-96">
 											<div className="text-3xl">
 												<p className="font-bold">{card.title}</p>
 											</div>
@@ -90,10 +95,12 @@ export default function Infographic01() {
 												<p className="text-sm font-medium">{card.text}</p>
 											</div>
 											<div className="">
-												<a className="btn border-2 border-white hover:bg-white/10 rounded-3xl" href="#">{card.button}</a>
+												<a className="btn border-white hover:bg-white/10" href="#">{card.button}</a>
 											</div>
 										</div>
+
 									</>
+
 								))
 							}
 						</div>
@@ -106,6 +113,6 @@ export default function Infographic01() {
 
 		</section>
 
-	);
+	)
 
 }

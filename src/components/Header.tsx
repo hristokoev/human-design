@@ -2,7 +2,7 @@ export default function Header() {
 
 	return (
 
-		<header className="bg-petrolleum">
+		<header className="bg-petroleum-950">
 
 			<div className="container hidden md:flex items-center">
 
@@ -10,7 +10,7 @@ export default function Header() {
 
 					<a href="/" className="py-4 flex items-center">
 						<svg width="37" height="40" viewBox="0 0 37 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<g clip-path="url(#clip0_455_1600)">
+							<g clipPath="url(#clip0_455_1600)">
 								<path fillRule="evenodd" clipRule="evenodd" d="M18.4536 1.69678L9.71875 10.8795L27.2475 10.9098L18.4536 1.69678Z" fill="#D4AF37" fill-opacity="0.4" />
 								<path fillRule="evenodd" clipRule="evenodd" d="M18.6176 10.9097L9.98828 20.9799L27.382 20.9323L18.6176 10.9097Z" fill="#E3B829" />
 								<path fillRule="evenodd" clipRule="evenodd" d="M18.474 38.9948L9.98828 20.9801L27.382 20.9325L18.474 38.9948Z" fill="#E6BF3E" />
@@ -48,12 +48,12 @@ export default function Header() {
 
 					<ul className="flex gap-8 font-medium">
 
-						<li><a href="/" className="hover:text-gold transition-all duration-150 ease-in-out">Domů</a></li>
-						<li><a href="/#services" className="hover:text-gold transition-all duration-150 ease-in-out">Služby</a></li>
-						<li><a href="/about" className="hover:text-gold transition-all duration-150 ease-in-out">O Nás</a></li>
-						<li><a href="/blog" className="hover:text-gold transition-all duration-150 ease-in-out">Blog</a></li>
-						<li><a href="/contact" className="hover:text-gold transition-all duration-150 ease-in-out">Kontakt</a></li>
-						<li><a href="#" className="bg-gold text-black hover:bg-gold/90 hover:text-white rounded-3xl px-4 py-2 transition-all duration-150 ease-in-out">Kurzy</a></li>
+						<li><a href="/" className="hover:text-gold-400 transition-all duration-150 ease-in-out">Domů</a></li>
+						<li><a href="/#services" className="hover:text-gold-400 transition-all duration-150 ease-in-out">Služby</a></li>
+						<li><a href="/about" className="hover:text-gold-400 transition-all duration-150 ease-in-out">O Nás</a></li>
+						<li><a href="/blog/1" className="hover:text-gold-400 transition-all duration-150 ease-in-out">Blog</a></li>
+						<li><a href="/contact" className="hover:text-gold-400 transition-all duration-150 ease-in-out">Kontakt</a></li>
+						<li><a href="#" className="bg-gold-400 text-black hover:bg-gold-500 rounded-3xl px-5 py-2 transition-all duration-150 ease-in-out">Kurzy</a></li>
 
 					</ul>
 
@@ -63,6 +63,6 @@ export default function Header() {
 
 		</header>
 
-	);
+	)
 
 }

@@ -1,5 +1,5 @@
 
-export default interface Image {
+export default interface ImageProps {
 	path: string;
 	title: string;
 	mime: string;

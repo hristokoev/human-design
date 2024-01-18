@@ -27,7 +27,7 @@ export default function Infographic02() {
 
 	return (
 
-		<section className="text-black">
+		<section className="text-petroleum-900" id="infographic-01">
 
 			<div className="container">
 
@@ -35,7 +35,7 @@ export default function Infographic02() {
 
 					<div className="flex flex-col">
 
-						<h2 className="text-petrolleum text-6xl font-bold text-center drop-shadow-[0_4px_15px_rgba(54,99,115,0.25)]">
+						<h2 className="text-petroleum-900 text-6xl font-bold text-center">
 							Jak vám pomůže Human Design?
 						</h2>
 
@@ -55,6 +55,6 @@ export default function Infographic02() {
 
 		</section>
 
-	);
+	)
 
 }

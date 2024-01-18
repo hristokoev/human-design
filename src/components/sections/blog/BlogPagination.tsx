@@ -1,8 +1,14 @@
-export default function BlogPagination() {
+import type BlogPageProps from "../../../interfaces/BlogPage";
+
+interface BlogPaginationProps {
+	pageData: BlogPageProps;
+}
+
+export default function BlogPagination({ pageData }: BlogPaginationProps) {
 
 	return (
 
-		<section className="text-black">
+		<section className="text-petroleum-900">
 
 			<div className="container">
 
@@ -12,21 +18,11 @@ export default function BlogPagination() {
 
 						{/* Pagination */}
 
-						<div className="flex justify-center gap-4 flex-wrap">
+						<div className="flex justify-between gap-4 flex-wrap">
 
-							<a href="#" className="px-4 py-2 text-lg font-bold border border-black">Předchozí</a>
+							<a href={pageData.url.prev} className={`btn ${pageData.currentPage === 1 ? 'opacity-0' : 'border-petroleum-900 hover:bg-petroleum-900 hover:text-white'}`}>Předchozí</a>
 
-							<a href="#" className="px-4 py-2 text-lg font-bold border border-black">1</a>
-
-							<a href="#" className="px-4 py-2 text-lg font-bold border border-black">2</a>
-
-							<a href="#" className="px-4 py-2 text-lg font-bold border border-black">3</a>
-
-							<a href="#" className="px-4 py-2 text-lg font-bold border border-black">4</a>
-
-							<a href="#" className="px-4 py-2 text-lg font-bold border border-black">5</a>
-
-							<a href="#" className="px-4 py-2 text-lg font-bold border border-black">Další</a>
+							<a href={pageData.url.next} className={`btn ${pageData.currentPage === pageData.lastPage ? 'opacity-0' : 'border-petroleum-900 hover:bg-petroleum-900 hover:text-white'}`}>Další</a>
 
 						</div>
 
@@ -38,5 +34,5 @@ export default function BlogPagination() {
 
 		</section>
 
-	);
+	)
 }
