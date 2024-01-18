@@ -3,6 +3,7 @@ import fetchData from "../../../lib/fetchData";
 import type FetchData from "../../../interfaces/FetchData";
 import type BlogPage from "../../../interfaces/BlogPage";
 import type BlogItem from "../../../interfaces/BlogItem";
+import type CategoryItem from "../../../interfaces/CategoryItem";
 import Layout from "../../../layouts/Layout.astro";
 import BlogHeader from "../../../components/sections/blog/BlogHeader.tsx";
 import BlogGrid from "../../../components/sections/blog/BlogGrid.tsx";
@@ -38,7 +39,7 @@ export async function getStaticPaths({ paginate }: any) {
     const filteredPosts = blogModel.filter((item: BlogItem) => item.category._id === cat._id);
     return paginate(filteredPosts, {
       params: { category: cat.url },
-      pageSize: 1,
+      pageSize: 12,
     });
   });
 }
@@ -46,8 +47,8 @@ export async function getStaticPaths({ paginate }: any) {
 const { page } = Astro.props as { page: BlogPage };
 
 const query = `
-query Query($filter: JsonType, $limit: Int, $skip: Int) {
-	blogModel(filter: $filter, limit: $limit, skip: $skip) {
+query Query($filter: JsonType, $limit: Int, $skip: Int, $sort: JsonType) {
+	blogModel(filter: $filter, limit: $limit, skip: $skip, sort: $sort) {
 		_id
 		_created
     title
@@ -74,14 +75,17 @@ const variables = {
   },
   limit: page.size,
   skip: page.start,
+	sort: {
+		_created: -1,
+	},
 };
 
-const { blogModel, catsModel }: FetchData = await fetchData(query, variables);
+const { blogModel: posts, catsModel: cats }: FetchData = await fetchData(query, variables);
 ---
 
-<Layout title={`${catsModel?.find((cat) => cat._id === page.data[0].category._id)?.title} - Stranka ${page.currentPage} - Human Design`} description="">
+<Layout title={`${cats?.find((cat) => cat._id === page.data[0].category._id)?.title} - Stranka ${page.currentPage} - Human Design`} description="">
 	<BlogHeader />
-	<BlogGrid />
+	<BlogGrid posts={posts as BlogItem[]} cats={cats as CategoryItem[]} />
 	<BlogPagination />
 	<Subscribe />
 </Layout>

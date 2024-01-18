@@ -1,6 +1,8 @@
 ---
 import fetchData from "../../lib/fetchData";
 import type FetchData from "../../interfaces/FetchData";
+import type BlogItem from "../../interfaces/BlogItem";
+import type CategoryItem from "../../interfaces/CategoryItem";
 import Layout from "../../layouts/Layout.astro";
 import PostHeader from "../../components/sections/blog/PostHeader.tsx";
 import PostContent from "../../components/sections/blog/PostContent.tsx";
@@ -58,20 +60,18 @@ const variables = {
   id: Astro.params.id,
 };
 
-const { blogModel, catsModel }: FetchData = await fetchData(queryPost, variables);
+const { blogModel: posts, catsModel: cats }: FetchData = await fetchData(queryPost, variables);
 
-if (!blogModel || !catsModel) {
+if (!posts || !cats) {
   console.error("Error fetching data");
   return;
 }
 
-// Get the data (0 index, because the query returns an array by default)
-const data = blogModel[0];
 ---
 
-<Layout title={`${data.title} - Human Design`} description="">
-	<PostHeader />
-	<PostContent />
+<Layout title={`${posts[0].title} - Human Design`} description="">
+	<PostHeader post={posts[0] as BlogItem} cats={cats as CategoryItem[]} />
+	<PostContent post={posts[0] as BlogItem} />
 	<Cta02 />
 	<Recommended />
 </Layout>

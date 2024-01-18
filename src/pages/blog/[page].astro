@@ -2,6 +2,8 @@
 import fetchData from "../../lib/fetchData";
 import type FetchData from "../../interfaces/FetchData";
 import type BlogPage from "../../interfaces/BlogPage";
+import type BlogItem from "../../interfaces/BlogItem";
+import type CategoryItem from "../../interfaces/CategoryItem";
 import Layout from "../../layouts/Layout.astro";
 import BlogHeader from "../../components/sections/blog/BlogHeader.tsx";
 import BlogGrid from "../../components/sections/blog/BlogGrid.tsx";
@@ -23,47 +25,46 @@ export async function getStaticPaths({ paginate }: any) {
     return [];
   }
 
-  return paginate(blogModel, { pageSize: 2 });
+  return paginate(blogModel, { pageSize: 12 });
 }
 
 const { page } = Astro.props as { page: BlogPage };
 
 const queryPost = `
-query Query($limit: Int, $skip: Int) {
-  blogModel(limit: $limit, skip: $skip) {
-			_id
-			_created
+query Query($limit: Int, $skip: Int, $sort: JsonType) {
+  blogModel(limit: $limit, skip: $skip, sort: $sort) {
+		_id
+		_created
+		title
+		perex
+		category
+		image
+		author {
+			name
 			title
-			text
-			category
-			tags
-			image
-			contributors {
-				name
-				title
-				photo
-			}
-		}
-		catsModel {
-			_id
-			title
-			url
+			photo
 		}
 	}
-
+	catsModel {
+		_id
+		title
+		url
+	}
+}
 `;
 
 const variables = {
   limit: page.size,
   skip: page.start,
+	sort: { _created: -1 },
 };
 
-const { blogModel, catsModel }: FetchData = await fetchData(queryPost, variables);
+const { blogModel: posts, catsModel: cats }: FetchData = await fetchData(queryPost, variables);
 ---
 
 <Layout title={`Blog - Stranka ${page.currentPage} - Human Design`} description="">
 	<BlogHeader />
-	<BlogGrid />
+	<BlogGrid posts={posts as BlogItem[]} cats={cats as CategoryItem[]} />
 	<BlogPagination />
 	<Subscribe />
 </Layout>
