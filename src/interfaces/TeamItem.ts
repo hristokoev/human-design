@@ -1,10 +1,6 @@
-import type Image from "./Image";
-import type Links from "./Links";
-
-interface StoryProps {
-	date: string;
-	text: string;
-}
+import type ImageProps from "./Image";
+import type LinksProps from "./Links";
+import type StoryProps from "./Story";
 
 interface CountersProps {
 	number: number;
@@ -14,20 +10,20 @@ interface CountersProps {
 interface CertificatesProps {
 	title: string;
 	text: string;
-	image: Image;
+	image: ImageProps;
 }
 
 export default interface TeamItemProps {
 	name: string;
 	title: string;
-	photo: Image;
-	avatar: Image;
+	photo: ImageProps;
+	avatar: ImageProps;
 	email?: string;
 	phone?: string;
-	links?: Links[];
+	links?: LinksProps[];
 	quote: string;
 	story?: StoryProps[];
-	award?: Image;
+	award?: ImageProps;
 	counters?: CountersProps[];
 	certificates: CertificatesProps[];
 }

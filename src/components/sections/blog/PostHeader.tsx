@@ -31,7 +31,7 @@ export default function PostHeader({ post, cats }: PostHeaderProps) {
 									(
 										<>
 											<svg className="w-6 h-6" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M5.33398 3.61133L9.77843 8.05577L5.33398 12.5002" stroke="black" stroke-width="1.33333" />
+												<path d="M5.33398 3.61133L9.77843 8.05577L5.33398 12.5002" stroke="black" strokeWidth="1.33333" />
 											</svg>
 											<a href={"/blog/" + cat.url + "/1"} className="font-bold hover:text-gold-400 transition-all duration-150 ease-in-out">{cat.title}</a>
 										</>

@@ -1,4 +1,4 @@
-import type Image from "./Image";
+import type ImageProps from "./Image";
 
 interface CategoryProps {
 	_model: string;
@@ -8,7 +8,7 @@ interface CategoryProps {
 interface PersonProps {
 	name: string;
 	title: string;
-	photo: Image;
+	photo: ImageProps;
 }
 
 export default interface BlogItemProps {
@@ -19,7 +19,7 @@ export default interface BlogItemProps {
 	text: string;
 	category: CategoryProps;
 	tags?: string[];
-	image: Image;
+	image: ImageProps;
 	author: PersonProps;
 	contributors?: PersonProps[];
 }

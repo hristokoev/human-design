@@ -8,6 +8,8 @@ Every third card is spread on two rows, the rest is spread on two columns.
 
 */
 
+import { motion } from "framer-motion";
+
 export interface Card02Props {
 	image: string;
 	title: string;
@@ -15,15 +17,52 @@ export interface Card02Props {
 	cta?: string;
 	button: string;
 	index: number;
+	section: number;
 }
 
-export default function Card02({ image, title, text, cta, button, index }: Card02Props) {
+export default function Card02({ image, title, text, cta, button, index, section }: Card02Props) {
+
+	// Determine animation based on index
+	const animation = (index: number) => {
+		let originalX = 0;
+		let originalY = 0;
+
+		// First section
+		if (section === 1) {
+			originalX = index === 2 ? 200 : -200; // 3rd card from the right
+		}
+
+		// Second section
+		if (section === 2) {
+			originalX = index === 0 ? -200 : 200; // 1st card from the left, 2nd from the right
+		}
+
+		// Third section
+		if (section === 3) {
+			originalY = 200; // Coming from down
+		}
+
+		return {
+			hidden: { opacity: 0, x: originalX, y: originalY },
+			show: {
+				opacity: 1,
+				x: 0,
+				y: 0,
+				transition: {
+					type: "spring",
+					duration: 0.8,
+					ease: "easeInOut",
+					bounce: 0.4,
+				}
+			}
+		};
+	};
 
 	if (!index) index = 0;
 
 	return (
 
-		<div className={`p-8 flex ${(index + 1) % 3 !== 0 ? 'lg:col-span-2 flex-col sm:flex-row' : 'lg:row-span-2 flex-col sm:flex-row lg:flex-col'} card-service`}>
+		<motion.div variants={animation(index)} className={`p-8 flex ${(index + 1) % 3 !== 0 ? 'lg:col-span-2 flex-col sm:flex-row' : 'lg:row-span-2 flex-col sm:flex-row lg:flex-col'} card-service`}>
 
 			<div className={`${(index + 1) % 3 !== 0 ? 'sm:w-2/5' : 'sm:w-2/5 lg:w-full lg:h-3/5'} flex items-center max-w-80 mx-auto`}>
 				<img src={image} alt="Image" aria-hidden={true} />
@@ -33,9 +72,7 @@ export default function Card02({ image, title, text, cta, button, index }: Card0
 				<div>
 					<p className="text-3xl font-extrabold text-gradient">{title}</p>
 				</div>
-				<div className="">
-					<p className="font-medium" dangerouslySetInnerHTML={{ __html: text }}></p>
-				</div>
+				<div dangerouslySetInnerHTML={{ __html: text }} />
 				<div className="flex flex-col sm:flex-row items-center gap-6">
 					{cta && (
 						<a className="btn border-petroleum-900 hover:bg-petroleum-900 hover:text-white" href="#">{cta}</a>
@@ -49,7 +86,7 @@ export default function Card02({ image, title, text, cta, button, index }: Card0
 				</div>
 			</div>
 
-		</div>
+		</motion.div>
 
 	)
 

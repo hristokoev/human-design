@@ -23,10 +23,10 @@ const { faqModel: data }: FetchData = await fetchData(query);
 ---
 
 <Layout title="Home" description="">	
-  <Hero />
-  <Infographic01 />
-  <Infographic02 />
-  <Services />
+  <Hero client:load />
+  <Infographic01 client:load />
+  <Infographic02 client:load />
+  <Services client:load />
   <Cta01 />
   <Faq faqItems={data as FaqItemProps[]} client:load />
 </Layout>

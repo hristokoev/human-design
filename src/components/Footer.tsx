@@ -2,7 +2,7 @@ export default function Footer() {
 
 	return (
 
-		<footer className="bg-petroleum-950 group">
+		<footer className="bg-petroleum-950">
 
 			<div className="container">
 
@@ -10,15 +10,15 @@ export default function Footer() {
 
 				<div className="py-16">
 
-					<div className="flex flex-col lg:flex-row gap-y-8">
+					<div className="flex flex-col lg:flex-row gap-y-8" >
 
 						<div className="relative grow flex flex-col justify-between">
 
 							<div className="inline-flex">
-								<a href="/" className="py-4 lg:mb-0 lg:group-hover:mb-20 flex items-center transition-all duration-300 ease-in-out">
+								<a href="/" className="py-4 flex items-center transition-all duration-300 ease-in-out">
 									<svg width="37" height="40" viewBox="0 0 37 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<g clipPath="url(#clip0_455_1600)">
-											<path fillRule="evenodd" clipRule="evenodd" d="M18.4536 1.69678L9.71875 10.8795L27.2475 10.9098L18.4536 1.69678Z" fill="#D4AF37" fill-opacity="0.4" />
+											<path fillRule="evenodd" clipRule="evenodd" d="M18.4536 1.69678L9.71875 10.8795L27.2475 10.9098L18.4536 1.69678Z" fill="#D4AF37" fillOpacity="0.4" />
 											<path fillRule="evenodd" clipRule="evenodd" d="M18.6176 10.9097L9.98828 20.9799L27.382 20.9323L18.6176 10.9097Z" fill="#E3B829" />
 											<path fillRule="evenodd" clipRule="evenodd" d="M18.474 38.9948L9.98828 20.9801L27.382 20.9325L18.474 38.9948Z" fill="#E6BF3E" />
 											<path fillRule="evenodd" clipRule="evenodd" d="M18.4746 38.9948L27.3825 20.9325L36.6071 20.9671L18.4746 38.9948Z" fill="#C79D34" />
@@ -50,13 +50,11 @@ export default function Footer() {
 								</a>
 							</div>
 
-							<div className="lg:absolute bottom-14 group-hover:opacity-100 lg:group-hover:translate-y-0 lg:translate-y-16 lg:opacity-0 transition-all duration-300 ease-in-out">
-								<p className="text-sm">
-									Pavle Hanuše 252/4,<br />
-									Pražské Předměstí<br />
-									500 02 Hradec Králové
-								</p>
-							</div>
+							<p className="text-sm">
+								Pavle Hanuše 252/4,<br />
+								Pražské Předměstí<br />
+								500 02 Hradec Králové
+							</p>
 
 							<ul className="mt-8 flex flex-wrap gap-x-8 gap-y-4 font-medium">
 

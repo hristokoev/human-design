@@ -11,7 +11,7 @@ export default function Header() {
 					<a href="/" className="py-4 flex items-center">
 						<svg width="37" height="40" viewBox="0 0 37 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<g clipPath="url(#clip0_455_1600)">
-								<path fillRule="evenodd" clipRule="evenodd" d="M18.4536 1.69678L9.71875 10.8795L27.2475 10.9098L18.4536 1.69678Z" fill="#D4AF37" fill-opacity="0.4" />
+								<path fillRule="evenodd" clipRule="evenodd" d="M18.4536 1.69678L9.71875 10.8795L27.2475 10.9098L18.4536 1.69678Z" fill="#D4AF37" fillOpacity="0.4" />
 								<path fillRule="evenodd" clipRule="evenodd" d="M18.6176 10.9097L9.98828 20.9799L27.382 20.9323L18.6176 10.9097Z" fill="#E3B829" />
 								<path fillRule="evenodd" clipRule="evenodd" d="M18.474 38.9948L9.98828 20.9801L27.382 20.9325L18.474 38.9948Z" fill="#E6BF3E" />
 								<path fillRule="evenodd" clipRule="evenodd" d="M18.4746 38.9948L27.3825 20.9325L36.6071 20.9671L18.4746 38.9948Z" fill="#C79D34" />

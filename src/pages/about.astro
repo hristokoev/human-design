@@ -13,8 +13,13 @@ query Query {
     photo
     quote
 		story {
-			date
-			text
+			header
+			subheader
+			photo
+			slides {
+				date
+				text
+			}
 		}
 		award
     counters {
@@ -34,5 +39,5 @@ const { teamModel: data }: FetchData = await fetchData(query);
 ---
 
 <Layout title="O nás" description="">
-	<Team teamItems={data as TeamItem[]} />
+	<Team teamItems={data as TeamItem[]} client:load />
 </Layout>
