@@ -8,7 +8,7 @@ export default function Cta() {
 
 	return (
 
-		<section className="bg-[linear-gradient(125deg,theme(colors.gold.300),theme(colors.gold.400),theme(colors.gold.400),theme(colors.gold.400),theme(colors.gold.600))] bg-[length:100%_auto];">
+		<section className="bg-[linear-gradient(125deg,theme(colors.gold.300),theme(colors.gold.400),theme(colors.gold.300),theme(colors.gold.400),theme(colors.gold.600))] bg-[length:100%_auto];">
 
 			<div className="container">
 

@@ -7,7 +7,6 @@ import Infographic01 from "../components/sections/index/Infographic01.tsx";
 import Infographic02 from "../components/sections/index/Infographic02.tsx";
 import Services from "../components/sections/index/Services.tsx";
 import Reviews from "../components/sections/index/Reviews.tsx";
-import Cta01 from "../components/sections/index/Cta01.tsx";
 import Faq from "../components/sections/index/Faq.tsx";
 import type { FaqItemProps } from "../components/FaqItem.tsx";
 
@@ -29,6 +28,5 @@ const { faqModel: data }: FetchDataProps = await fetchData(query);
   <Infographic02 client:load />
   <Services client:load />
   <Reviews client:load />
-  <!-- <Cta01 /> -->
-  <!-- <Faq faqItems={data as FaqItemProps[]} client:load /> -->
+  <Faq faqItems={data as FaqItemProps[]} client:load />
 </Layout>

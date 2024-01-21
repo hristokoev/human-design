@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-import vercelServerless from '@astrojs/vercel/serverless';
+import vercel from '@astrojs/vercel/serverless';
 import react from "@astrojs/react";
 
 import tailwind from "@astrojs/tailwind";
@@ -7,8 +7,8 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
 	integrations: [react(), tailwind()],
-  output: 'server',
-  adapter: vercelServerless(),
+	output: 'hybrid',
+  adapter: vercel(),
 	redirects: {
 		"/blog": "/blog/1",
 	}

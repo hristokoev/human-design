@@ -4,7 +4,7 @@ TODO:
 
 */
 
-import Logo from '../assets/images/logo.png'
+import Logo from '../assets/svg/hd-logo.svg';
 
 export default function Header() {
 

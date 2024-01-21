@@ -12,10 +12,9 @@ import type StoryProps from "../interfaces/Story";
 
 interface SlidesProps {
 	story: StoryProps;
-	isOpen: boolean;
 }
 
-export default function Slides({ story, isOpen }: SlidesProps) {
+export default function Slides({ story }: SlidesProps) {
 
 	const [position, setPosition] = useState(0);
 

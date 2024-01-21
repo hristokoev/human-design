@@ -7,11 +7,11 @@ TODO:
 import LinkIcon from "../../LinkIcon";
 import type TeamItemProps from "../../../interfaces/TeamItem";
 
-interface Contact01Props {
+interface ContactProps {
 	teamItems: TeamItemProps[];
 }
 
-export default function Contact01({ teamItems }: Contact01Props) {
+export default function Contact({ teamItems }: ContactProps) {
 
 	return (
 
@@ -172,15 +172,15 @@ export default function Contact01({ teamItems }: Contact01Props) {
 
 								</div>
 
-								{/* Map */}
-								<div>
-									<div className="w-auto h-96 bg-petroleum-900 text-white border-petroleum-900 flex justify-center items-center">
-										<iframe src="https://frame.mapy.cz/s/pafogoroka" width="100%" height="100%"></iframe>
-									</div>
-								</div>
-
 							</div>
 
+						</div>
+
+						{/* Map */}
+						<div className="mt-24">
+							<div className="w-auto h-96 bg-petroleum-900 text-white border-petroleum-900 flex justify-center items-center">
+								<iframe src="https://frame.mapy.cz/s/pafogoroka" width="100%" height="100%"></iframe>
+							</div>
 						</div>
 
 					</div>

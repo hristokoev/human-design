@@ -1,4 +1,4 @@
-import { motion, useScroll, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 
 import Card01 from "../../Card01";
 import ImageCard01 from "../../../assets/images/card-infographic-01.png";

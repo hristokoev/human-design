@@ -4,7 +4,7 @@ TODO:
 
 */
 
-import Logo from "../assets/images/logo.png";
+import Logo from "../assets/svg/logo.svg";
 
 export default function Footer() {
 

@@ -83,7 +83,7 @@ export default function TeamItem({ item }: { item: TeamItemProps }) {
 										item.story?.map((story, i) => (
 											<div className="flex flex-col text-white" key={i}>
 
-												<Slides story={story} isOpen={isOpen} />
+												<Slides story={story} />
 
 											</div>
 										))

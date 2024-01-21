@@ -13,6 +13,8 @@ interface FaqProps {
 
 export default function Faq({ faqItems }: FaqProps) {
 
+	if (faqItems.length === 0) return null;
+
 	return (
 
 		<section className="text-petroleum-900">
