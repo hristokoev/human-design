@@ -1,3 +1,9 @@
+/*
+
+TODO: 
+
+*/
+
 export default function Cta() {
 
 	return (
@@ -18,8 +24,7 @@ export default function Cta() {
 							Navštivte náš eshop! Můžete si vybrat z webinářů, fyzických produktů, ...
 						</p>
 
-						<div className="w-48 mx-auto">
-							
+						<div className="w-48 mx-auto">							
 							<a href="#" className="w-full btn hover:bg-white/10 shadow-2xl shadow-gold-900/50">E-shop!</a>
 						</div>
 

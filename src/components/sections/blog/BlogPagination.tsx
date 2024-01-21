@@ -1,3 +1,9 @@
+/*
+
+TODO: 
+
+*/
+
 import type BlogPageProps from "../../../interfaces/BlogPage";
 
 interface BlogPaginationProps {

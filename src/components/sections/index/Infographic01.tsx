@@ -1,7 +1,6 @@
 import { motion, useScroll, useInView } from "framer-motion";
-import { useRef } from "react";
 
-import Card01 from "../../cards/Card01";
+import Card01 from "../../Card01";
 import ImageCard01 from "../../../assets/images/card-infographic-01.png";
 import ImageCard02 from "../../../assets/images/card-infographic-02.png";
 import ImageCard03 from "../../../assets/images/card-infographic-03.png";
@@ -41,7 +40,7 @@ export default function Infographic01() {
 
 	return (
 
-		<section className="text-petroleum-900" id="infographic-01">
+		<section className="text-petroleum-900" id="jak-pomuze">
 
 			<div className="container">
 

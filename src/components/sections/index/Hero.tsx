@@ -1,3 +1,9 @@
+/*
+
+TODO: 
+
+*/
+
 import { motion, useScroll } from "framer-motion";
 import { useRef } from "react";
 
@@ -48,8 +54,9 @@ export default function Hero() {
 						</p>
 
 						<div className="hidden lg:flex items-center gap-6">
-							<a href="#" className="btn bg-white border-transparent hover:bg-gold-400 text-petroleum-950">Vytvořte si Mapu těla</a>
-							<a href="#" className="btn border-white hover:bg-white/10">Zájem o info</a>
+							<a href="/kontakt/#mate-zajem" className="btn bg-white border-transparent hover:bg-gold-400 text-petroleum-950">Objednejte si konzultaci</a>
+							{/* Disable second button */}
+							{/* <a href="#" className="btn border-white hover:bg-white/10">Zájem o info</a> */}
 						</div>
 
 					</div>
@@ -64,14 +71,15 @@ export default function Hero() {
 					</p>
 
 					<div className="lg:hidden flex flex-col sm:flex-row sm:items-center gap-4">
-						<a href="#" className="btn bg-white border-transparent hover:bg-gold-400 text-petroleum-950">Vytvořte si Mapu těla</a>
-						<a href="#" className="btn border-white hover:bg-white/10">Zájem o info</a>
+						<a href="/kontakt/#mate-zajem" className="btn bg-white border-transparent hover:bg-gold-400 text-petroleum-950">Objednejte si konzultaci</a>
+						{/* Disable second button */}
+						{/* <a href="#" className="btn border-white hover:bg-white/10">Zájem o info</a> */}
 					</div>
 
 				</div>
 
 				{/* Chevron */}
-				<a className="absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-20 lg:-translate-y-10" href="#infographic-01">
+				<a className="absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-20 lg:-translate-y-10" href="#jak-pomuze">
 					<svg className="w-12 h-12 rounded-full hover:bg-white/10" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<rect x="2.00037" y="1.29822" width="38.7562" height="38.7562" rx="19.3781" stroke="white" strokeWidth="1.5" />
 						<rect x="12.8262" y="19.062" width="1.69366" height="12.1943" transform="rotate(-45 12.8262 19.062)" fill="white" />

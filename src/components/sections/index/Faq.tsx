@@ -1,4 +1,10 @@
-import Accordion from "../../FaqItem";
+/*
+
+TODO: 
+
+*/
+
+import FaqItem from "../../FaqItem";
 import type { FaqItemProps } from "../../FaqItem";
 
 interface FaqProps {
@@ -29,7 +35,7 @@ export default function Faq({ faqItems }: FaqProps) {
 							</p>
 
 							<div>
-								<a className="btn border-petroleum-900 hover:bg-petroleum-900 hover:text-white" href="#">
+								<a className="btn border-petroleum-900 hover:bg-petroleum-900 hover:text-white" href="/kontakt">
 									Kontaktujte nás
 								</a>
 							</div>
@@ -42,7 +48,7 @@ export default function Faq({ faqItems }: FaqProps) {
 							<ul className="border-t border-petroleum-900">
 								{
 									faqItems.map((faqItem, index) => (
-										<Accordion key={index} question={faqItem.question} answer={faqItem.answer} id={`faqs-${index}`} active={faqItem.active} />
+										<FaqItem key={index} question={faqItem.question} answer={faqItem.answer} id={`faqs-${index}`} active={faqItem.active} />
 									))
 								}
 							</ul>

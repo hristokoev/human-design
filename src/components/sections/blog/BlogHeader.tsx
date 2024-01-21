@@ -1,3 +1,9 @@
+/*
+
+TODO: 
+
+*/
+
 export default function BlogHeader() {
 
 	return (

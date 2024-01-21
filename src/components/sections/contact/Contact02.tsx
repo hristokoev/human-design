@@ -1,8 +1,14 @@
+/*
+
+TODO: 
+
+*/
+
 export default function Contact02() {
 
 	return (
 
-		<section className="text-petroleum-900">
+		<section className="text-petroleum-900" id="mate-zajem">
 
 			<div className="container">
 

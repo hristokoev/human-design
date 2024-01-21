@@ -91,7 +91,8 @@ body {
 	@apply border border-gold-900/10 shadow-xl shadow-gold-900/10;
 }
 
-.card-service {
+.card-service,
+.card-review {
 	@apply p-12;
 	@apply bg-white text-petroleum-900;
 	@apply rounded-3xl;

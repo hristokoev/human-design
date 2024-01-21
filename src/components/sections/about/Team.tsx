@@ -1,3 +1,9 @@
+/*
+
+TODO: 
+
+*/
+
 import TeamItem from "../../TeamItem";
 import type TeamItemProps from "../../../interfaces/TeamItem";
 

@@ -41,7 +41,7 @@ export default function Card01({ image, text }: Card01Props) {
 			</div>
 
 			{/* Text */}
-			<div className="">
+			<div>
 				<p className="font-medium">{text}</p>
 			</div>
 

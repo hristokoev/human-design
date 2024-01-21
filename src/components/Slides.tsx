@@ -1,3 +1,9 @@
+/*
+
+TODO: 
+
+*/
+
 import { motion, useAnimationControls } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -27,7 +33,7 @@ export default function Slides({ story, isOpen }: SlidesProps) {
 		controls.start({
 			y: -800 * position,
 			transition: {
-				type: "spring", // "spring" | "tween" | "just
+				type: "spring",
 				duration: 0.8,
 				ease: "easeInOut",
 				bounce: 0.3,
@@ -70,18 +76,18 @@ export default function Slides({ story, isOpen }: SlidesProps) {
 
 				{story.slides.map((slide, index) => (
 					<div key={index}>
-						<div className="h-[50rem] relative flex flex-col justify-center items-center gap-8">
+						<div className="py-32 h-[50rem] relative flex flex-col justify-center items-center gap-8">
 
 							{slide.date && (
-								<a className="btn border-petroleum-900" href="#">
+								<span className="btn border-petroleum-900">
 									{slide.date}
-								</a>
+								</span>
 							)}
 
 							<svg width="36" height="125" viewBox="0 0 36 125" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M18 14.1211V102.379" stroke="#878787" strokeWidth="6" strokeLinecap="round" strokeDasharray="12 12" />
 							</svg>
-							<div className="px-16 md:px-32 text-center text-lg md:text-2xl" dangerouslySetInnerHTML={{ __html: slide.text }} />
+							<div className="px-16 md:px-32 text-center sm:text-lg md:text-2xl" dangerouslySetInnerHTML={{ __html: slide.text }} />
 							<svg width="36" height="125" viewBox="0 0 36 125" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M18 14.1211V102.379" stroke="#878787" strokeWidth="6" strokeLinecap="round" strokeDasharray="12 12" />
 							</svg>

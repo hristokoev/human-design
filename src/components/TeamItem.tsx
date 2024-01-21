@@ -1,3 +1,9 @@
+/*
+
+TODO: 
+
+*/
+
 import { useState, Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 
@@ -125,11 +131,13 @@ export default function TeamItem({ item }: { item: TeamItemProps }) {
 
 					<div className="flex flex-col items-center">
 
-						<div className="w-full max-w-xl hidden lg:flex flex-col lg:flex-row justify-between">
+						<div className="w-full max-w-xl hidden lg:grid grid-cols-3">
 							{
 								item.counters?.map((counter, j) => (
 									<div className="flex flex-col items-center" key={j}>
-										<span className="text-5xl text-gold-400 font-bold">{counter.number}</span>
+										<span className="text-5xl text-gold-400 font-bold">
+											{counter.number}
+											</span>
 										<span className="font-black uppercase">{counter.text}</span>
 									</div>
 								))

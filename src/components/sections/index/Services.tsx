@@ -1,6 +1,12 @@
+/*
+
+TODO: 
+
+*/
+
 import { motion } from "framer-motion";
 
-import Card02 from "../../cards/Card02";
+import Card02 from "../../Card02";
 import ImagePerson from "../../../assets/images/card-person.png";
 import ImagePersons from "../../../assets/images/card-persons.png";
 import ImageTeams from "../../../assets/images/card-teams.png";
@@ -88,7 +94,7 @@ export default function Services() {
 
 	return (
 
-		<section className="text-petroleum-900 overflow-hidden" id="services">
+		<section className="text-petroleum-900 overflow-hidden" id="sluzby">
 
 			<div className="container">
 

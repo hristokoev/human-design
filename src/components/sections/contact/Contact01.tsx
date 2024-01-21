@@ -1,3 +1,9 @@
+/*
+
+TODO: 
+
+*/
+
 import LinkIcon from "../../LinkIcon";
 import type TeamItemProps from "../../../interfaces/TeamItem";
 
@@ -54,7 +60,7 @@ export default function Contact01({ teamItems }: Contact01Props) {
 											Telefon
 										</span>
 										<div>
-											<a href="tel:+420123456789" className="underline hover:no-underline">+420 123 456 789</a>
+											<a href="tel:+420775892649" className="underline hover:no-underline">+420 775 892 649</a>
 										</div>
 									</div>
 
@@ -67,7 +73,7 @@ export default function Contact01({ teamItems }: Contact01Props) {
 										</span>
 										<a>Pavle Hanuše 252/4, Pražské Předměstí<br />500 02 Hradec Králové</a>
 									</div>
-									<a href="#" className="flex items-center gap-2 group font-bold hover:text-gold-400">
+									<a href="https://mapy.cz/zakladni?source=addr&id=9054010&ds=1&x=15.8131059&y=50.2085397&z=17" target="_blank" className="flex items-center gap-2 group font-bold hover:text-gold-400">
 										Kudy k nám?
 										<svg viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 group-hover:translate-x-1 transition-all duration-150 ease-in-out">
 											<path fillRule="evenodd" clipRule="evenodd" d="M12.7979 10.0992C12.9787 10.28 12.9787 10.5731 12.7979 10.754L8.07708 15.4747C7.89625 15.6556 7.60312 15.6556 7.42229 15.4747L7.20398 15.2565C7.02315 15.0756 7.02315 14.7825 7.20398 14.6016L11.3791 10.4266L7.20398 6.25149C7.02315 6.07066 7.02315 5.77753 7.20398 5.5967L7.42229 5.37839C7.60312 5.19756 7.89625 5.19756 8.07708 5.37839L12.7979 10.0992Z" fill="black" />
@@ -169,7 +175,7 @@ export default function Contact01({ teamItems }: Contact01Props) {
 								{/* Map */}
 								<div>
 									<div className="w-auto h-96 bg-petroleum-900 text-white border-petroleum-900 flex justify-center items-center">
-										<span className="text-7xl uppercase font-black">MAPY.CZ</span>
+										<iframe src="https://frame.mapy.cz/s/pafogoroka" width="100%" height="100%"></iframe>
 									</div>
 								</div>
 
