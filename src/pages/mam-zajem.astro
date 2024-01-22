@@ -1,4 +1,6 @@
 ---
+export const prerender = false;
+
 import Layout from "../layouts/Layout.astro";
 import CustomForm from "../components/sections/contact/Contact02.tsx";
 
@@ -43,7 +45,14 @@ if (Astro.request.method === "POST") {
         "Content-Type": "application/json",
         "api-key": import.meta.env.COCKPIT_API_KEY,
       },
-    });
+    }).then((res) => {
+
+// Clear data 
+			
+
+		});
+
+
   } catch (error) {
     console.error(error);
   }
@@ -60,7 +69,9 @@ const { status, statusText } = Astro.response;
         <div class="container">
           <div class="py-32">
             <div class="flex flex-col">
-              <div class="flex flex-col justify-center items-center bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert"
+              <div
+                class="flex flex-col justify-center items-center bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
+                role="alert"
               >
                 <strong class="font-bold">Děkujeme!</strong>
               </div>
