@@ -12,7 +12,7 @@ export default function Header() {
 
 		<header className="bg-petroleum-950">
 
-			<div className="container hidden md:flex items-center">
+			<div className="container flex flex-col md:flex-row items-center">
 
 				<div className="py-4 flex items-center">
 
@@ -25,9 +25,9 @@ export default function Header() {
 
 				</div>
 
-				<div className="ml-auto">
+				<div className="md:ml-auto">
 
-					<ul className="flex gap-8 font-medium">
+					<ul className="flex flex-col md:flex-row gap-8 font-medium text-center">
 
 						<li><a href="/" className="hover:text-gold-400 transition-all duration-150 ease-in-out">Domů</a></li>
 						<li><a href="/#sluzby" className="hover:text-gold-400 transition-all duration-150 ease-in-out">Služby</a></li>
