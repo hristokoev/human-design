@@ -1,10 +1,5 @@
 import type ImageProps from "./Image";
 
-interface CategoryProps {
-	_model: string;
-	_id: string;
-}
-
 interface PersonProps {
 	name: string;
 	title: string;
@@ -17,7 +12,6 @@ export default interface BlogItemProps {
 	title: string;
 	perex: string;
 	text: string;
-	category: CategoryProps;
 	tags?: string[];
 	image: ImageProps;
 	author: PersonProps;

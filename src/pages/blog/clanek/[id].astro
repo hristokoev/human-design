@@ -1,0 +1,45 @@
+---
+import fetchData from "../../../lib/fetchData.ts";
+import type FetchData from "../../../interfaces/FetchData.ts";
+import type BlogItem from "../../../interfaces/BlogItem.ts";
+import Layout from "../../../layouts/Layout.astro";
+import PostHeader from "../../../components/sections/blog/PostHeader.tsx";
+import PostContent from "../../../components/sections/blog/PostContent.tsx";
+import Cta02 from "../../../components/sections/blog/Cta02.tsx";
+import Recommended from "../../../components/sections/blog/Recommended.tsx";
+
+const queryPost = `
+	query Query($id: String) {
+		blogModel(_id: $id) {
+			_created
+			title
+			text
+			tags
+			image
+			contributors {
+				name
+				title
+				photo
+			}
+		}
+	}
+`;
+
+const variables = {
+  id: Astro.params.id,
+};
+
+const { blogModel: posts }: FetchData = await fetchData(queryPost, variables);
+
+if (!posts) {
+  console.error("Error fetching data");
+  return;
+}
+
+---
+<Layout title={`${posts[0].title} - Human Design`} description="">
+	<PostHeader post={posts[0] as BlogItem} />
+	<PostContent post={posts[0] as BlogItem} />
+	<Cta02 />
+	<Recommended />
+</Layout>

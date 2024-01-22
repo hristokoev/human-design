@@ -1,37 +1,15 @@
 ---
-export const prerender = true;
-
-import fetchData from "../../lib/fetchData";
-import type FetchData from "../../interfaces/FetchData";
-import type BlogPage from "../../interfaces/BlogPage";
-import type BlogItem from "../../interfaces/BlogItem";
-import type CategoryItem from "../../interfaces/CategoryItem";
+import fetchData from "../../lib/fetchData.ts";
+import type FetchData from "../../interfaces/FetchData.ts";
+import type BlogItem from "../../interfaces/BlogItem.ts";
 import Layout from "../../layouts/Layout.astro";
 import BlogHeader from "../../components/sections/blog/BlogHeader.tsx";
 import BlogGrid from "../../components/sections/blog/BlogGrid.tsx";
 import BlogPagination from "../../components/sections/blog/BlogPagination.tsx";
 import Subscribe from "../../components/sections/blog/Subscribe.tsx";
 
-export async function getStaticPaths({ paginate }: any) {
-  const queryIds = `
-		query Query {
-			blogModel {
-				title
-			}
-		}
-	`;
 
-  const { blogModel }: FetchData = await fetchData(queryIds);
-
-	// Check if there are no posts
-	if (blogModel && blogModel.length === 0) {
-		return paginate(blogModel, { pageSize: 1 });
-  }
-
-  return paginate(blogModel, { pageSize: 12 });
-}
-
-const { page } = Astro.props as { page: BlogPage };
+const { page } = Astro.params;
 
 const queryPost = `
 query Query($limit: Int, $skip: Int, $sort: JsonType) {
@@ -40,7 +18,6 @@ query Query($limit: Int, $skip: Int, $sort: JsonType) {
 		_created
 		title
 		perex
-		category
 		image
 		author {
 			name
@@ -48,26 +25,21 @@ query Query($limit: Int, $skip: Int, $sort: JsonType) {
 			photo
 		}
 	}
-	catsModel {
-		_id
-		title
-		url
-	}
 }
 `;
 
 const variables = {
-  limit: page.size,
-  skip: page.start,
+  limit: 0,
+  skip: 0,
 	sort: { _created: -1 },
 };
 
-const { blogModel: posts, catsModel: cats }: FetchData = await fetchData(queryPost, variables);
+const { blogModel: posts }: FetchData = await fetchData(queryPost, variables);
 ---
 
-<Layout title={`Blog - Stranka ${page.currentPage} - Human Design`} description="">
+<Layout title={`Blog - Stranka ${page} - Human Design`} description="">
 	<BlogHeader />
-	<BlogGrid posts={posts as BlogItem[]} cats={cats as CategoryItem[]} pageData={page} />
-	<BlogPagination pageData={page} />
+	<BlogGrid posts={posts as BlogItem[]} />
+	<BlogPagination />
 	<Subscribe />
 </Layout>

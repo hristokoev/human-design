@@ -4,13 +4,7 @@ TODO:
 
 */
 
-import type BlogPageProps from "../../../interfaces/BlogPage";
-
-interface BlogPaginationProps {
-	pageData: BlogPageProps;
-}
-
-export default function BlogPagination({ pageData }: BlogPaginationProps) {
+export default function BlogPagination() {
 
 	return (
 
@@ -26,9 +20,9 @@ export default function BlogPagination({ pageData }: BlogPaginationProps) {
 
 						<div className="flex justify-between gap-4 flex-wrap">
 
-							<a href={pageData.url.prev} className={`btn ${pageData.currentPage === 1 ? 'opacity-0' : 'border-petroleum-900 hover:bg-petroleum-900 hover:text-white'}`}>Předchozí</a>
+							<a href="#" className={`btn ${true ? 'opacity-0' : 'border-petroleum-900 hover:bg-petroleum-900 hover:text-white'}`}>Předchozí</a>
 
-							<a href={pageData.url.next} className={`btn ${pageData.currentPage === pageData.lastPage ? 'opacity-0' : 'border-petroleum-900 hover:bg-petroleum-900 hover:text-white'}`}>Další</a>
+							<a href="#" className={`btn ${true ? 'opacity-0' : 'border-petroleum-900 hover:bg-petroleum-900 hover:text-white'}`}>Další</a>
 
 						</div>
 
