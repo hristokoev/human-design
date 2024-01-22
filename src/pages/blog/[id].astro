@@ -20,11 +20,11 @@ export async function getStaticPaths() {
 
   const { blogModel }: FetchData = await fetchData(queryIds);
 
-  if (!blogModel) {
-    return;
-  }
+	if (blogModel && blogModel.length === 0) {
+		return [];
+	}
 
-  return blogModel.map((blog) => {
+  return blogModel && blogModel.map((blog) => {
     return {
       params: {
         id: blog._id,

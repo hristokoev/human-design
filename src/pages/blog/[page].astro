@@ -21,8 +21,9 @@ export async function getStaticPaths({ paginate }: any) {
 
   const { blogModel }: FetchData = await fetchData(queryIds);
 
-  if (!blogModel) {
-    return;
+	// Check if there are no posts
+	if (blogModel && blogModel.length === 0) {
+		return [];
   }
 
   return paginate(blogModel, { pageSize: 12 });

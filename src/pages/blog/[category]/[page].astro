@@ -31,12 +31,12 @@ export async function getStaticPaths({ paginate }: any) {
   const { catsModel }: FetchData = await fetchData(queryCats);
   const { blogModel }: FetchData = await fetchData(queryPosts);
 
-  if (!catsModel || !blogModel) {
-    return;
+  if (catsModel && catsModel.length === 0) {
+		return [];
   }
 
-  return catsModel.flatMap((cat) => {
-    const filteredPosts = blogModel.filter((item: BlogItem) => item.category._id === cat._id);
+  return catsModel && catsModel.flatMap((cat) => {
+    const filteredPosts = blogModel?.filter((item: BlogItem) => item.category._id === cat._id);
     return paginate(filteredPosts, {
       params: { category: cat.url },
       pageSize: 12,
