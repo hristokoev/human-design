@@ -8,7 +8,7 @@ export default function Contact02() {
 
 	return (
 
-		<section className="text-petroleum-900" id="mate-zajem">
+		<section className="text-petroleum-900">
 
 			<div className="container">
 
@@ -29,59 +29,80 @@ export default function Contact02() {
 						{/* Form */}
 						<div className="mt-24">
 
-							<form className="grow flex flex-col gap-y-8 max-w-3xl mx-auto">
+							<form className="grow flex flex-col gap-y-8 max-w-3xl mx-auto" method="POST">
 
 								<div className="flex flex-col sm:flex-row gap-6">
 									<div className="grow flex flex-col gap-y-2">
 										<label htmlFor="firstName">Jméno *</label>
-										<input type="text" id="firstName" className="input border-petroleum-900 rounded-3xl" required />
+										<input type="text" id="firstName" name="firstName" className="input border-petroleum-900 rounded-3xl" required />
 									</div>
 									<div className="grow flex flex-col gap-y-2">
 										<label htmlFor="lastName">Příjmení *</label>
-										<input type="text" id="lastName" className="input border-petroleum-900 rounded-3xl" required />
+										<input type="text" id="lastName" name="lastName" className="input border-petroleum-900 rounded-3xl" required />
 									</div>
 								</div>
 
 								<div className="flex flex-col sm:flex-row gap-6">
 									<div className="grow flex flex-col gap-y-2">
 										<label htmlFor="email">Email *</label>
-										<input type="email" id="email" className="input border-petroleum-900 rounded-3xl" required />
+										<input type="email" id="email" name="email" className="input border-petroleum-900 rounded-3xl" required />
 									</div>
 									<div className="grow flex flex-col gap-y-2">
 										<label htmlFor="phone">Telefon</label>
-										<input type="tel" id="phone" className="input border-petroleum-900 rounded-3xl" />
+										<input type="tel" id="phone" name="phone" className="input border-petroleum-900 rounded-3xl" />
+									</div>
+								</div>
+
+								<div className="flex flex-col gap-6">
+										<span>Máte již zkušenost s <span className="text-gold-400 font-bold">Human Designem</span>?</span>
+									<div className="grow flex">
+										<div className="space-x-4">
+											<input type="radio" id="experienceTrue" name="experienceWithHumanDesign" value="Ano, mám!" />
+											<label htmlFor="experienceTrue">Ano, mám!</label>
+										</div>
+										<div className="ml-16 space-x-4">
+											<input type="radio" id="experienceFalse" name="experienceWithHumanDesign" value="Ne, nemám." />
+											<label htmlFor="experienceFalse">Ne, nemám.</label>
+										</div>
 									</div>
 								</div>
 
 								<div className="flex flex-col gap-y-2">
 									<label htmlFor="service">Jakou službu poptáváte? *</label>
-									<select name="subject" id="service" className="grow input border-petroleum-900 rounded-3xl" required >
-										<option value="0" disabled selected>Vyberte...</option>
-										<option value="1">Obecný dotaz</option>
-										<option value="2">Obchodní dotaz</option>
-										<option value="3">Technický dotaz</option>
+									<select name="service" id="service" className="grow input border-petroleum-900 rounded-3xl" required defaultValue="Nic nebylo vybráno" >
+										<option value="Nic nebylo vybráno" disabled>Vyberte...</option>
+										<option value="15 min konzultace zdarma">15 min konzultace zdarma</option>
+										<option value="Koučink">Koučink</option>
+										<option value="Provázená pouť">Provázená pouť</option>
+										<option value="3*30 min supervize zdarma">3*30 min supervize zdarma</option>
+										<option value="Individuální supervize koučů">Individuální supervize koučů</option>
+										<option value="Královehradecká skupinová supervize">Královehradecká skupinová supervize</option>
+										<option value="Koučuji v souladu s mým životním posláním">Koučuji v souladu s mým životním posláním</option>
+										<option value="Autentický kouč">Autentický kouč</option>
+										<option value="Supervize pro HD profíky">Supervize pro HD profíky</option>
+										<option value="Jiné">Jiné</option>
 									</select>
 								</div>
 
 								<div className="flex flex-col sm:flex-row gap-6">
 									<div className="grow flex flex-col gap-y-2">
 										<label htmlFor="birthDate">Datum narození *</label>
-										<input type="text" id="birthDate" className="input border-petroleum-900 rounded-3xl" required />
+										<input type="text" id="birthDate" name="birthDate" className="input border-petroleum-900 rounded-3xl" required />
 									</div>
 									<div className="grow flex flex-col gap-y-2">
 										<label htmlFor="birthTime">Čas narození *</label>
-										<input type="text" id="birthTime" className="input border-petroleum-900 rounded-3xl" required />
+										<input type="text" id="birthTime" name="birthTime" className="input border-petroleum-900 rounded-3xl" required />
 									</div>
 								</div>
 
 								<div className="flex flex-col sm:flex-row gap-6">
 									<div className="grow flex flex-col gap-y-2">
 										<label htmlFor="birtCountry">Země, kde jste se narodili *</label>
-										<input type="text" id="birtCountry" className="input border-petroleum-900 rounded-3xl" required />
+										<input type="text" id="birtCountry" name="birthCountry" className="input border-petroleum-900 rounded-3xl" required />
 									</div>
 									<div className="grow flex flex-col gap-y-2">
 										<label htmlFor="birthCity">Město, kde jste se narodili *</label>
-										<input type="text" id="birthCity" className="input border-petroleum-900 rounded-3xl" required />
+										<input type="text" id="birthCity" name="birthCity" className="input border-petroleum-900 rounded-3xl" required />
 									</div>
 								</div>
 
@@ -95,7 +116,7 @@ export default function Contact02() {
 								</div>
 
 								<div className="flex justify-center items-center gap-x-2">
-									<input type="checkbox" id="gdpr" className="mr-2 w-4 h-4 cursor-pointer" required />
+									<input type="checkbox" id="gdpr" name="gdpr" className="mr-2 w-4 h-4 cursor-pointer" required />
 									<span>Souhlasím s <a href="#" className="underline hover:no-underline">Použití a zpracování osobních údajů</a></span>
 								</div>
 

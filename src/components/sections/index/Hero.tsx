@@ -54,7 +54,7 @@ export default function Hero() {
 						</p>
 
 						<div className="hidden lg:flex items-center gap-6">
-							<a href="/kontakt/#mate-zajem" className="btn bg-white border-transparent hover:bg-gold-400 text-petroleum-950">Objednejte si konzultaci</a>
+							<a href="/mam-zajem" className="btn bg-white border-transparent hover:bg-gold-400 text-petroleum-950">Objednejte si konzultaci</a>
 							{/* Disable second button */}
 							{/* <a href="#" className="btn border-white hover:bg-white/10">Zájem o info</a> */}
 						</div>
@@ -71,7 +71,7 @@ export default function Hero() {
 					</p>
 
 					<div className="lg:hidden flex flex-col sm:flex-row sm:items-center gap-4">
-						<a href="/kontakt/#mate-zajem" className="btn bg-white border-transparent hover:bg-gold-400 text-petroleum-950">Objednejte si konzultaci</a>
+						<a href="/mam-zajem" className="btn bg-white border-transparent hover:bg-gold-400 text-petroleum-950">Objednejte si konzultaci</a>
 						{/* Disable second button */}
 						{/* <a href="#" className="btn border-white hover:bg-white/10">Zájem o info</a> */}
 					</div>

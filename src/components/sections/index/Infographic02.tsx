@@ -162,7 +162,7 @@ export default function Infographic02() {
 													<p className="text-sm font-medium">{card.text}</p>
 												</div>
 												<div className="">
-													<a className="btn border-white hover:bg-white/10" href="/kontakt/#mate-zajem">{card.button}</a>
+													<a className="btn border-white hover:bg-white/10" href="/mam-zajem">{card.button}</a>
 												</div>
 											</motion.div>
 
