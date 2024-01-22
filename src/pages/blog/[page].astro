@@ -1,4 +1,6 @@
 ---
+export const prerender = false;
+
 import fetchData from "../../lib/fetchData.ts";
 import type FetchData from "../../interfaces/FetchData.ts";
 import type BlogItem from "../../interfaces/BlogItem.ts";
@@ -7,7 +9,6 @@ import BlogHeader from "../../components/sections/blog/BlogHeader.tsx";
 import BlogGrid from "../../components/sections/blog/BlogGrid.tsx";
 import BlogPagination from "../../components/sections/blog/BlogPagination.tsx";
 import Subscribe from "../../components/sections/blog/Subscribe.tsx";
-
 
 const { page } = Astro.params;
 
