@@ -31,7 +31,7 @@ export async function getStaticPaths({ paginate }: any) {
   const { catsModel }: FetchData = await fetchData(queryCats);
   const { blogModel }: FetchData = await fetchData(queryPosts);
 
-  if (catsModel && catsModel.length === 0) {
+  if ((catsModel && catsModel.length === 0) || (blogModel && blogModel.length === 0)) {
 		return [];
   }
 
