@@ -125,32 +125,39 @@ export default function Contact({ teamItems }: ContactProps) {
 										<div className="flex flex-col sm:flex-row gap-6">
 											<div className="grow flex flex-col gap-y-2">
 												<label htmlFor="firstName">Jméno *</label>
-												<input type="text" id="firstName" className="input border-petroleum-900 rounded-3xl" required />
+												<input type="text" id="firstName" name="firstName" className="input border-petroleum-900 rounded-3xl" required />
 											</div>
 											<div className="grow flex flex-col gap-y-2">
 												<label htmlFor="lastName">Příjmení *</label>
-												<input type="text" id="lastName" className="input border-petroleum-900 rounded-3xl" required />
+												<input type="text" id="lastName" name="lastName" className="input border-petroleum-900 rounded-3xl" required />
 											</div>
 										</div>
 
 										<div className="flex flex-col sm:flex-row gap-6">
 											<div className="grow flex flex-col gap-y-2">
 												<label htmlFor="email">Email *</label>
-												<input type="email" id="email" className="input border-petroleum-900 rounded-3xl" required />
+												<input type="email" id="email" name="email" className="input border-petroleum-900 rounded-3xl" required />
 											</div>
 											<div className="grow flex flex-col gap-y-2">
 												<label htmlFor="phone">Telefon</label>
-												<input type="tel" id="phone" className="input border-petroleum-900 rounded-3xl" />
+												<input type="tel" id="phone" name="phone" className="input border-petroleum-900 rounded-3xl" />
 											</div>
 										</div>
 
 										<div className="flex flex-col gap-y-2">
 											<label htmlFor="subject">Která služba vás zajímá nejvíce? *</label>
-											<select name="subject" id="subject" className="grow input border-petroleum-900 rounded-3xl" required >
-												<option value="0" disabled selected>Vyberte...</option>
-												<option value="1">Obecný dotaz</option>
-												<option value="2">Obchodní dotaz</option>
-												<option value="3">Technický dotaz</option>
+											<select name="service" id="service" className="grow input border-petroleum-900 rounded-3xl" required defaultValue="Nic nebylo vybráno" >
+												<option value="Nic nebylo vybráno" disabled>Vyberte...</option>
+												<option value="15 min konzultace zdarma">15 min konzultace zdarma</option>
+												<option value="Koučink">Koučink</option>
+												<option value="Provázená pouť">Provázená pouť</option>
+												<option value="3*30 min supervize zdarma">3*30 min supervize zdarma</option>
+												<option value="Individuální supervize koučů">Individuální supervize koučů</option>
+												<option value="Královehradecká skupinová supervize">Královehradecká skupinová supervize</option>
+												<option value="Koučuji v souladu s mým životním posláním">Koučuji v souladu s mým životním posláním</option>
+												<option value="Autentický kouč">Autentický kouč</option>
+												<option value="Supervize pro HD profíky">Supervize pro HD profíky</option>
+												<option value="Jiné">Jiné</option>
 											</select>
 										</div>
 
@@ -160,7 +167,7 @@ export default function Contact({ teamItems }: ContactProps) {
 										</div>
 
 										<div className="flex justify-center items-center gap-x-2">
-											<input type="checkbox" id="gdpr" className="mr-2 w-4 h-4 cursor-pointer" required />
+											<input type="checkbox" id="gdpr" name="gdpr" className="mr-2 w-4 h-4 cursor-pointer" required />
 											<span>Souhlasím s <a href="#" className="underline hover:no-underline">Použití a zpracování osobních údajů</a></span>
 										</div>
 
