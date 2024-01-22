@@ -23,7 +23,7 @@ export async function getStaticPaths({ paginate }: any) {
 
 	// Check if there are no posts
 	if (blogModel && blogModel.length === 0) {
-		return [];
+		return paginate(blogModel, { pageSize: 1 });
   }
 
   return paginate(blogModel, { pageSize: 12 });
