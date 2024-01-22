@@ -71,7 +71,7 @@ export default function Contact({ teamItems }: ContactProps) {
 											</svg>
 											Kde nás naleznete?
 										</span>
-										<a>Pavle Hanuše 252/4, Pražské Předměstí<br />500 02 Hradec Králové</a>
+										<a>Pavla Hanuše 252/4, Pražské Předměstí<br />500 02 Hradec Králové</a>
 									</div>
 									<a href="https://mapy.cz/zakladni?source=addr&id=9054010&ds=1&x=15.8131059&y=50.2085397&z=17" target="_blank" className="flex items-center gap-2 group font-bold hover:text-gold-400">
 										Kudy k nám?

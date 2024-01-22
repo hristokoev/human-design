@@ -30,7 +30,7 @@ export default function Footer() {
 							</div>
 
 							<p className="text-sm">
-								Pavle Hanuše 252/4,<br />
+								Pavla Hanuše 252/4,<br />
 								Pražské Předměstí<br />
 								500 02 Hradec Králové
 							</p>
