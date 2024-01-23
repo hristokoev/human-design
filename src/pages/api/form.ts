@@ -127,6 +127,6 @@ export const POST: APIRoute = async ({ request }) => {
 	}
 
 	// Respond with error if Content-Type is not application/json
-	return new Response("No", { status: 400 });
+	return new Response(null, { status: 400 });
 
 };
