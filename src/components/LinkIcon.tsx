@@ -1,12 +1,12 @@
 /*
 
-TODO: 
+	Link Icon Component
 
 */
 
-import type Links from "../interfaces/Links";
+import type LinksProps from "@/interfaces/Links";
 
-export default function LinkIcon({ text, url, icon }: Links) {
+export default function LinkIcon({ text, url, icon }: LinksProps) {
 
 	let svgIcon;
 
@@ -133,5 +133,4 @@ export default function LinkIcon({ text, url, icon }: Links) {
 		</a>
 
 	)
-
 }

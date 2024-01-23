@@ -1,25 +1,20 @@
 /*
 
-TODO: 
+	Slideshow component for story page
 
 */
 
 import { motion, useAnimationControls } from "framer-motion";
 import { useEffect, useState } from "react";
 
-import type StoryProps from "../interfaces/Story";
+import type StoryProps from "@/interfaces/Story";
 
-
-interface SlidesProps {
-	story: StoryProps;
-}
-
-export default function Slides({ story }: SlidesProps) {
+export default function Slides({ story }: { story: StoryProps }) {
 
 	const [position, setPosition] = useState(0);
-
 	const controls = useAnimationControls();
 
+	// Set the moving direction
 	const slideMove = (direction: "up" | "down") => {
 		if (position === 0 && direction === "up" || position === story.slides.length && direction === "down") return;
 		setTimeout(() => {
@@ -28,6 +23,7 @@ export default function Slides({ story }: SlidesProps) {
 		}, 200);
 	}
 
+	// Trigger animation when direction changes
 	useEffect(() => {
 		controls.start({
 			y: -800 * position,
@@ -42,6 +38,7 @@ export default function Slides({ story }: SlidesProps) {
 		})
 	}, [position])
 
+	// If there are no slides, return null
 	if (!story.slides) return null;
 
 	return (
@@ -52,11 +49,9 @@ export default function Slides({ story }: SlidesProps) {
 			<div className="absolute top-0 w-full h-1/3 z-40" onClick={() => slideMove("up")}></div>
 			<div className="absolute bottom-0 w-full h-2/3 z-40" onClick={() => slideMove("down")}></div>
 
-			<motion.div
-				animate={controls}
-				className="h-[50rem]"
-			>
+			<motion.div animate={controls} className="h-[50rem]">
 
+				{/* First slide */}
 				<div className="px-8 md:px-24 py-24 h-[50rem]">
 					<div className="flex flex-col lg:flex-row md:items-center gap-x-16 gap-y-8 h-full overflow-hidden">
 						<div className="flex flex-col justify-center gap-4">
@@ -73,24 +68,26 @@ export default function Slides({ story }: SlidesProps) {
 					</div>
 				</div>
 
+				{/* Rest of the slides */}
 				{story.slides.map((slide, index) => (
 					<div key={index}>
 						<div className="py-32 h-[50rem] relative flex flex-col justify-center items-center gap-8">
 
-							{slide.date && (
-								<span className="btn border-petroleum-900">
-									{slide.date}
-								</span>
-							)}
+							{/* Date */}
+							{slide.date && <span className="btn border-petroleum-900">{slide.date}</span>}
 
+							{/* Vertical Lines */}
 							<svg width="36" height="125" viewBox="0 0 36 125" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M18 14.1211V102.379" stroke="#878787" strokeWidth="6" strokeLinecap="round" strokeDasharray="12 12" />
 							</svg>
+
+							{/* Text */}
 							<div className="px-16 md:px-32 text-center sm:text-lg md:text-2xl" dangerouslySetInnerHTML={{ __html: slide.text }} />
+
+							{/* Vertical Lines */}
 							<svg width="36" height="125" viewBox="0 0 36 125" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M18 14.1211V102.379" stroke="#878787" strokeWidth="6" strokeLinecap="round" strokeDasharray="12 12" />
 							</svg>
-
 
 						</div>
 					</div>
@@ -101,5 +98,4 @@ export default function Slides({ story }: SlidesProps) {
 		</>
 
 	)
-
 }

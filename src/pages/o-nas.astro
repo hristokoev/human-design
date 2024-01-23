@@ -1,43 +1,31 @@
 ---
-import fetchData from "../lib/fetchData.ts";
-import type FetchData from "../interfaces/FetchData.ts";
-import Layout from "../layouts/Layout.astro";
-import Team from "../components/sections/about/Team.tsx";
-import type TeamItem from "../interfaces/TeamItem.ts";
+/*
 
-const query = `
-query Query {
-	teamModel {
-    name
-    title
-    photo
-    quote
-		story {
-			header
-			subheader
-			photo
-			slides {
-				date
-				text
-			}
-		}
-		award
-    counters {
-      number
-      text
-    }
-    certificates {
-      title
-      text
-      image
-    }
-  }
+	About Us (O nás) page.
+
+	TODO: SEO
+
+*/
+
+import fetchData from "@/lib/fetchData.ts";
+import Layout from "@/layouts/Layout.astro";
+import TeamItem from "@/components/TeamItem.tsx";
+import query from "@/queries/o-nas.js";
+
+// Fetch team members from the CMS.
+const { teamModel } = await fetchData(query);
+
+// Throw an error if the data is empty.
+if (!teamModel) {
+  throw new Error("Failed to fetch API");
 }
-`;
-
-const { teamModel: data }: FetchData = await fetchData(query);
 ---
-
 <Layout title="O nás" description="">
-	<Team teamItems={data as TeamItem[]} client:load />
+  <section class="text-petroleum-900">
+    <div class="container">
+      <div class="py-24 flex flex-col gap-32">
+        {teamModel.map((item, i) => <TeamItem item={item} client:load />)}
+      </div>
+    </div>
+  </section>
 </Layout>

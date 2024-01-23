@@ -1,28 +1,24 @@
 /*
 
-TODO: 
+	FAQ Section with questions and answers
+	
+	TODO: Edit text
 
 */
 
-import FaqItem from "../../FaqItem";
-import type { FaqItemProps } from "../../FaqItem";
+import FaqItem from "@/components/FaqItem";
+import type { FaqItemProps } from "@/components/FaqItem";
 
-interface FaqProps {
-	faqItems: FaqItemProps[];
-}
+export default function Faq({ faqItems }: { faqItems: FaqItemProps[] }) {
 
-export default function Faq({ faqItems }: FaqProps) {
-
+	// If there are no FAQ items, don't render this section
 	if (faqItems.length === 0) return null;
 
 	return (
 
 		<section className="text-petroleum-900">
-
 			<div className="container">
-
 				<div className="py-32">
-
 					<div className="flex flex-col md:flex-row gap-24">
 
 						{/* Left Side */}
@@ -46,25 +42,17 @@ export default function Faq({ faqItems }: FaqProps) {
 
 						{/* FAQ Items */}
 						<div className="grow flex flex-col gap-y-4">
-
 							<ul className="border-t border-petroleum-900">
-								{
-									faqItems.map((faqItem, index) => (
-										<FaqItem key={index} question={faqItem.question} answer={faqItem.answer} id={`faqs-${index}`} active={faqItem.active} />
-									))
-								}
+								{faqItems.map((faqItem, index) => (
+									<FaqItem key={index} question={faqItem.question} answer={faqItem.answer} id={`faqs-${index}`} active={faqItem.active} />
+								))}
 							</ul>
-
 						</div>
 
 					</div>
-
 				</div>
-
 			</div>
-
 		</section>
 
 	)
-
 }

@@ -1,10 +1,30 @@
+/*
+
+	Human Animation Component with the help of SVG and Framer Motion.
+
+	How it works:
+	The yellow 'lines' are actually shapes. They are masked by hidden paths (with stroke attributes) and those are animated with Framer Motion.
+	With the help of Framer Motion, the hidden SVG paths are animated and the yellow lines are revealed.
+
+	Animateion sequence:
+	1. For the sequence, an array of 15 unique integers is created. 
+	2. The 15 unique integers represent 1s, 2s, 3s... 15s of delay.
+	3. The array is then shuffled and mapped to the SVG paths.
+	4. The paths are animated in the order of the randomized array.
+
+	TODO: Make the animation better and more random. The center shapes should glow when the lines 'enter' into them. Maybe add some more paths.
+
+*/
+
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
-import BgBrain from "./../assets/images/bg-brain.png";
-import Human from "./../assets/svg/human.svg";
+import BgBrain from "@/assets/images/bg-brain.png";
+import Human from "@/assets/svg/human.svg";
 
 export default function HumanAnimation() {
+
+	const [uniqueIntegers, setUniqueIntegers] = useState<number[]>([]);
 
 	const menuVariants = {
 		open: {
@@ -16,8 +36,6 @@ export default function HumanAnimation() {
 		}
 	}
 
-	const [uniqueIntegers, setUniqueIntegers] = useState<number[]>([]);
-
 	// Function to shuffle an array
 	const shuffleArray = (array: number[]) => {
 		for (let i = array.length - 1; i > 0; i--) {
@@ -28,7 +46,7 @@ export default function HumanAnimation() {
 
 	useEffect(() => {
 		// Create an array of integers from 0 to 17
-		const integers = Array.from(Array(17).keys());
+		const integers = Array.from(Array(15).keys());
 
 		// Shuffle the array
 		shuffleArray(integers);
@@ -56,8 +74,10 @@ export default function HumanAnimation() {
 
 			<div className="relative w-[544px] h-[544px]">
 
+				{/* Human - Left */}
 				<img src={Human.src} alt="Human" className="absolute top-1/2 -left-1/2 translate-x-1/2 -translate-y-1/2 w-2/3 h-2/3" />
 
+				{/* Human - Main */}
 				<motion.svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1507 1979" width="1507" height="1979" className="absolute w-full h-full z-20">
 					<path fill="#3B3B3D" d="m481.3 704.3c65.3-9.2 139-31.6 174.1-78.9 16.8-22.8 28.9-71.2 24.4-81.6-5.7-14.7-12.1-18.1-41.1-12.7-15.3 2.5-45.8-3-46.3-29.1 1.5-21.2 3.4-77.7-2.6-86.6-5.9-8.9-25.3-11.3-23.9-21.8 1.5-10.4 31.9-68.8 32.1-80.6 0.3-11.1-10.5-25.3-14.2-29.8-0.7-0.9-1.3-2.2-1.3-2.2 0 0-0.4-1.6-0.4-2.7 0.4-10.5 3.9-69.3 39.7-123.3 47.3-71.2 126.1-72.7 163-72.7 31.2 0 114.5-5.1 179 72.7 87.7 105.7 22 227.7-18 297-40.6 70.5-34.6 135-5.2 173.4 51.7 67.3 140.2 75.5 177.1 79.3 6.3 0.7 30.7 2.6 42 10.6 14 10 19 27.9 21 32.4 33.6 81.2 250.1 602.2 311.9 760.7 9.1 24.8 14.2 42 13.3 54.6-1.1 15.8-10.1 31.9-21.7 44.3-255 280.3-426.6 344.5-686.2 344.5h-0.2c-258.3 0-439-66-685.5-344.1-11-12.4-20.1-29.5-20.6-45.4 0-1-2.5-18.3 10-48.6 65.9-163.2 263.6-628.9 322.6-766.2 10.5-24.5 24.7-31.7 24.8-31.8 6.5-4.2 14.9-8.6 32.2-11.4z" />
 					<g id="lines">
@@ -119,19 +139,34 @@ export default function HumanAnimation() {
 							</g>
 							<g>
 								<motion.mask id="mask">
-									{
-										activePaths.map((path, index) => {
-											return (
-												<motion.path key={index} stroke="yellow" variants={menuVariants} animate="open" transition={{ duration: 2, ease: "easeInOut", repeat: Infinity, repeatType: "mirror", delay: uniqueIntegers[index], repeatDelay: uniqueIntegers[9] }} strokeWidth="50" fill="none" d={path} />
-											)
-										})
-									}
+									{activePaths.map((path, index) => {
+										return (
+											<motion.path
+												key={index}
+												stroke="yellow"
+												variants={menuVariants}
+												animate="open"
+												transition={{
+													duration: 2,
+													ease: "easeInOut",
+													repeat: Infinity,
+													repeatType: "mirror",
+													delay: uniqueIntegers[index],
+													repeatDelay: 15
+												}}
+												strokeWidth="50"
+												fill="none"
+												d={path}
+											/>
+										)
+									})}
 								</motion.mask>
 							</g>
 						</>
 					)}
 				</motion.svg>
 
+				{/* Human - Right */}
 				<img src={Human.src} alt="Human" className="absolute top-1/2 -right-1/2 -translate-x-1/2 -translate-y-1/2 w-2/3 h-2/3" />
 
 				{/* Background */}

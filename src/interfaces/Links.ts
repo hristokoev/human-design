@@ -17,7 +17,7 @@ type Icon = 'Web'
 	| 'YouTube'
 	| 'Zoom';
 
-export default interface Links {
+export default interface LinksProps {
 	url: string;
 	text: string;
 	icon: Icon;

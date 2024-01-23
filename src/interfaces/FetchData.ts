@@ -1,8 +1,8 @@
 
 
-import type BlogItemProps from "./BlogItem";
-import type FaqItemProps from "./FaqItem";
-import type TeamItemProps from "./TeamItem";
+import type BlogItemProps from "@/interfaces/BlogItem";
+import type FaqItemProps from "@/interfaces/FaqItem";
+import type TeamItemProps from "@/interfaces/TeamItem";
 
 export default interface FetchDataProps {
 	blogModel?: BlogItemProps[];

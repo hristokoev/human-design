@@ -1,13 +1,17 @@
 /*
 
-TODO: 
+	Reviews Component
+	
+	TODO: Connect with CMS and use slider instead of grid
 
 */
 
 import { motion } from "framer-motion";
+import ReviewItem from "./ReviewItem";
 
 export default function Reviews() {
 
+	// Animation variants (hidden and show) for the Motion container element
 	const container = {
 		hidden: { opacity: 0 },
 		show: {
@@ -19,6 +23,7 @@ export default function Reviews() {
 		}
 	}
 
+	// Animation variants (hidden and show) for the Motion element
 	const item = {
 		hidden: { opacity: 0, x: -100 },
 		show: {
@@ -33,6 +38,7 @@ export default function Reviews() {
 		},
 	}
 
+	// Sample reviews data
 	const reviews = [
 		{
 			rating: 5,
@@ -59,24 +65,18 @@ export default function Reviews() {
 		<section className="text-petroleum-900 overflow-hidden" id="sluzby">
 
 			<div className="container">
-
 				<div className="py-32 mx-auto max-w-7xl">
-
 					<div className="flex flex-col">
 
-						<motion.div
-							variants={container}
-							initial="hidden"
-							whileInView="show"
-							viewport={{ once: true, margin: "-30%" }}
-						>
+						{/* Title and animated SVG line */}
+						<motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-30%" }}>
 
-							<motion.h2
-								className="text-petroleum-900 text-8xl font-bold text-center"
-								variants={item}
-							>
+							{/* Title */}
+							<motion.h2 className="text-petroleum-900 text-8xl font-bold text-center" variants={item}>
 								Co o nás říkají naši klienti?
 							</motion.h2>
+
+							{/* Animated SVG Line */}
 							<motion.svg variants={item} width="555" height="19" viewBox="0 0 555 19" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
 								<path d="M444.942 6.04206C419.348 4.17122 373.68 3.28114 343.311 2.13576C312.942 0.990381 236.127 0.2969 172.611 0.447541C109.096 0.598181 45.3268 1.12556 31.0129 1.7884C9.91981 2.59594 4.38532 1.82547 2.10734 4.64856C0.0841797 6.9057 0.0717594 8.79765 2.06387 11.2704C4.55562 14.1248 8.56965 14.5295 30.9142 14.2978C45.2244 14.2025 75.607 13.2668 98.4586 12.2816C121.31 11.2964 199.141 10.2937 271.693 10.2024C360.062 10.0257 419.555 10.7947 452.431 12.5241C479.283 14.0248 513.411 16.1409 527.962 17.5608C547.281 19.3905 554.31 19.4366 554.32 17.9231C554.077 16.597 541.037 14.4302 522.724 12.418C505.414 10.6015 470.537 7.72371 444.942 6.04206Z" fill="url(#paint0_linear_345_2962)" />
 								<defs>
@@ -90,52 +90,17 @@ export default function Reviews() {
 							</motion.svg>
 						</motion.div>
 
-						<motion.div
-							className="mt-36 grid lg:grid-cols-3 gap-8"
-							variants={container}
-							initial="hidden"
-							whileInView="show"
-							viewport={{ once: true, margin: "-30%" }}>
-							{
-								reviews.map((review, index) => (
-									<motion.div
-										key={index}
-										className="flex flex-col gap-y-8 card-review"
-										variants={item}
-									>
-										<div className="flex">
-											{
-												[...Array(review.rating)].map((_, i) =>
-													<span className="busterCards" key={i}>
-														<svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-															<path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-														</svg>
-													</span>
-												)
-											}
-										</div>
-										<div className="grow">
-											<p className="text-sm">
-												{review.text}
-											</p>
-										</div>
-										<div className="flex flex-col">
-											<span className="font-bold">{review.name}</span>
-											<span>{review.title}</span>
-										</div>
-									</motion.div>
-								))
-							}
+						{/* Reviews */}
+						<motion.div className="mt-36 grid lg:grid-cols-3 gap-8" variants={container} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-30%" }}>
+							{reviews.map((review, index) => (
+								<ReviewItem key={index} {...review} />
+							))}
 						</motion.div>
 
 					</div>
-
 				</div>
-
 			</div>
-
-		</section >
+		</section>
 
 	)
-
 }

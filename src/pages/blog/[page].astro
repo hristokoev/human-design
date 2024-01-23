@@ -1,44 +1,112 @@
 ---
-import fetchData from "../../lib/fetchData.ts";
-import type FetchData from "../../interfaces/FetchData.ts";
-import type BlogItem from "../../interfaces/BlogItem.ts";
-import Layout from "../../layouts/Layout.astro";
-import BlogHeader from "../../components/sections/blog/BlogHeader.tsx";
-import BlogGrid from "../../components/sections/blog/BlogGrid.tsx";
-import BlogPagination from "../../components/sections/blog/BlogPagination.tsx";
-import Subscribe from "../../components/sections/blog/Subscribe.tsx";
+/*
 
+	Blog pages (1, 2, 3, ...)
+
+	TODO: 
+	
+	1. Separate the page into separate components.
+	2. Add pagination functionality (currently not set up).
+	3. SEO.
+
+*/
+
+import fetchData from "@/lib/fetchData.ts";
+import Layout from "@/layouts/Layout.astro";
+import convertDate from "@/lib/convertDate";
+import query from "@/queries/blog.js";
+
+// Get the page number from the URL.
 const { page } = Astro.params;
 
-const queryPost = `
-query Query($limit: Int, $skip: Int, $sort: JsonType) {
-  blogModel(limit: $limit, skip: $skip, sort: $sort) {
-		_id
-		_created
-		title
-		perex
-		image
-		author {
-			name
-			title
-			photo
-		}
-	}
-}
-`;
-
-const variables = {
+// TODO: Add pagination functionality. Currently it's not set up and it's showing all posts on every page.
+const queryVariables = {
   limit: 0,
   skip: 0,
-	sort: { _created: -1 },
+  sort: { _created: -1 },
 };
 
-const { blogModel: posts }: FetchData = await fetchData(queryPost, variables);
----
+// Fetch blog posts from the CMS.
+const { blogModel } = await fetchData(query, queryVariables);
 
+// Throw an error if the data is empty.
+if (!blogModel) {
+  throw new Error("Failed to fetch API");
+}
+
+const posts = blogModel;
+---
 <Layout title={`Blog - Stranka ${page} - Human Design`} description="">
-	<BlogHeader />
-	<BlogGrid posts={posts as BlogItem[]} />
-	<BlogPagination />
-	<Subscribe />
+
+	{/* Hero */}
+  <section class="text-petroleum-900">
+    <div class="container">
+      <div class="pt-32 pb-16">
+        <div class="flex flex-col gap-y-4 text-center">
+          <div>
+            <h1 class="py-2 text-6xl font-bold text-center text-gradient">Human Design pro firmy a podnikání</h1>
+            <h2 class="text-petroleum-900 text-5xl font-bold text-center">Aktuality a Příspěvky</h2>
+          </div>
+          <p>Pochopte Human Design na hlubší úrovni prostřednictvím našich příspěvků.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Blog posts */}
+  <section class="text-petroleum-900">
+    <div class="container">
+      {
+        posts.length > 0 ? (
+          <div class="grid md:grid-cols-3 gap-x-8 gap-y-16">
+            {posts.map((post, index) => {
+              const created = convertDate(post._created);
+              return (
+                <a href={"/blog/clanek/" + post._id} class="block border border-petroleum-900/10 shadow-xl shadow-petroleum-900/10 rounded-md group">
+                  <div class="overflow-hidden">
+                    <img
+                      src={"https://humandesign-admin.occamy.cz/storage/uploads" + post.image.path}
+                      alt=""
+                      class="w-full max-h-72 object-cover rounded-t-md group-hover:scale-105 transition-all duration-150 ease-in-out"
+                    />
+                  </div>
+                  <div class="p-4 space-y-2">
+                    <h2 class="text-2xl font-bold">{post.title}</h2>
+                    <p class="text-sm line-clamp-2">{post.perex}</p>
+                  </div>
+                  <div class="p-4 flex items-center">
+                    <img
+                      src={"https://humandesign-admin.occamy.cz/storage/uploads" + post.author.photo.path}
+                      alt=""
+                      class="w-12 h-12 rounded-full object-cover"
+                    />
+                    <div class="ml-4 flex flex-col">
+                      <span class="font-bold">{post.author.name}</span>
+                      <span>{created}</span>
+                    </div>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        ) : (
+          <div class="text-center text-2xl">Žádné příspěvky.</div>
+        )
+      }
+    </div>
+  </section>
+
+  {/* Pagination */}
+  <section class="text-petroleum-900">
+    <div class="container">
+      <div class="py-32">
+        <div class="flex flex-col gap-y-4 text-center">
+          <div class="flex justify-between gap-4 flex-wrap">
+            <a href="#" class={`btn ${true ? "opacity-0" : "border-petroleum-900 hover:bg-petroleum-900 hover:text-white"}`}>Předchozí</a>
+            <a href="#" class={`btn ${true ? "opacity-0" : "border-petroleum-900 hover:bg-petroleum-900 hover:text-white"}`}>Další</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>

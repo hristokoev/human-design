@@ -1,45 +1,122 @@
 ---
-import fetchData from "../../../lib/fetchData.ts";
-import type FetchData from "../../../interfaces/FetchData.ts";
-import type BlogItem from "../../../interfaces/BlogItem.ts";
-import Layout from "../../../layouts/Layout.astro";
-import PostHeader from "../../../components/sections/blog/PostHeader.tsx";
-import PostContent from "../../../components/sections/blog/PostContent.tsx";
-import Cta02 from "../../../components/sections/blog/Cta02.tsx";
-import Recommended from "../../../components/sections/blog/Recommended.tsx";
+/*
 
-const queryPost = `
-	query Query($id: String) {
-		blogModel(_id: $id) {
-			_created
-			title
-			text
-			tags
-			image
-			contributors {
-				name
-				title
-				photo
-			}
-		}
-	}
-`;
+	Single post page, which displays a single post by ID.
 
-const variables = {
+	TODO: 
+	
+	1. Add CTA section.
+	2. Add related posts section.
+	3. SEO.
+
+*/
+
+import fetchData from "@/lib/fetchData.ts";
+import Layout from "@/layouts/Layout.astro";
+import convertDate from "@/lib/convertDate";
+import query from "@/queries/post.js";
+
+const queryVariables = {
   id: Astro.params.id,
 };
 
-const { blogModel: posts }: FetchData = await fetchData(queryPost, variables);
+const { blogModel } = await fetchData(query, queryVariables);
 
-if (!posts) {
-  console.error("Error fetching data");
-  return;
+// Throw an error if the data is empty.
+if (!blogModel) {
+  throw new Error("Failed to fetch API");
 }
 
+// Get the first post, as there should only be one.
+const post = blogModel[0];
+
+// Convert date to human readable format
+const created = convertDate(post._created);
+
+// Sanitize HTML
+const sanitizedHtml = post.text.replace(/\/storage\/uploads/g, "https://humandesign-admin.occamy.cz/storage/uploads")
+															 .replace(/<h1/g, '<h1 class="text-5xl font-bold"')
+															 .replace(/<h2/g, '<h2 class="text-4xl font-bold"')
+															 .replace(/<h3/g, '<h3 class="text-3xl font-bold"')
+															 .replace(/<h4/g, '<h4 class="text-2xl font-bold"')
+															 .replace(/<h5/g, '<h5 class="text-xl font-bold"')
+															 .replace(/<h6/g, '<h6 class="text-lg font-bold"')
+															 .replace(/<ul/g, '<ul class="list-disc"')
+															 .replace(/<ol/g, '<ol class="list-decimal"')
+															 .replace(/<a/g, '<a class="underline hover:no-underline"');
 ---
-<Layout title={`${posts[0].title} - Human Design`} description="">
-	<PostHeader post={posts[0] as BlogItem} />
-	<PostContent post={posts[0] as BlogItem} />
-	<Cta02 />
-	<Recommended />
+<Layout title={`${post.title} - Human Design`} description="">
+
+	{/* Hero */}
+  <section class="text-petroleum-900">
+    <div class="container">
+      <div class="py-16 md:py-32">
+        <div class="grid md:grid-cols-5 gap-y-8">
+          <div class="col-span-2 flex flex-col gap-8">
+
+						{/* Title */}
+            <h2 class="text-gold-400 text-5xl font-bold">
+              {post.title}
+            </h2>
+
+						{/* Tags */}
+            <div class="flex gap-2">
+              {post.tags?.map((tag, index) => <span class="btn text-sm font-bold rounded-md">{tag}</span>)}
+            </div>
+
+						{/* Date */}
+            <span>Publikováno {created}</span>
+          </div>
+
+					{/* Image */}
+          <div class="col-span-3">
+            <img src={"https://humandesign-admin.occamy.cz/storage/uploads" + post.image.path} alt="" class="w-full max-h-96 object-cover" />
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+	{/* Content */}
+  <section class="text-petroleum-900">
+    <div class="container">
+      <div class="pb-16 md:pb-32">
+        <div class="grid md:grid-cols-5">
+
+					{/* Contributors */}
+          <div class="col-span-2 space-y-8">
+            {post.contributors && post.contributors.length > 0 && (
+							<>
+								<span class="font-bold">Přispěvatelé</span>
+
+								<div class="flex flex-col gap-y-4">
+									{post.contributors?.map((contributor, index) => (
+										<div class="flex items-center">
+											<img
+												src={"https://humandesign-admin.occamy.cz/storage/uploads" + contributor.photo.path}
+												alt=""
+												class="w-16 h-16 rounded-full object-cover"
+											/>
+											<div class="ml-4 flex flex-col">
+												<span class="font-bold">{contributor.name}</span>
+												<span>{contributor.title}</span>
+											</div>
+										</div>
+									))}
+								</div>
+							</>
+						)}
+          </div>
+
+					{/* Content */}
+          <div class="col-span-3">
+            <div class="space-y-3" set:html={sanitizedHtml} />
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
 </Layout>

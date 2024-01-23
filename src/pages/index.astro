@@ -1,32 +1,39 @@
 ---
-import fetchData from "../lib/fetchData";
-import type FetchDataProps from "../interfaces/FetchData";
-import Layout from "../layouts/Layout.astro";
-import Hero from "../components/sections/index/Hero.tsx";
-import Infographic01 from "../components/sections/index/Infographic01.tsx";
-import Infographic02 from "../components/sections/index/Infographic02.tsx";
-import Services from "../components/sections/index/Services.tsx";
-import Reviews from "../components/sections/index/Reviews.tsx";
-import Faq from "../components/sections/index/Faq.tsx";
-import type { FaqItemProps } from "../components/FaqItem.tsx";
+/*
 
-const query = `
-query Query {
-	faqModel {
-		question
-		answer
-	}
+	Index page.
+
+	TODO: 
+	
+	1. Organize components?
+	2. SEO
+
+*/
+
+import fetchData from "@/lib/fetchData";
+import Layout from "@/layouts/Layout.astro";
+import Hero from "@/components/Hero.tsx";
+import Infographic01 from "@/components/Infographic01.tsx";
+import Infographic02 from "@/components/Infographic02.tsx";
+import Services from "@/components/Services.tsx";
+import Reviews from "@/components/Reviews.tsx";
+import Faq from "@/components/Faq.tsx";
+import type { FaqItemProps } from "@/components/FaqItem.tsx";
+import query from "@/queries/index.js";
+
+// Fetch FAQs from the CMS.
+const { faqModel } = await fetchData(query);
+
+// Throw an error if the data is empty.
+if (!faqModel) {
+	throw new Error("Failed to fetch data from CMS");
 }
-`;
-
-const { faqModel: data }: FetchDataProps = await fetchData(query);
 ---
-
 <Layout title="Human Design" description="">	
   <Hero client:load />
   <Infographic01 client:load />
   <Infographic02 client:load />
   <Services client:load />
   <Reviews client:load />
-  <Faq faqItems={data as FaqItemProps[]} client:load />
+  <Faq faqItems={faqModel as FaqItemProps[]} client:load />
 </Layout>

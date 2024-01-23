@@ -73,6 +73,8 @@ body {
 	@apply px-4 py-2;
 	@apply border-2;
 	@apply transition duration-200 ease-in-out;
+	@apply focus:outline-none;
+	@apply rounded-3xl;
 }
 
 /* Cards */

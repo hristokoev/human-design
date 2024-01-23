@@ -1,9 +1,9 @@
-import type FetchData from "../interfaces/FetchData";
+import type FetchDataProps from "@/interfaces/FetchData";
 
 const apiKey = import.meta.env.COCKPIT_API_KEY;
 const endpoint = import.meta.env.COCKPIT_GRAPHQL_URL;
 
-export default async function fetchData(query: string, variables?: any): Promise<FetchData> {
+export default async function fetchData(query: string, variables?: any): Promise<FetchDataProps> {
 	try {
 		const response = await fetch(endpoint, {
 			method: "POST",

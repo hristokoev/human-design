@@ -1,15 +1,15 @@
 /*
 
-TODO: 
+	Hero component for the home page.
 
 */
 
 import { motion, useScroll } from "framer-motion";
 import { useRef } from "react";
 
-import HeroText from "../../../assets/svg/hero-text.svg";
-import useParallax from "../../../lib/useParallax";
-import HumanAnimation from "../../HumanAnimation";
+import HeroText from "@/assets/svg/hero-text.svg";
+import useParallax from "@/lib/useParallax";
+import HumanAnimation from "@/components/HumanAnimation";
 
 export default function Hero() {
 
@@ -23,7 +23,6 @@ export default function Hero() {
 	return (
 
 		<section className="relative bg-petroleum-950 overflow-hidden">
-
 			<motion.div className="relative pt-24 pb-48 container min-h-[44rem]" style={{ y }}>
 
 				<div className="relative flex flex-col lg:flex-row gap-y-8">
@@ -31,30 +30,19 @@ export default function Hero() {
 					{/* Left side */}
 					<div className="lg:w-1/2 lg:pt-12 flex flex-col gap-y-12 z-10">
 
+						{/* Main text in the form of SVG */}
 						<div className="flex">
 							<img src={HeroText.src} alt="Human Design pro firmy a podnikání" />
 						</div>
 
-						{/* Text Version */}
-						{/*
-
-						<div className="w-full flex flex-col font-cuprum">
-							<h1 className="sm:text-[6.45rem] font-black text-nowrap sm:leading-[6rem] lg:leading-[4rem]">
-								HUMAN DESIGN
-							</h1>
-							<h2 className="text-5xl sm:text-7xl text-gradient font-bold text-nowrap">
-								pro firmy a podnikání
-							</h2>
-						</div> 
-						
-						*/}
-
+						{/* Description - Desktop */}
 						<p className="hidden lg:block text-xl">
 							Odkryjte potenciál vašeho podnikání pomocí <span className="font-bold">Human Designu</span> - revolučního nástroje pro zlepšení komunikace, týmové dynamiky a odhalení individuálního potenciálu vašich zaměstnanců.
 						</p>
 
+						{/* CTA Buttons - Desktop */}
 						<div className="hidden lg:flex items-center gap-6">
-							<a href="/mam-zajem" className="btn bg-white border-transparent hover:bg-gold-400 text-petroleum-950">Objednejte si konzultaci</a>
+							<a href="/kontakt" className="btn bg-white border-transparent hover:bg-gold-400 text-petroleum-950">Objednejte si konzultaci</a>
 							{/* Disable second button */}
 							{/* <a href="#" className="btn border-white hover:bg-white/10">Zájem o info</a> */}
 						</div>
@@ -66,12 +54,14 @@ export default function Hero() {
 						<HumanAnimation />
 					</div>
 
+					{/* Description - Mobile */}
 					<p className="sm:pt-32 lg:hidden text-xl">
 						Odkryjte potenciál vašeho podnikání pomocí <span className="font-bold">Human Designu</span> - revolučního nástroje pro zlepšení komunikace, týmové dynamiky a odhalení individuálního potenciálu vašich zaměstnanců.
 					</p>
 
+					{/* CTA Buttons - Mobile */}
 					<div className="lg:hidden flex flex-col sm:flex-row sm:items-center gap-4">
-						<a href="/mam-zajem" className="btn bg-white border-transparent hover:bg-gold-400 text-petroleum-950">Objednejte si konzultaci</a>
+						<a href="/kontakt" className="btn bg-white border-transparent hover:bg-gold-400 text-petroleum-950">Objednejte si konzultaci</a>
 						{/* Disable second button */}
 						{/* <a href="#" className="btn border-white hover:bg-white/10">Zájem o info</a> */}
 					</div>
@@ -89,6 +79,7 @@ export default function Hero() {
 
 			</motion.div>
 
+			{/*  */}
 			<svg viewBox="0 0 900 124" xmlns="http://www.w3.org/2000/svg" version="1.1" className="translate-y-8" ref={ref}>
 				<path fill="white" d="m0.9 38.1l45.6-9.1c45.6-9.1 136.8-27.1 228-28.9 91.1-1.7 182.3 13 273.5 26.5 91.2 13.5 182.4 25.9 273.5 28.7 91.2 2.9 182.4-3.8 228-7.2l45.6-3.3v79.2h-45.6c-45.6 0-136.8 0-228 0q-136.7 0-273.5 0-136.8 0-273.5 0c-91.2 0-182.4 0-228 0h-45.6z" />
 			</svg>
@@ -96,5 +87,4 @@ export default function Hero() {
 		</section>
 
 	)
-
 }

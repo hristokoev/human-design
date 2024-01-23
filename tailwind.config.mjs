@@ -40,11 +40,11 @@ export default {
 				"9xl": "100rem",
 			},
 			animation: {
-				'gradient': 'gradient 0.3s ease-in-out',
+				"gradient": "gradient 0.3s ease-in-out",
 			},
 			keyframes: {
-				'gradient': {
-					to: { 'background-position': '200% center' },
+				"gradient": {
+					to: { "background-position": "200% center" },
 				}
 			}
 		},

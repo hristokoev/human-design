@@ -1,15 +1,23 @@
 /*
 
-TODO: 
+	A component for displaying a team member.
+	It's used on the Team page.
+	
+	Each team member has a story, which is displayed in a modal window (Slides.tsx).
+	
+	TODO: 
+	
+	1. Error handling for missing data.
+	2. Counter animation - separate component.
 
 */
 
-import { useState, Fragment } from 'react';
-import { Dialog, Transition } from '@headlessui/react';
+import { useState, Fragment } from "react";
+import { Dialog, Transition } from "@headlessui/react";
 
-import Slides from "./Slides";
-import type TeamItemProps from "../interfaces/TeamItem";
-import ImageDna from "../assets/images/dna.png";
+import Slides from "@/components/Slides";
+import type TeamItemProps from "@/interfaces/TeamItem";
+import ImageDna from "@/assets/images/dna.png";
 
 export default function TeamItem({ item }: { item: TeamItemProps }) {
 
@@ -27,31 +35,16 @@ export default function TeamItem({ item }: { item: TeamItemProps }) {
 
 		<div>
 
+			{/* Modal Window */}
 			<Transition appear show={isOpen} as={Fragment}>
 				<Dialog as="div" className="relative z-20" onClose={closeModal}>
-					<Transition.Child
-						as={Fragment}
-						enter="ease-out duration-300"
-						enterFrom="opacity-0"
-						enterTo="opacity-100"
-						leave="ease-in duration-200"
-						leaveFrom="opacity-100"
-						leaveTo="opacity-0"
-					>
+					<Transition.Child as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0" enterTo="opacity-100" leave="ease-in duration-200" leaveFrom="opacity-100" leaveTo="opacity-0">
 						<div className="fixed inset-0 bg-black/25" />
 					</Transition.Child>
 
 					<div className="fixed inset-0 overflow-y-auto">
 						<div className="flex min-h-full items-center justify-center p-4">
-							<Transition.Child
-								as={Fragment}
-								enter="ease-out duration-300"
-								enterFrom="opacity-0 scale-95"
-								enterTo="opacity-100 scale-100"
-								leave="ease-in duration-200"
-								leaveFrom="opacity-100 scale-100"
-								leaveTo="opacity-0 scale-95"
-							>
+							<Transition.Child as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0 scale-95" enterTo="opacity-100 scale-100" leave="ease-in duration-200" leaveFrom="opacity-100 scale-100" leaveTo="opacity-0 scale-95">
 								<Dialog.Panel className="w-full max-w-5xl transform overflow-hidden rounded-3xl bg-petroleum-950 shadow-2xl shadow-petroleum-900/50 cursor-pointer">
 
 									{/* Chevron */}
@@ -79,15 +72,12 @@ export default function TeamItem({ item }: { item: TeamItemProps }) {
 									{/* DNA Image */}
 									<img src={ImageDna.src} alt="" className="absolute bottom-0 right-0 h-2/3" />
 
-									{
-										item.story?.map((story, i) => (
-											<div className="flex flex-col text-white" key={i}>
-
-												<Slides story={story} />
-
-											</div>
-										))
-									}
+									{/* Slides */}
+									{item.story?.map((story, i) => (
+										<div className="flex flex-col text-white" key={i}>
+											<Slides story={story} />
+										</div>
+									))}
 
 								</Dialog.Panel>
 							</Transition.Child>
@@ -101,9 +91,14 @@ export default function TeamItem({ item }: { item: TeamItemProps }) {
 				{/* Left Side */}
 				<div className="sm:w-2/3 flex flex-col gap-y-4 sm:gap-y-12">
 
+					{/* Name and title */}
 					<div className="flex flex-col gap-y-2">
 						<div className="self-start">
+
+							{/* Name */}
 							<h2 className="text-petroleum-900 text-6xl font-bold">{item.name}</h2>
+
+							{/* SVG Line */}
 							<svg width="555" height="19" viewBox="0 0 555 19" fill="none" xmlns="http://www.w3.org/2000/svg" className="-ml-4 w-full">
 								<path d="M444.942 6.04206C419.348 4.17122 373.68 3.28114 343.311 2.13576C312.942 0.990381 236.127 0.2969 172.611 0.447541C109.096 0.598181 45.3268 1.12556 31.0129 1.7884C9.91981 2.59594 4.38532 1.82547 2.10734 4.64856C0.0841797 6.9057 0.0717594 8.79765 2.06387 11.2704C4.55562 14.1248 8.56965 14.5295 30.9142 14.2978C45.2244 14.2025 75.607 13.2668 98.4586 12.2816C121.31 11.2964 199.141 10.2937 271.693 10.2024C360.062 10.0257 419.555 10.7947 452.431 12.5241C479.283 14.0248 513.411 16.1409 527.962 17.5608C547.281 19.3905 554.31 19.4366 554.32 17.9231C554.077 16.597 541.037 14.4302 522.724 12.418C505.414 10.6015 470.537 7.72371 444.942 6.04206Z" fill="url(#paint0_linear_345_2962)" />
 								<defs>
@@ -115,10 +110,15 @@ export default function TeamItem({ item }: { item: TeamItemProps }) {
 									</linearGradient>
 								</defs>
 							</svg>
+
 						</div>
+
+						{/* Title */}
 						<span className="text-lg text-petroleum-700">{item.title}</span>
+
 					</div>
 
+					{/* Quotes */}
 					<div className="relative">
 						<svg className="absolute bottom-0 left-0 w-4 h-4 md:w-6 md:h-6 text-gold-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 14">
 							<path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z" />
@@ -129,23 +129,21 @@ export default function TeamItem({ item }: { item: TeamItemProps }) {
 						</svg>
 					</div>
 
+					{/* Counters - Desktop */}
 					<div className="flex flex-col items-center">
-
 						<div className="w-full max-w-xl hidden lg:grid grid-cols-3">
-							{
-								item.counters?.map((counter, j) => (
-									<div className="flex flex-col items-center" key={j}>
-										<span className="text-5xl text-gold-400 font-bold">
-											{counter.number}
-											</span>
-										<span className="font-black uppercase">{counter.text}</span>
-									</div>
-								))
-							}
+							{item.counters?.map((counter, j) => (
+								<div className="flex flex-col items-center" key={j}>
+									<span className="text-5xl text-gold-400 font-bold">
+										{counter.number}
+									</span>
+									<span className="font-black uppercase">{counter.text}</span>
+								</div>
+							))}
 						</div>
-
 					</div>
 
+					{/* My story button - Desktop */}
 					{item.story?.length && (
 						<div className="hidden lg:block mx-auto">
 							<button onClick={openModal} className="btn-lg text-white font-extrabold text-xl shadow-xl shadow-gold-900/10 hover:scale-105 hover:shadow-2xl hover:shadow-gold-900/10 rounded-full bg-[linear-gradient(to_right,theme(colors.gold.200),theme(colors.gold.400),theme(colors.gold.400),theme(colors.gold.200))] bg-[length:200%_auto] hover:animate-gradient">
@@ -162,42 +160,38 @@ export default function TeamItem({ item }: { item: TeamItemProps }) {
 					{/* Main Photo */}
 					<img src={"https://humandesign-admin.occamy.cz/storage/uploads" + item.photo.path} alt="" className="w-full h-full object-cover" />
 
-					{/* Award */}
-					{
-						item.award?.path && (
-							<div className="hidden lg:block absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/4 z-10">
-								<img src={"https://humandesign-admin.occamy.cz/storage/uploads" + item.award?.path} alt="" className="w-[16rem] h-[12.8rem] object-contain" />
-							</div>
-						)
-					}
+					{/* Award - Desktop */}
+					{item.award?.path && (
+						<div className="hidden lg:block absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/4 z-10">
+							<img src={"https://humandesign-admin.occamy.cz/storage/uploads" + item.award?.path} alt="" className="w-[16rem] h-[12.8rem] object-contain" />
+						</div>
+					)}
 
-					{/* Copy of award for responsiveness */}
-					{
-						item.award?.path && (
-							<div className="lg:hidden absolute bottom-0 left-0 w-full flex justify-center z-10" aria-hidden={true}>
-								<img src={"https://humandesign-admin.occamy.cz/storage/uploads" + item.award?.path} alt="" className="max-w-40 translate-y-12 object-contain" />
-							</div>
-						)
-					}
+					{/* Award - Mobile */}
+					{item.award?.path && (
+						<div className="lg:hidden absolute bottom-0 left-0 w-full flex justify-center z-10" aria-hidden={true}>
+							<img src={"https://humandesign-admin.occamy.cz/storage/uploads" + item.award?.path} alt="" className="max-w-40 translate-y-12 object-contain" />
+						</div>
+					)}
 
 				</div>
 
 			</div>
 
-			{/* Copy of counter and button for responsiveness */}
+			{/* Counters and button - Mobile */}
 			<div className="mt-16 lg:hidden flex flex-col justify-center gap-y-8" aria-hidden={true}>
 
+				{/* Counters */}
 				<div className="w-full max-w-xl lg:hidden flex flex-col sm:flex-row justify-between gap-8 mx-auto">
-					{
-						item.counters?.map((counter, j) => (
-							<div className="flex flex-col items-center" key={j}>
-								<span className="text-5xl text-gold-400 font-bold">{counter.number}</span>
-								<span className="uppercase">{counter.text}</span>
-							</div>
-						))
-					}
+					{item.counters?.map((counter, j) => (
+						<div className="flex flex-col items-center" key={j}>
+							<span className="text-5xl text-gold-400 font-bold">{counter.number}</span>
+							<span className="uppercase">{counter.text}</span>
+						</div>
+					))}
 				</div>
 
+				{/* My story button */}
 				{item.story?.length && (
 					<div className="mx-auto">
 						<button onClick={openModal} className="btn-lg text-white font-extrabold text-xl shadow-xl shadow-gold-900/10 rounded-full bg-[linear-gradient(to_right,theme(colors.gold.200),theme(colors.gold.400),theme(colors.gold.400),theme(colors.gold.200))] bg-[length:200%_auto]">
@@ -208,19 +202,18 @@ export default function TeamItem({ item }: { item: TeamItemProps }) {
 
 			</div>
 
+			{/* Certificates */}
 			<div className="mt-16 sm:mt-24 lg:mt-32 grid md:grid-cols-3 gap-12 md:gap-24">
-				{
-					item.certificates?.map((certificate, k) => (
-						<div className="flex flex-col items-center gap-y-4 text-center" key={k}>
-							<img src={"https://humandesign-admin.occamy.cz/storage/uploads" + certificate.image.path} alt="" className="min-h-40 max-w-52 object-contain" />
-							<h3 className="w-2/3 text-xl text-gold-400 font-bold uppercase">{certificate.title}</h3>
-							<div className="text-sm" dangerouslySetInnerHTML={{ __html: certificate.text }} />
-						</div>
-					))
-				}
+				{item.certificates?.map((certificate, k) => (
+					<div className="flex flex-col items-center gap-y-4 text-center" key={k}>
+						<img src={"https://humandesign-admin.occamy.cz/storage/uploads" + certificate.image.path} alt="" className="min-h-40 max-w-52 object-contain" />
+						<h3 className="w-2/3 text-xl text-gold-400 font-bold uppercase">{certificate.title}</h3>
+						<div className="text-sm" dangerouslySetInnerHTML={{ __html: certificate.text }} />
+					</div>
+				))}
 			</div>
 
-		</div >
+		</div>
 
 	)
 }

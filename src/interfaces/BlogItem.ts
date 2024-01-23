@@ -1,4 +1,4 @@
-import type ImageProps from "./Image";
+import type ImageProps from "@/interfaces/Image";
 
 interface PersonProps {
 	name: string;

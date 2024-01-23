@@ -1,6 +1,9 @@
 /*
 
-TODO: 
+	This component is a CTA (call to action) section with a button to the eshop.
+	urrently it's not used anywhere.
+
+	ODO: Animate the background - rotate the gradient or make it move.
 
 */
 
@@ -9,11 +12,8 @@ export default function Cta() {
 	return (
 
 		<section className="bg-[linear-gradient(125deg,theme(colors.gold.300),theme(colors.gold.400),theme(colors.gold.300),theme(colors.gold.400),theme(colors.gold.600))] bg-[length:100%_auto];">
-
 			<div className="container">
-
 				<div className="py-24">
-
 					<div className="flex flex-col justify-center gap-y-12 text-center">
 
 						<h2 className="text-6xl font-bold">
@@ -29,13 +29,9 @@ export default function Cta() {
 						</div>
 
 					</div>
-
 				</div>
-
 			</div>
-
 		</section>
 
 	)
-
 }

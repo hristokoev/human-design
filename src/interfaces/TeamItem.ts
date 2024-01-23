@@ -1,6 +1,6 @@
-import type ImageProps from "./Image";
-import type LinksProps from "./Links";
-import type StoryProps from "./Story";
+import type ImageProps from "@/interfaces/Image";
+import type LinksProps from "@/interfaces/Links";
+import type StoryProps from "@/interfaces/Story";
 
 interface CountersProps {
 	number: number;

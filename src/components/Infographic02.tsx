@@ -1,8 +1,14 @@
+/*
+
+	Second infographic component ('Jak začít?') for the home page.
+
+*/
+
 import { motion, useScroll } from "framer-motion";
 import { useRef } from "react";
 
-import useParallax from "../../../lib/useParallax";
-import Diamond from "../../../assets/svg/diamond.svg";
+import useParallax from "@/lib/useParallax";
+import Diamond from "@/assets/svg/diamond.svg";
 
 export default function Infographic02() {
 
@@ -17,6 +23,7 @@ export default function Infographic02() {
 	const yt4 = useParallax(scrollYProgressTop, 50);
 	const yt5 = useParallax(scrollYProgressTop, 25);
 
+	// Animation variants (hidden and show) for the Motion container element
 	const container = {
 		hidden: { opacity: 0 },
 		show: {
@@ -28,10 +35,11 @@ export default function Infographic02() {
 		}
 	}
 
+	// Animation variants (hidden and show) for the Motion element
 	const item = {
 		hidden: { opacity: 0 },
 		show: {
-			opacity: 1, 
+			opacity: 1,
 			transition: {
 				type: "spring",
 				duration: 0.8,
@@ -41,7 +49,8 @@ export default function Infographic02() {
 		},
 	}
 
-	const data = [
+	// Same infographics data
+	const infographics = [
 		{
 			title: "Osobní Konzultace",
 			text: "Začněte s osobní konzultací vvašeho jedinečného nastavení. Na základě vaší osobní zkušenosti se pobavíme o tom, co dál.",
@@ -70,7 +79,6 @@ export default function Infographic02() {
 			<section className="relative bg-gradient-to-b from-gold-400 to-gold-600">
 
 				{/* Diamond */}
-
 				<motion.img
 					src={Diamond.src}
 					alt=""
@@ -86,33 +94,30 @@ export default function Infographic02() {
 				/>
 
 				<div className="container">
-
 					<div className="py-24">
 
-						<motion.div
-							className="flex flex-col gap-y-8"
-							variants={container}
-							initial="hidden"
-							whileInView="show"
-							viewport={{ once: true, margin: "-30%" }}
-						>
+						<motion.div className="flex flex-col gap-y-8" variants={container} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-30%" }}>
 
+							{/* Title */}
 							<motion.h2 className="text-8xl font-bold text-center" variants={item}>
 								Jak začít?
 							</motion.h2>
 
+							{/* Vertical Lines */}
 							<motion.div className="flex justify-center" variants={item}>
 								<svg width="37" height="125" viewBox="0 0 37 125" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M18.5312 14.6055V102.863" stroke="#F8F3E1" strokeWidth="6" strokeLinecap="round" strokeDasharray="12 12" />
 								</svg>
 							</motion.div>
 
+							{/* Subtitle */}
 							<motion.div className="flex justify-center" variants={item}>
 								<span className="text-2xl text-center">
 									Mám již nějakou předchozí zkušenost s <span className="font-bold">Human Designem</span>?
 								</span>
 							</motion.div>
 
+							{/* Yes | No - Desktop */}
 							<motion.div className="hidden md:flex justify-center" variants={item}>
 								<svg width="560" height="136" viewBox="0 0 560 136" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M280 3.17188V24.1856C280 55.1808 259.964 76.1945 229.909 76.1945C225.337 76.1945 191.542 76.1363 178 76.1945M3 132.406V129.254C3.00009 97.2081 22.0346 76.7198 53.0907 76.7198C60.9895 76.7198 93.9044 76.7306 102 76.7198" stroke="#F8F3E1" strokeWidth="6" strokeLinecap="round" strokeDasharray="12 12" />
@@ -122,62 +127,57 @@ export default function Infographic02() {
 								</svg>
 							</motion.div>
 
+							{/* Cards */}
 							<div className="flex flex-col md:flex-row md:justify-evenly gap-8 text-center">
-								{
-									data.map((card, index) => (
+								{infographics.map((card, index) => (
+									<div key={index}>
 
-										<div key={index}>
+										{/* Yes | No - Mobile */}
+										{index === 0 && (
+											<div className="flex justify-center md:hidden">
+												<svg width="283" height="136" viewBox="0 0 283 136" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M133.641 86L131.922 80.5312H124L122.281 86H117.438L125.266 63.4531H130.812L138.656 86H133.641ZM127.906 67.7656L125.016 77H130.906L128.016 67.7656H127.906ZM140.578 86V69.25H144.984V72.2344H145.078C145.969 70.1562 147.734 68.9375 150.312 68.9375C154.031 68.9375 156.125 71.2812 156.125 75.2031V86H151.562V76.1562C151.562 73.9688 150.531 72.7188 148.484 72.7188C146.438 72.7188 145.141 74.2188 145.141 76.3906V86H140.578ZM166.703 86.3594C161.641 86.3594 158.406 83.1094 158.406 77.6094C158.406 72.1875 161.688 68.8906 166.703 68.8906C171.719 68.8906 175 72.1719 175 77.6094C175 83.125 171.766 86.3594 166.703 86.3594ZM166.703 82.875C168.938 82.875 170.359 80.9844 170.359 77.625C170.359 74.2969 168.922 72.375 166.703 72.375C164.484 72.375 163.031 74.2969 163.031 77.625C163.031 80.9844 164.453 82.875 166.703 82.875Z" fill="#F8F3E1" />
+													<path d="M3 3.17188V24.1856C3 55.1808 23.0361 76.1945 53.0905 76.1945C57.6625 76.1945 91.4579 76.1363 105 76.1945M280 132.406V129.254C280 97.2081 260.965 76.7198 229.909 76.7198C222.01 76.7198 196.596 76.7306 188.5 76.7198" stroke="#F8F3E1" strokeWidth="6" strokeLinecap="round" strokeDasharray="12 12" />
+												</svg>
+											</div>
+										)}
+										{index === 1 && (
+											<div className="flex justify-center md:hidden">
+												<svg width="283" height="136" viewBox="0 0 283 136" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M280 3.17188V24.1856C280 55.1808 259.964 76.1945 229.909 76.1945C225.337 76.1945 191.542 76.1363 178 76.1945M3 132.406V129.254C3.00009 97.2081 22.0346 76.7198 53.0907 76.7198C60.9895 76.7198 93.9044 76.7306 102 76.7198" stroke="#F8F3E1" strokeWidth="6" strokeLinecap="round" strokeDasharray="12 12" />
+													<path d="M126.391 86H121.875V63.4531H125.812L136.344 78.1406H136.469V63.4531H140.984V86H137.078L126.531 71.2344H126.391V86ZM151.875 72.2656C149.875 72.2656 148.438 73.7812 148.281 75.875H155.391C155.297 73.7344 153.906 72.2656 151.875 72.2656ZM155.453 80.875H159.641C159.141 84.1562 156.141 86.3594 152 86.3594C146.844 86.3594 143.75 83.0625 143.75 77.7031C143.75 72.3594 146.875 68.8906 151.828 68.8906C156.703 68.8906 159.781 72.1875 159.781 77.2812V78.6719H148.234V78.9531C148.234 81.3438 149.75 82.9844 152.078 82.9844C153.75 82.9844 155.031 82.1562 155.453 80.875Z" fill="#F8F3E1" />
+												</svg>
+											</div>
+										)}
 
-											{/* Mobile */}
-											{index === 0 && (
-												<div className="flex justify-center md:hidden">
-													<svg width="283" height="136" viewBox="0 0 283 136" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M133.641 86L131.922 80.5312H124L122.281 86H117.438L125.266 63.4531H130.812L138.656 86H133.641ZM127.906 67.7656L125.016 77H130.906L128.016 67.7656H127.906ZM140.578 86V69.25H144.984V72.2344H145.078C145.969 70.1562 147.734 68.9375 150.312 68.9375C154.031 68.9375 156.125 71.2812 156.125 75.2031V86H151.562V76.1562C151.562 73.9688 150.531 72.7188 148.484 72.7188C146.438 72.7188 145.141 74.2188 145.141 76.3906V86H140.578ZM166.703 86.3594C161.641 86.3594 158.406 83.1094 158.406 77.6094C158.406 72.1875 161.688 68.8906 166.703 68.8906C171.719 68.8906 175 72.1719 175 77.6094C175 83.125 171.766 86.3594 166.703 86.3594ZM166.703 82.875C168.938 82.875 170.359 80.9844 170.359 77.625C170.359 74.2969 168.922 72.375 166.703 72.375C164.484 72.375 163.031 74.2969 163.031 77.625C163.031 80.9844 164.453 82.875 166.703 82.875Z" fill="#F8F3E1" />
-														<path d="M3 3.17188V24.1856C3 55.1808 23.0361 76.1945 53.0905 76.1945C57.6625 76.1945 91.4579 76.1363 105 76.1945M280 132.406V129.254C280 97.2081 260.965 76.7198 229.909 76.7198C222.01 76.7198 196.596 76.7306 188.5 76.7198" stroke="#F8F3E1" strokeWidth="6" strokeLinecap="round" strokeDasharray="12 12" />
-													</svg>
-												</div>
-											)}
-											{index === 1 && (
-												<div className="flex justify-center md:hidden">
-													<svg width="283" height="136" viewBox="0 0 283 136" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M280 3.17188V24.1856C280 55.1808 259.964 76.1945 229.909 76.1945C225.337 76.1945 191.542 76.1363 178 76.1945M3 132.406V129.254C3.00009 97.2081 22.0346 76.7198 53.0907 76.7198C60.9895 76.7198 93.9044 76.7306 102 76.7198" stroke="#F8F3E1" strokeWidth="6" strokeLinecap="round" strokeDasharray="12 12" />
-														<path d="M126.391 86H121.875V63.4531H125.812L136.344 78.1406H136.469V63.4531H140.984V86H137.078L126.531 71.2344H126.391V86ZM151.875 72.2656C149.875 72.2656 148.438 73.7812 148.281 75.875H155.391C155.297 73.7344 153.906 72.2656 151.875 72.2656ZM155.453 80.875H159.641C159.141 84.1562 156.141 86.3594 152 86.3594C146.844 86.3594 143.75 83.0625 143.75 77.7031C143.75 72.3594 146.875 68.8906 151.828 68.8906C156.703 68.8906 159.781 72.1875 159.781 77.2812V78.6719H148.234V78.9531C148.234 81.3438 149.75 82.9844 152.078 82.9844C153.75 82.9844 155.031 82.1562 155.453 80.875Z" fill="#F8F3E1" />
-													</svg>
-												</div>
-											)}
+										{/* Desktop */}
+										<motion.div
+											className="card-gold max-w-96"
+											transition={{ duration: 0.5 }}
+											variants={{
+												show: { opacity: 1, x: 0 },
+												hidden: { opacity: 0, x: (index % 2 === 0) ? -100 : 100 }
+											}}
+										>
+											<div className="text-3xl">
+												<p className="font-bold">{card.title}</p>
+											</div>
+											<div className="grow flex items-center px-2">
+												<p className="text-sm font-medium">{card.text}</p>
+											</div>
+											<div className="">
+												<a className="btn border-white hover:bg-white/10" href="/kontakt">{card.button}</a>
+											</div>
+										</motion.div>
 
-											{/* Desktop */}
-											<motion.div
-												className="card-gold max-w-96"
-												transition={{ duration: 0.5 }}
-												variants={{
-													show: { opacity: 1, x: 0 },
-													hidden: { opacity: 0, x: (index % 2 === 0) ? -100 : 100 }
-												}}
-											>
-												<div className="text-3xl">
-													<p className="font-bold">{card.title}</p>
-												</div>
-												<div className="grow flex items-center px-2">
-													<p className="text-sm font-medium">{card.text}</p>
-												</div>
-												<div className="">
-													<a className="btn border-white hover:bg-white/10" href="/mam-zajem">{card.button}</a>
-												</div>
-											</motion.div>
-
-										</div>
-
-									))
-								}
+									</div>
+								))}
 							</div>
 
 						</motion.div>
 
 					</div>
-
 				</div>
-
 			</section>
 
 			{/* Bottom Wave */}

@@ -1,13 +1,22 @@
+/*
+
+	First infographic component ('Jak vám pomůže Human Design?') for the home page.
+
+	TODO: Add background.
+
+*/
+
 import { motion } from "framer-motion";
 
-import Card01 from "../../Card01";
-import ImageCard01 from "../../../assets/images/card-infographic-01.png";
-import ImageCard02 from "../../../assets/images/card-infographic-02.png";
-import ImageCard03 from "../../../assets/images/card-infographic-03.png";
-import ImageCard04 from "../../../assets/images/card-infographic-04.png";
+import Card01 from "@/components/Card01";
+import ImageCard01 from "@/assets/images/card-infographic-01.png";
+import ImageCard02 from "@/assets/images/card-infographic-02.png";
+import ImageCard03 from "@/assets/images/card-infographic-03.png";
+import ImageCard04 from "@/assets/images/card-infographic-04.png";
 
 export default function Infographic01() {
 
+	// Sample cards data
 	const cards = [
 		{
 			image: ImageCard01.src,
@@ -41,13 +50,11 @@ export default function Infographic01() {
 	return (
 
 		<section className="text-petroleum-900" id="jak-pomuze">
-
 			<div className="container">
-
 				<div className="py-32">
+					<div className="flex flex-col">
 
-					<div className="flex flex-col" >
-
+						{/* Title */}
 						<motion.h2
 							className="text-petroleum-900 text-6xl font-bold text-center"
 							initial="hidden"
@@ -62,28 +69,17 @@ export default function Infographic01() {
 							Jak vám pomůže Human Design?
 						</motion.h2>
 
-						<motion.div
-							className="mt-24 grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center"
-							variants={container}
-							initial="hidden"
-							whileInView="show"
-							viewport={{ once: true, margin: "-30%" }}
-						>
-							{
-								cards.map((card, index) => (
-									<Card01 key={index} {...card} />
-								))
-							}
+						{/* Cards */}
+						<motion.div className="mt-24 grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center" variants={container} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-30%" }}>
+							{cards.map((card, index) => (
+								<Card01 key={index} {...card} />
+							))}
 						</motion.div>
 
 					</div>
-
 				</div>
-
 			</div>
-
 		</section>
 
 	)
-
 }
