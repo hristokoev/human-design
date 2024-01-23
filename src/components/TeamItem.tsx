@@ -70,7 +70,7 @@ export default function TeamItem({ item }: { item: TeamItemProps }) {
 									</span>
 
 									{/* DNA Image */}
-									<img src={ImageDna.src} alt="" className="absolute bottom-0 right-0 h-2/3" />
+									<img src={ImageDna.src} alt="DNA Image" className="absolute bottom-0 right-0 h-2/3" aria-hidden={true} />
 
 									{/* Slides */}
 									{item.story?.map((story, i) => (
@@ -158,19 +158,19 @@ export default function TeamItem({ item }: { item: TeamItemProps }) {
 				<div className="relative">
 
 					{/* Main Photo */}
-					<img src={"https://humandesign-admin.occamy.cz/storage/uploads" + item.photo.path} alt="" className="w-full h-full object-cover" />
+					<img src={"https://humandesign-admin.occamy.cz/storage/uploads" + item.photo.path} alt={item.name} className="w-full h-full object-cover" />
 
 					{/* Award - Desktop */}
 					{item.award?.path && (
 						<div className="hidden lg:block absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/4 z-10">
-							<img src={"https://humandesign-admin.occamy.cz/storage/uploads" + item.award?.path} alt="" className="w-[16rem] h-[12.8rem] object-contain" />
+							<img src={"https://humandesign-admin.occamy.cz/storage/uploads" + item.award?.path} alt="Obrázek ocenění" className="w-[16rem] h-[12.8rem] object-contain" />
 						</div>
 					)}
 
 					{/* Award - Mobile */}
 					{item.award?.path && (
 						<div className="lg:hidden absolute bottom-0 left-0 w-full flex justify-center z-10" aria-hidden={true}>
-							<img src={"https://humandesign-admin.occamy.cz/storage/uploads" + item.award?.path} alt="" className="max-w-40 translate-y-12 object-contain" />
+							<img src={"https://humandesign-admin.occamy.cz/storage/uploads" + item.award?.path} alt="Obrázek ocenění" className="max-w-40 translate-y-12 object-contain" />
 						</div>
 					)}
 
@@ -206,7 +206,7 @@ export default function TeamItem({ item }: { item: TeamItemProps }) {
 			<div className="mt-16 sm:mt-24 lg:mt-32 grid md:grid-cols-3 gap-12 md:gap-24">
 				{item.certificates?.map((certificate, k) => (
 					<div className="flex flex-col items-center gap-y-4 text-center" key={k}>
-						<img src={"https://humandesign-admin.occamy.cz/storage/uploads" + certificate.image.path} alt="" className="min-h-40 max-w-52 object-contain" />
+						<img src={"https://humandesign-admin.occamy.cz/storage/uploads" + certificate.image.path} alt="Obrázek certifikátu" className="min-h-40 max-w-52 object-contain" />
 						<h3 className="w-2/3 text-xl text-gold-400 font-bold uppercase">{certificate.title}</h3>
 						<div className="text-sm" dangerouslySetInnerHTML={{ __html: certificate.text }} />
 					</div>

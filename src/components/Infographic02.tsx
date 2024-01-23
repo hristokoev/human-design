@@ -81,7 +81,7 @@ export default function Infographic02() {
 				{/* Diamond */}
 				<motion.img
 					src={Diamond.src}
-					alt=""
+					alt="Diamond"
 					className="hidden md:block absolute top-0 right-0 w-1/4 pointer-events-none"
 					initial="hidden"
 					whileInView="show"
@@ -91,6 +91,7 @@ export default function Infographic02() {
 						show: { opacity: 1 },
 						hidden: { opacity: 0 }
 					}}
+					aria-hidden={true}
 				/>
 
 				<div className="container">

@@ -66,7 +66,7 @@ const posts = blogModel;
                   <div class="overflow-hidden">
                     <img
                       src={"https://humandesign-admin.occamy.cz/storage/uploads" + post.image.path}
-                      alt=""
+                      alt={post.title}
                       class="w-full max-h-72 object-cover rounded-t-md group-hover:scale-105 transition-all duration-150 ease-in-out"
                     />
                   </div>
@@ -77,7 +77,7 @@ const posts = blogModel;
                   <div class="p-4 flex items-center">
                     <img
                       src={"https://humandesign-admin.occamy.cz/storage/uploads" + post.author.photo.path}
-                      alt=""
+                      alt={post.author.name}
                       class="w-12 h-12 rounded-full object-cover"
                     />
                     <div class="ml-4 flex flex-col">

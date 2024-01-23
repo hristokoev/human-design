@@ -171,7 +171,7 @@ export default function HumanAnimation() {
 
 				{/* Background */}
 				<div className="absolute top-[8rem] -translate-y-1/4 left-0 -translate-x-[8rem] pointer-events-none -z-10">
-					<img src={BgBrain.src} alt="" className="max-w-[48rem] max-h-[42rem]" aria-hidden={true} />
+					<img src={BgBrain.src} alt="Background" className="max-w-[48rem] max-h-[42rem]" aria-hidden={true} />
 				</div>
 
 			</div>

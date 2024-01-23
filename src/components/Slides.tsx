@@ -63,7 +63,7 @@ export default function Slides({ story }: { story: StoryProps }) {
 							</span>
 						</div>
 						<div className="flex-1 w-full z-10">
-							<img src={"https://humandesign-admin.occamy.cz/storage/uploads" + story.photo.path} alt="" className="w-full" />
+							<img src={"https://humandesign-admin.occamy.cz/storage/uploads" + story.photo.path} alt={story.header} className="w-full" />
 						</div>
 					</div>
 				</div>
