@@ -42,6 +42,7 @@ export default {
 			animation: {
 				"gradient": "gradient 0.3s ease-in-out",
 				"reveal": "reveal 0.3s ease-in-out",
+				"reveal-reverse": "reveal-reverse 0.3s ease-in-out",
 			},
 			keyframes: {
 				"gradient": {
@@ -49,6 +50,10 @@ export default {
 				},
 				"reveal": {
 					from: { "transform": "translateY(-100%)" },
+					to: { "transform": "translateY(0%)" },
+				},
+				"reveal-reverse": {
+					from: { "transform": "translateY(100%)" },
 					to: { "transform": "translateY(0%)" },
 				},
 			}
