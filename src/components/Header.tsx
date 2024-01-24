@@ -16,13 +16,19 @@ import MobileMenu from "./MobileMenu";
 export default function Header() {
 
 	const [isSticky, setIsSticky] = useState(false);
+	const [isInitialLoad, setIsInitialLoad] = useState(true);
 	const ref = useRef<HTMLElement>(null)
 
 	const handleScroll: EventListener = () => {
 		const offset = window.scrollY;
 		// Set the threshold scroll value to make the header sticky
 		const stickyOffset = ref.current?.offsetHeight || 0;
-		setIsSticky(offset > stickyOffset);
+		if (offset > (stickyOffset / 1.25)) {
+			setIsInitialLoad(false);
+			setIsSticky(true);
+		} else {
+			setIsSticky(false);
+		}
 	};
 
 	useEffect(() => {
@@ -37,12 +43,12 @@ export default function Header() {
 
 		<div className="relative bg-petroleum-950 z-50">
 
-			<header className={`${isSticky ? 'fixed top-0 transform animate-reveal' : 'animate-reveal-reverse delay-200'} w-full bg-petroleum-950/90 backdrop-blur-lg border-b border-petroleum-950 transition-all duration-300 ease-in-out z-50`} ref={ref}>
+			<header className={`${isSticky ? 'fixed top-0 transform animate-reveal' : !isInitialLoad && 'animate-reveal-reverse'} w-full bg-petroleum-950/90 backdrop-blur-lg border-b border-petroleum-950 transition-all duration-300 ease-in-out z-50`} ref={ref}>
 				<div className="container flex items-center">
 
 					{/* Logo */}
 					<div className="py-4 flex items-center">
-						<a href="/" className="py-4 flex items-center">
+						<a href="/" className="md:py-4 flex items-center">
 							<img src={Logo.src} width="182" alt="Human Design" />
 							<span className="sr-only">Human Design</span>
 						</a>

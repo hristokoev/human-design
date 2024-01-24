@@ -30,7 +30,7 @@ export default function MobileMenu() {
 		<nav className="w-full md:hidden">
 
 			{/* Hamburger */}
-			<div className="absolute top-12 right-12 flex md:hidden">
+			<div className="absolute top-8 right-12 flex md:hidden">
 				<button
 					ref={trigger}
 					className={`${mobileNavOpen && 'active'}`}
@@ -48,7 +48,7 @@ export default function MobileMenu() {
 			</div>
 
 			{/* Menu */}
-			<div ref={mobileNav} className="border-y border-y-petroleum-900/50">
+			<div ref={mobileNav} className="bg-gradient-to-b from-black/25 border-y border-y-petroleum-900/50">
 				<Transition
 					show={mobileNavOpen}
 					as="nav"
@@ -56,14 +56,14 @@ export default function MobileMenu() {
 					enter="transition-all duration-300"
 					enterFrom="opacity-0 -translate-y-6"
 					enterTo="opacity-100 translate-y-0"
-					className="py-8 text-white md:hidden"
+					className="py-2 text-white md:hidden"
 				>
-					<ul className="flex flex-col gap-y-4 text-xl text-center">
-						<li><a href="/" className="hover:text-gold-400 transition-all duration-150 ease-in-out">Domů</a></li>
-						<li><a href="/#sluzby" className="hover:text-gold-400 transition-all duration-150 ease-in-out">Služby</a></li>
-						<li><a href="/o-nas" className="hover:text-gold-400 transition-all duration-150 ease-in-out">O Nás</a></li>
-						<li><a href="/blog/1" className="hover:text-gold-400 transition-all duration-150 ease-in-out">Blog</a></li>
-						<li><a href="/kontakt" className="hover:text-gold-400 transition-all duration-150 ease-in-out">Kontakt</a></li>
+					<ul className="flex flex-col divide-y divide-petroleum-900/25 text-lg text-center">
+						<li className="py-2"><a href="/" className="hover:text-gold-400 transition-all duration-150 ease-in-out">Domů</a></li>
+						<li className="py-2"><a href="/#sluzby" className="hover:text-gold-400 transition-all duration-150 ease-in-out">Služby</a></li>
+						<li className="py-2"><a href="/o-nas" className="hover:text-gold-400 transition-all duration-150 ease-in-out">O Nás</a></li>
+						<li className="py-2"><a href="/blog/1" className="hover:text-gold-400 transition-all duration-150 ease-in-out">Blog</a></li>
+						<li className="py-2"><a href="/kontakt" className="hover:text-gold-400 transition-all duration-150 ease-in-out">Kontakt</a></li>
 					</ul>
 				</Transition>
 			</div>
