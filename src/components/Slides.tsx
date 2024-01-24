@@ -84,7 +84,7 @@ export default function Slides({ story }: { story: StoryProps }) {
 							</svg>
 
 							{/* Text */}
-							<div className="px-16 md:px-32 text-center sm:text-lg md:text-2xl" dangerouslySetInnerHTML={{ __html: slide.text }} />
+							<div className="px-16 md:px-32 text-center md:text-lg lg:text-2xl" dangerouslySetInnerHTML={{ __html: slide.text }} />
 
 							{/* Vertical Lines */}
 							<svg width="36" height="125" viewBox="0 0 36 125" fill="none" xmlns="http://www.w3.org/2000/svg">
