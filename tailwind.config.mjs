@@ -41,11 +41,16 @@ export default {
 			},
 			animation: {
 				"gradient": "gradient 0.3s ease-in-out",
+				"reveal": "reveal 0.3s ease-in-out",
 			},
 			keyframes: {
 				"gradient": {
 					to: { "background-position": "200% center" },
-				}
+				},
+				"reveal": {
+					from: { "transform": "translateY(-100%)" },
+					to: { "transform": "translateY(0%)" },
+				},
 			}
 		},
 	},
