@@ -16,6 +16,7 @@ import { useState, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
 import Slides from "@/components/Slides";
+import Counter from "@/components/Counter";
 import type TeamItemProps from "@/interfaces/TeamItem";
 import ImageDna from "@/assets/images/dna.png";
 
@@ -117,12 +118,13 @@ export default function TeamItem({ item }: { item: TeamItemProps }) {
 					</div>
 
 					{/* Counters - Desktop */}
+
 					<div className="flex flex-col items-center">
 						<div className="w-full max-w-xl hidden lg:grid grid-cols-3">
 							{item.counters?.map((counter, j) => (
 								<div className="flex flex-col items-center" key={j}>
 									<span className="text-5xl text-gold-400 font-bold">
-										{counter.number}
+										<Counter value={counter.number} direction="up" />
 									</span>
 									<span className="font-black uppercase">{counter.text}</span>
 								</div>
