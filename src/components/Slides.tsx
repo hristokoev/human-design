@@ -33,7 +33,7 @@ export default function Slides({ story }: { story: StoryProps }) {
 				type: "spring",
 				duration: 0.5,
 				ease: "easeInOut",
-				bounce: 0.55,
+				bounce: 0.15,
 				bounceDamping: 100,
 				bounceStiffness: 500,
 			}
