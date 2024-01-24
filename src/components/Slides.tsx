@@ -73,7 +73,7 @@ export default function Slides({ story }: { story: StoryProps }) {
 				{/* Rest of the slides */}
 				{story.slides.map((slide, index) => (
 					<div key={index}>
-						<div className="h-[75dvh] relative flex flex-col justify-center items-center gap-y-8">
+						<div className="h-[75dvh] py-24 relative flex flex-col justify-center items-center gap-y-8">
 
 							{/* Date */}
 							{slide.date && <span className="btn border-petroleum-900">{slide.date}</span>}
