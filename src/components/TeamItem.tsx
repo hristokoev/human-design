@@ -8,7 +8,6 @@
 	TODO: 
 	
 	1. Error handling for missing data.
-	2. Counter animation - separate component.
 
 */
 

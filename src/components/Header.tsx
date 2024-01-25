@@ -4,8 +4,6 @@
 	
 	The 'Kurzy' button is currently disabled. Uncomment it to enable it.
 	
-	TODO: Mobile Menu
-
 */
 
 import { useState, useEffect, useRef } from "react";
