@@ -1,3 +1,11 @@
+/*
+
+	Form API endpoint
+
+	TODO: Rate limit and prevent spam
+
+*/
+
 import type { APIRoute } from 'astro';
 
 export const POST: APIRoute = async ({ request }) => {
@@ -73,51 +81,58 @@ export const POST: APIRoute = async ({ request }) => {
 
 		// Optional fields: validate experienceWithHumanDesign type
 		if (typeof experienceWithHumanDesign !== 'string') {
-			return new Response(JSON.stringify({ error: 'Invalid type for experienceWithHumanDesign.' }), { status: 400 });
+			return new Response(JSON.stringify({ error: 'Invalid type for experience.' }), { status: 400 });
 		}
 
 		// Optional fields: validate birthDate type
 		if (birthDate && typeof birthDate !== 'string') {
-			return new Response(JSON.stringify({ error: 'Invalid type for birthDate.' }), { status: 400 });
+			return new Response(JSON.stringify({ error: 'Invalid type for date of birth.' }), { status: 400 });
 		}
 
 		// Optional fields: validate birthTime type
 		if (birthTime && typeof birthTime !== 'string') {
-			return new Response(JSON.stringify({ error: 'Invalid type for birthTime.' }), { status: 400 });
+			return new Response(JSON.stringify({ error: 'Invalid type for time of birth.' }), { status: 400 });
 		}
 
 		// Optional fields: validate birthCountry type
 		if (birthCountry && typeof birthCountry !== 'string') {
-			return new Response(JSON.stringify({ error: 'Invalid type for birthCountry.' }), { status: 400 });
+			return new Response(JSON.stringify({ error: 'Invalid type for country of birth.' }), { status: 400 });
 		}
 
 		// Optional fields: validate birthCity type
 		if (birthCity && typeof birthCity !== 'string') {
-			return new Response(JSON.stringify({ error: 'Invalid type for birthCity.' }), { status: 400 });
+			return new Response(JSON.stringify({ error: 'Invalid type for city of birth.' }), { status: 400 });
 		}
 
-		// Process and respond
+		const dateAndTimeOfPost = new Date();
+		const formattedDateAndTimeOfPost = dateAndTimeOfPost.toLocaleDateString("cs-CZ", {
+			day: "numeric",
+			month: "long",
+			year: "numeric",
+			hour: "numeric",
+			minute: "numeric",
+		});
+
+		// Process and send to Google Sheets
 		try {
-			await fetch(import.meta.env.COCKPIT_REST_URL + "/content/item/orders", {
+			await fetch("https://script.google.com/macros/s/" + import.meta.env.GOOGLE_APP_SCRIPT_ID + "/exec", {
 				method: "POST",
 				body: JSON.stringify({
-					data: {
-						firstName,
-						lastName,
-						email,
-						phone,
-						experienceWithHumanDesign,
-						service,
-						birthDate,
-						birthTime,
-						birthCountry,
-						birthCity,
-						message,
-					}
+					dateAndTimeOfPost: formattedDateAndTimeOfPost,
+					firstName,
+					lastName,
+					email,
+					phone,
+					experienceWithHumanDesign,
+					service,
+					birthDate,
+					birthTime,
+					birthCountry,
+					birthCity,
+					message,
 				}),
 				headers: {
 					"Content-Type": "application/json",
-					"api-key": import.meta.env.COCKPIT_API_KEY,
 				}
 			});
 		} catch {
