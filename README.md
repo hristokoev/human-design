@@ -1,47 +1,63 @@
-# Astro Starter Kit: Minimal
+# [Human Design Pro Firmy](https://humandesignprofirmy.cz) Website
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Disclaimer: *Human Design is an ideology and something that I do NOT subscribe to.* 😂 *Getting that out of the way...*
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+## What is this?
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+This is mostly a frontend website built with Astro and React. It's using Cockpit CMS as a headless CMS. For the backend part, there's one API endpoint that's used to send emails. **The website is fully SSR and needs a Nodejs server to run.**
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
+## How to run it?
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
 | `npm install`             | Installs dependencies                            |
 | `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| `npm run build`           | Build production site to `./dist/`          		 |
+| `npm run preview`         | Preview build locally, before deploying          |
 
-## 👀 Want to learn more?
+## How to deploy it?
+I'm using Vercel to deploy this website. It's connected to this GitHub repository and it automatically builds and deploys the website whenever I push to the `main` branch.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+IMPORTANT: You need to set up the following environment variables in Vercel:
+```text
+COCKPIT_API_KEY
+COCKPIT_REST_URL
+COCKPIT_GRAPHQL_URL
+GOOGLE_APP_SCRIPT_ID
+```
+
+## Project structure
+```text
+/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── css/
+│   ├── interfaces
+│   ├── layouts/
+│   ├── lib/
+│   └── pages/
+│       ├── api/
+│       ├── blog/
+│       └── index.astro
+│       ...
+|   ├── queries/
+└── package.json
+```
+
+Astro looks for `.astro` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+
+There's nothing special about `src/components/`, but that's where I like to put any Astro/React components.
+
+For the blog posts, I'm using dynamic routes, like `blog/[page].astro` and `/blog/clanek/[id].astro`.
+
+## Additional libraries
+- [Tailwind CSS](https://tailwindcss.com/) for styling
+- [React Hook Form](https://react-hook-form.com/) for forms
+- [Framer Motion](https://www.framer.com/motion/) for animations
+
+## To Do:
+1. SEO
+2. Blog pagination and category routes
+3. Rate limiting and error handling for the API endpoint
+4. Take advantage of Astro features for images and implement island structure
