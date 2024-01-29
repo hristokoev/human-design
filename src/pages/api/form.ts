@@ -70,7 +70,7 @@ export const POST: APIRoute = async ({ request }) => {
 		}
 
 		// Optional fields: validate required fields if service is selected other than 'Jiné'
-		if (service && service !== 'Jiné' && (!experienceWithHumanDesign || !birthDate || !birthTime || !birthCountry || !birthCity)) {
+		if (service && (service == 'HD konzultace pro jednotlivce' || service == 'HD konzultace pro dvojice' || service == 'Balíček služeb') && (!experienceWithHumanDesign || !birthDate || !birthTime || !birthCountry || !birthCity)) {
 			return new Response(JSON.stringify({ error: 'Missing birth information for selected service.' }), { status: 400 });
 		}
 

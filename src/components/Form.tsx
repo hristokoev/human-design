@@ -103,21 +103,19 @@ export default function Form() {
 				<label htmlFor="service">Jakou službu poptáváte? *</label>
 				<select {...register("service", { required: "Prosím vyberte." })} id="service" className={`grow input ${!errors.service?.message ? 'border-petroleum-900' : 'border-red-500'}`}>
 					<option value="Nic" disabled>Vyberte</option>
-					<option value="15 min konzultace zdarma">15 min konzultace zdarma</option>
+					<option value="HD konzultace pro jednotlivce">HD konzultace pro jednotlivce</option>
+					<option value="HD konzultace pro dvojice">HD konzultace pro dvojice</option>
+					<option value="Balíček služeb">Balíček služeb</option>
+					<option value="Přednáška">Přednáška</option>
+					<option value="Workshop pro týmy">Workshop pro týmy</option>
 					<option value="Koučink">Koučink</option>
-					<option value="Provázená pouť">Provázená pouť</option>
-					<option value="3*30 min supervize zdarma">3*30 min supervize zdarma</option>
-					<option value="Individuální supervize koučů">Individuální supervize koučů</option>
-					<option value="Královehradecká skupinová supervize">Královehradecká skupinová supervize</option>
-					<option value="Koučuji v souladu s mým životním posláním">Koučuji v souladu s mým životním posláním</option>
-					<option value="Autentický kouč">Autentický kouč</option>
-					<option value="Supervize pro HD profíky">Supervize pro HD profíky</option>
+					<option value="Manažerská supervize">Manažerská supervize</option>
 					<option value="Jiné">Jiné</option>
 				</select>
 				<p className="text-sm text-red-500">{errors.service?.message}</p>
 			</div>
 
-			{watchService && watchService !== "Jiné" && (
+			{watchService && (watchService == 'HD konzultace pro jednotlivce' || watchService == 'HD konzultace pro dvojice' || watchService == 'Balíček služeb') && (
 				<>
 					<div className="flex flex-col gap-6">
 						<span>Máte již zkušenost s <span className="text-gold-400 font-bold">Human Designem</span>&nbsp;* ?</span>
