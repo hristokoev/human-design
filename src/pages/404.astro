@@ -1,0 +1,36 @@
+---
+/*
+
+	404 page.
+
+	TODO: SEO
+
+*/
+
+import fetchData from "@/lib/fetchData.ts";
+import Layout from "@/layouts/Layout.astro";
+import query from "@/queries/o-nas.js";
+import Image404 from "@/assets/svg/404.svg";
+
+// Fetch team members from the CMS.
+const { teamModel } = await fetchData(query);
+
+// Throw an error if the data is empty.
+if (!teamModel) {
+  throw new Error("Failed to fetch API");
+}
+---
+
+<Layout title="404" description="">
+  <section class="text-petroleum-900">
+    <div class="container">
+      <div class="py-32">
+        <div class="text-center">
+          <h2 class="text-petroleum-900 text-9xl font-bold">404</h2>
+          <p class="mt-4 text-xl">Tato stránka neexistuje.</p>
+        </div>
+        <img src={Image404.src} alt="404" class="h-96 mx-auto" />
+      </div>
+    </div>
+  </section>
+</Layout>
