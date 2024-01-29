@@ -1,0 +1,279 @@
+---
+/*
+
+	GDPR page.
+
+	TODO: SEO
+
+*/
+
+import fetchData from "@/lib/fetchData.ts";
+import Layout from "@/layouts/Layout.astro";
+import query from "@/queries/o-nas.js";
+
+// Fetch team members from the CMS.
+const { teamModel } = await fetchData(query);
+
+// Throw an error if the data is empty.
+if (!teamModel) {
+  throw new Error("Failed to fetch API");
+}
+---
+
+<Layout title="GDPR" description="">
+  <section class="text-petroleum-900">
+    <div class="container">
+      <div class="py-24 flex flex-col gap-y-4">
+        <h2 class="text-5xl text-center"><strong>Z&aacute;sady ochrany osobn&iacute;ch &uacute;dajů</strong></j2>
+
+        <h3 class="mt-8 text-2xl"><strong>&Uacute;vod</strong></h3>
+
+        <p>
+          Soukrom&iacute; n&aacute;v&scaron;těvn&iacute;ků na&scaron;ich webov&yacute;ch str&aacute;nek a klientů je pro n&aacute;s velmi důležit&eacute; a
+          zav&aacute;zali jsme se je chr&aacute;nit. Je to souč&aacute;st&iacute; na&scaron;&iacute; firemn&iacute; i osobn&iacute; cti, aby va&scaron;e
+          informace u n&aacute;s byly v bezpeč&iacute;. Tato pravidla vysvětluj&iacute;, co s va&scaron;imi osobn&iacute;mi &uacute;daji děl&aacute;me.
+        </p>
+
+        <h3 class="text-2xl"><strong>I. Z&aacute;kladn&iacute; ustanoven&iacute;</strong></h3>
+
+        <p>
+          1. Spr&aacute;vcem osobn&iacute;ch &uacute;dajů podle čl. 4 bod 7 nař&iacute;zen&iacute; Evropsk&eacute;ho parlamentu a Rady (EU) 2016/679 o ochraně
+          fyzick&yacute;ch osob v souvislosti se zpracov&aacute;n&iacute;m osobn&iacute;ch &uacute;dajů a o voln&eacute;m pohybu těchto &uacute;dajů
+          (d&aacute;le jen: &bdquo;<strong>GDPR</strong>&rdquo;) je <strong>Lid&eacute; a zdroje s.r.o., IČ 05199328</strong>, se s&iacute;dlem Pavla
+          Hanu&scaron;e 252/4, 500 02 Hradec Kr&aacute;lov&eacute; (d&aacute;le jen: &bdquo;<strong>spr&aacute;vce</strong>&ldquo;).
+        </p>
+
+        <p>2. Kontaktn&iacute;m &uacute;dajem spr&aacute;vce je emailov&aacute; adresa : podpora@lideazdroje.cz</p>
+
+        <p>
+          3. Osobn&iacute;mi &uacute;daji se rozum&iacute; ve&scaron;ker&eacute; informace o identifikovan&eacute; nebo identifikovateln&eacute; fyzick&eacute;
+          osobě; identifikovatelnou fyzickou osobou je fyzick&aacute; osoba, kterou lze př&iacute;mo či nepř&iacute;mo identifikovat, zejm&eacute;na odkazem na
+          určit&yacute; identifik&aacute;tor, např&iacute;klad jm&eacute;no, identifikačn&iacute; č&iacute;slo, lokačn&iacute; &uacute;daje,
+          s&iacute;ťov&yacute; identifik&aacute;tor nebo na jeden či v&iacute;ce zvl&aacute;&scaron;tn&iacute;ch prvků fyzick&eacute;, fyziologick&eacute;,
+          genetick&eacute;, psychick&eacute;, ekonomick&eacute;, kulturn&iacute; nebo společensk&eacute; identity t&eacute;to fyzick&eacute; osoby.
+        </p>
+
+        <p>4. Spr&aacute;vce nejmenoval pověřence pro ochranu osobn&iacute;ch &uacute;dajů.</p>
+
+        <h3 class="text-2xl"><strong>II. Zdroje a kategorie zpracov&aacute;van&yacute;ch osobn&iacute;ch &uacute;dajů</strong></h3>
+
+        <p>
+          1. Spr&aacute;vce zpracov&aacute;v&aacute; osobn&iacute; &uacute;daje, kter&eacute; jste mu poskytl/a nebo osobn&iacute; &uacute;daje, kter&eacute;
+          spr&aacute;vce z&iacute;skal na z&aacute;kladě plněn&iacute; Va&scaron;&iacute; objedn&aacute;vky.
+        </p>
+
+        <p>
+          2. Spr&aacute;vce zpracov&aacute;v&aacute; Va&scaron;e identifikačn&iacute; a kontaktn&iacute; &uacute;daje a &uacute;daje nezbytn&eacute; pro
+          plněn&iacute; smlouvy.
+        </p>
+
+        <p>
+          3. Zpracov&aacute;v&aacute;me osobn&iacute; &uacute;daje, kter&eacute; n&aacute;m svěř&iacute;te sami, a to z n&aacute;sleduj&iacute;c&iacute;ch
+          důvodů (pro naplněn&iacute; těchto &uacute;čelů):
+        </p>
+
+        <ul class="ml-8 list-disc list-inside">
+          <li>
+						<strong>poskytov&aacute;n&iacute; služeb, plněn&iacute; smlouvy</strong><br />va&scaron;e osobn&iacute; &uacute;daje v rozsahu: e-mail, telefon, jm&eacute;no,
+						př&iacute;jmen&iacute;,pohlav&iacute;, datum, čas a m&iacute;sto narozen&iacute;, nezbytně potřebujeme k plněn&iacute; smlouvy (např. zasl&aacute;n&iacute;
+						př&iacute;stupů do člensk&eacute; sekce, vypracov&aacute;n&iacute; osobn&iacute;ho p&iacute;semn&eacute;ho rozboru, atd), obecně dod&aacute;n&iacute;
+						zbož&iacute;.
+          </li>
+
+					<li>
+						<strong>veden&iacute; &uacute;četnictv&iacute;</strong><br />Jste-li z&aacute;kazn&iacute;ky, va&scaron;e osobn&iacute; &uacute;daje (fakturačn&iacute; &uacute;daje)
+						nezbytně potřebujeme, abychom vyhověli z&aacute;konn&eacute; povinnosti pro vystavov&aacute;n&iacute; a evidenci daňov&yacute;ch dokladů.
+					</li>
+
+					<li>
+						<strong>marketing - zas&iacute;l&aacute;n&iacute; newsletterů</strong><br />Va&scaron;e osobn&iacute; &uacute;daje (e-mail, jm&eacute;no př&iacute;jmen&iacute;,
+						pohlav&iacute;, rodn&eacute; &uacute;daje), na co klik&aacute;te v e-mailu a kdy je nejčastěji otev&iacute;r&aacute;te využ&iacute;v&aacute;me za
+						&uacute;čelem př&iacute;m&eacute;ho marketingu - zas&iacute;l&aacute;n&iacute; personifikovan&yacute;ch obchodn&iacute;ch sdělen&iacute;. Jste-li
+						na&scaron;&iacute;m z&aacute;kazn&iacute;kem, děl&aacute;me tak z opr&aacute;vněn&eacute;ho z&aacute;jmu, neboť důvodně předpokl&aacute;d&aacute;me,
+						že v&aacute;s na&scaron;e novinky zaj&iacute;maj&iacute;, a to po dobu 5 let od posledn&iacute; objedn&aacute;vky. Pokud nejste na&scaron;&iacute;m
+						z&aacute;kazn&iacute;kem, zas&iacute;l&aacute;me v&aacute;m newslettery jen na z&aacute;kladě va&scaron;eho souhlasu, po dobu 5 let od
+						udělen&iacute;. V obou př&iacute;padech můžete tento souhlas odvolat použit&iacute;m odhla&scaron;ovac&iacute;ho odkazu v každ&eacute;m
+						zaslan&eacute;m e-mailu.
+					</li>
+
+					<li>
+						<strong>fotografick&aacute; dokumentace - živ&eacute; akce, semin&aacute;ře, v&yacute;cviky</strong><br />Pouze na z&aacute;kladě va&scaron;eho &uacute;stn&iacute;ho
+						souhlasu na živ&eacute; akci pořizujeme a uchov&aacute;v&aacute;me po dobu 15 let fotografie z na&scaron;ich živ&yacute;ch akc&iacute;,
+						kter&yacute;ch se můžete &uacute;častnit. Tento souhlas můžete samozřejmě kdykoliv odvolat prostřednictv&iacute;m na&scaron;ich kontaktn&iacute;ch
+						&uacute;dajů.
+					</li>
+
+					<li>
+						<strong>audio/video dokumentace - živ&eacute; akce, semin&aacute;ře, webin&aacute;ře</strong><br />Pouze na z&aacute;kladě va&scaron;eho &uacute;stn&iacute;ho souhlasu na
+						živ&eacute; akci pořizujeme a uchov&aacute;v&aacute;me po dobu 15 let audio/video z&aacute;znamy z na&scaron;ich živ&yacute;ch akc&iacute;,
+						kter&yacute;ch se můžete &uacute;častnit. Tento souhlas můžete samozřejmě kdykoliv odvolat prostřednictv&iacute;m na&scaron;ich kontaktn&iacute;ch
+						&uacute;dajů.
+					</li>
+
+					<li>
+						Při proch&aacute;zen&iacute; na&scaron;ich webov&yacute;ch str&aacute;nek zaznamen&aacute;v&aacute;me va&scaron;i IP adresu, jak dlouho se na
+						str&aacute;nce zdrž&iacute;te a ze kter&eacute; str&aacute;nky přich&aacute;z&iacute;te. Použ&iacute;v&aacute;n&iacute; cookies pro měřen&iacute;
+						n&aacute;v&scaron;těvnosti webu a přizpůsoben&iacute; zobrazen&iacute; webov&yacute;ch str&aacute;nek vn&iacute;m&aacute;me jako svůj
+						opr&aacute;vněn&yacute; z&aacute;jem spr&aacute;vce, neboť věř&iacute;me, že d&iacute;ky tomu v&aacute;m můžeme nab&iacute;dnout je&scaron;tě
+						lep&scaron;&iacute; služby. Cookies pro c&iacute;len&iacute; reklamy budou zpracov&aacute;v&aacute;ny jen na z&aacute;kladě va&scaron;eho souhlasu.
+					</li>
+
+					<li>
+						Na&scaron;e webov&eacute; str&aacute;nky lze proch&aacute;zet tak&eacute; v režimu, kter&yacute; neumožňuje sb&iacute;r&aacute;n&iacute;
+						osobn&iacute;ch &uacute;dajů. Použ&iacute;v&aacute;n&iacute; cookies můžete na sv&eacute;m poč&iacute;tači zak&aacute;zat.
+					</li>
+
+					<li>
+						Va&scaron;e osobn&iacute; &uacute;daje si ponech&aacute;v&aacute;me po dobu běhu promlčec&iacute;ch lhůt, pokud z&aacute;kon nestanov&iacute;
+						del&scaron;&iacute; dobu k jejich uchov&aacute;n&iacute; nebo jsme v konkr&eacute;tn&iacute;ch př&iacute;padech neuvedli jinak.
+					</li>
+
+        </ul>			
+
+        <h3 class="text-2xl"><strong>III. Z&aacute;konn&yacute; důvod a &uacute;čel zpracov&aacute;n&iacute; osobn&iacute;ch &uacute;dajů</strong></h3>
+
+        <p>1. Z&aacute;konn&yacute;m důvodem zpracov&aacute;n&iacute; osobn&iacute;ch &uacute;dajů je</p>
+
+				<ul class="ml-8 list-disc list-inside">
+					<li>plněn&iacute; smlouvy mezi V&aacute;mi a spr&aacute;vcem podle čl. 6 odst. 1 p&iacute;sm. b) GDPR,</li>
+					
+					<li>
+					  opr&aacute;vněn&yacute; z&aacute;jem spr&aacute;vce na poskytov&aacute;n&iacute; př&iacute;m&eacute;ho marketingu (zejm&eacute;na pro
+						zas&iacute;l&aacute;n&iacute; obchodn&iacute;ch sdělen&iacute; a newsletterů) podle čl. 6 odst. 1 p&iacute;sm. f) GDPR,
+					</li>
+					
+					<li>
+						V&aacute;&scaron; souhlas se zpracov&aacute;n&iacute;m pro &uacute;čely poskytov&aacute;n&iacute; př&iacute;m&eacute;ho marketingu
+						(zejm&eacute;na pro zas&iacute;l&aacute;n&iacute; obchodn&iacute;ch sdělen&iacute; a newsletterů) podle čl. 6 odst. 1 p&iacute;sm. a) GDPR ve
+						spojen&iacute; s &sect; 7 odst. 2 z&aacute;kona č. 480/2004 Sb., o někter&yacute;ch služb&aacute;ch informačn&iacute; společnosti v př&iacute;padě, že
+						nedo&scaron;lo k objedn&aacute;vce zbož&iacute; nebo služby.
+					</li>
+				</ul>
+
+        <p>2. &Uacute;čelem zpracov&aacute;n&iacute; osobn&iacute;ch &uacute;dajů je</p>
+
+				<ul class="ml-8 list-disc list-inside">
+					<li>
+						vyř&iacute;zen&iacute; Va&scaron;&iacute; objedn&aacute;vky a v&yacute;kon pr&aacute;v a povinnost&iacute; vypl&yacute;vaj&iacute;c&iacute;ch
+						ze smluvn&iacute;ho vztahu mezi V&aacute;mi a spr&aacute;vcem; při objedn&aacute;vce jsou vyžadov&aacute;ny osobn&iacute; &uacute;daje, kter&eacute;
+						jsou nutn&eacute; pro &uacute;spě&scaron;n&eacute; vyř&iacute;zen&iacute; objedn&aacute;vky (jm&eacute;no a adresa, kontakt), poskytnut&iacute;
+						osobn&iacute;ch &uacute;dajů je nutn&yacute;m požadavkem pro uzavřen&iacute; a plněn&iacute; smlouvy, bez poskytnut&iacute; osobn&iacute;ch
+						&uacute;dajů nen&iacute; možn&eacute; smlouvu uzavř&iacute;t či j&iacute; ze strany spr&aacute;vce plnit,
+					</li>
+
+					<li>zas&iacute;l&aacute;n&iacute; obchodn&iacute;ch sdělen&iacute; a činěn&iacute; dal&scaron;&iacute;ch marketingov&yacute;ch aktivit.</li>
+				</ul>
+
+        <p>
+          3. Ze strany spr&aacute;vce nedoch&aacute;z&iacute; k automatick&eacute;mu individu&aacute;ln&iacute;mu rozhodov&aacute;n&iacute; ve smyslu čl. 22
+          GDPR.
+        </p>
+
+        <h3 class="text-2xl"><strong>IV. Doba uchov&aacute;v&aacute;n&iacute; &uacute;dajů</strong></h3>
+
+        <p>1. Spr&aacute;vce uchov&aacute;v&aacute; osobn&iacute; &uacute;daje</p>
+
+				<ul class="ml-8 list-disc list-inside">
+					<li>
+						po dobu nezbytnou k v&yacute;konu pr&aacute;v a povinnost&iacute; vypl&yacute;vaj&iacute;c&iacute;ch ze smluvn&iacute;ho vztahu mezi
+						V&aacute;mi a spr&aacute;vcem a uplatňov&aacute;n&iacute; n&aacute;roků z těchto smluvn&iacute;ch vztahů (po dobu 15 let od ukončen&iacute;
+						smluvn&iacute;ho vztahu).
+					</li>
+
+					<li>
+						po dobu, než je odvol&aacute;n souhlas se zpracov&aacute;n&iacute;m osobn&iacute;ch &uacute;dajů pro &uacute;čely marketingu, nejd&eacute;le 10
+						let, jsou-li osobn&iacute; &uacute;daje zpracov&aacute;v&aacute;ny na z&aacute;kladě souhlasu.
+					</li>
+				</ul>
+
+        <p>2. Po uplynut&iacute; doby uchov&aacute;v&aacute;n&iacute; osobn&iacute;ch &uacute;dajů spr&aacute;vce osobn&iacute; &uacute;daje vymaže.</p>
+
+        <p>V. Př&iacute;jemci osobn&iacute;ch &uacute;dajů (subdodavatel&eacute; spr&aacute;vce)</p>
+
+        <p>1. Př&iacute;jemci osobn&iacute;ch &uacute;dajů jsou osoby</p>
+
+				<ul class="ml-8 list-disc list-inside">
+					<li>pod&iacute;lej&iacute;c&iacute; se na dod&aacute;n&iacute; zbož&iacute; / služeb / realizaci plateb na z&aacute;kladě smlouvy,</li>
+
+					<li>pod&iacute;lej&iacute;c&iacute; se na zaji&scaron;těn&iacute; provozu služeb,</li>
+
+					<li>zaji&scaron;ťuj&iacute;c&iacute; marketingov&eacute; služby.</li>
+				</ul>
+
+        <p>
+          2. Spr&aacute;vce může předat osobn&iacute; &uacute;daje do třet&iacute; země (do země mimo EU) nebo mezin&aacute;rodn&iacute; organizaci.
+          Př&iacute;jemci osobn&iacute;ch &uacute;dajů ve třet&iacute;ch zem&iacute;ch jsou poskytovatel&eacute; mailingov&yacute;ch služeb / cloudov&yacute;ch
+          služeb.
+        </p>
+
+        <h3 class="text-2xl"><strong>VI. Va&scaron;e pr&aacute;va</strong></h3>
+
+        <p>1. Za podm&iacute;nek stanoven&yacute;ch v GDPR m&aacute;te</p>
+
+				<ul class="ml-8 list-disc list-inside">
+
+					<li>pr&aacute;vo na př&iacute;stup ke sv&yacute;m osobn&iacute;m &uacute;dajům dle čl. 15 GDPR,</li>
+
+					<li>
+						pr&aacute;vo opravu osobn&iacute;ch &uacute;dajů dle čl. 16 GDPR, popř&iacute;padě omezen&iacute; zpracov&aacute;n&iacute; dle čl. 18 GDPR.
+					</li>
+
+					<li>pr&aacute;vo na v&yacute;maz osobn&iacute;ch &uacute;dajů dle čl. 17 GDPR.</li>
+
+					<li>pr&aacute;vo vzn&eacute;st n&aacute;mitku proti zpracov&aacute;n&iacute; dle čl. 21 GDPR a</li>
+
+					<li>pr&aacute;vo na přenositelnost &uacute;dajů dle čl. 20 GDPR.</li>
+
+					<li>
+						pr&aacute;vo odvolat souhlas se zpracov&aacute;n&iacute;m p&iacute;semně nebo elektronicky na adresu nebo email spr&aacute;vce uveden&yacute; v
+						čl. III těchto podm&iacute;nek.
+					</li>
+				</ul>
+
+				<p>
+					2. D&aacute;le m&aacute;te pr&aacute;vo podat st&iacute;žnost u &Uacute;řadu pro ochranu osobn&iacute;ch &uacute;dajů v př&iacute;padě, že se
+					domn&iacute;v&aacute;te, že bylo poru&scaron;eno Va&scaron;&iacute; pr&aacute;vo na ochranu osobn&iacute;ch &uacute;dajů.
+				</p>
+
+        <h3 class="text-2xl"><strong>VII. Podm&iacute;nky zabezpečen&iacute; osobn&iacute;ch &uacute;dajů</strong></h3>
+
+        <p>
+          1. Spr&aacute;vce prohla&scaron;uje, že přijal ve&scaron;ker&aacute; vhodn&aacute; technick&aacute; a organizačn&iacute; opatřen&iacute; k
+          zabezpečen&iacute; osobn&iacute;ch &uacute;dajů.
+        </p>
+
+        <p>
+          2. Spr&aacute;vce přijal technick&aacute; opatřen&iacute; k zabezpečen&iacute; datov&yacute;ch &uacute;loži&scaron;ť a &uacute;loži&scaron;ť
+          osobn&iacute;ch &uacute;dajů v listinn&eacute; podobě. Chr&aacute;n&iacute;me osobn&iacute; &uacute;daje v maxim&aacute;ln&iacute; možn&eacute;
+          m&iacute;ře pomoc&iacute; modern&iacute;ch technologi&iacute;, kter&eacute; odpov&iacute;daj&iacute; stupni technick&eacute;ho rozvoje.
+          Chr&aacute;n&iacute;me je jako kdyby byly na&scaron;e vlastn&iacute;. Přijali jsme a udržujeme ve&scaron;ker&aacute; možn&aacute; (aktu&aacute;lně
+          zn&aacute;m&aacute;) technick&aacute; a organizačn&iacute; opatřen&iacute;, kter&aacute; zamezuj&iacute; zneužit&iacute;, po&scaron;kozen&iacute; nebo
+          zničen&iacute; va&scaron;ich osobn&iacute;ch &uacute;dajů.
+        </p>
+
+        <p>3. Spr&aacute;vce prohla&scaron;uje, že k osobn&iacute;m &uacute;dajům maj&iacute; př&iacute;stup pouze j&iacute;m pověřen&eacute; osoby.</p>
+
+        <h3 class="text-2xl"><strong>VIII. Z&aacute;věrečn&aacute; ustanoven&iacute;</strong></h3>
+
+        <p>
+          1. Odesl&aacute;n&iacute;m objedn&aacute;vky z internetov&eacute;ho objedn&aacute;vkov&eacute;ho formul&aacute;ře potvrzujete, že jste
+          sezn&aacute;men/a s podm&iacute;nkami ochrany osobn&iacute;ch &uacute;dajů a že je v cel&eacute;m rozsahu přij&iacute;m&aacute;te.
+        </p>
+
+        <p>
+          2. S těmito podm&iacute;nkami souhlas&iacute;te za&scaron;krtnut&iacute;m souhlasu prostřednictv&iacute;m internetov&eacute;ho formul&aacute;ře.
+          Za&scaron;krtnut&iacute;m souhlasu potvrzujete, že jste sezn&aacute;men/a s podm&iacute;nkami ochrany osobn&iacute;ch &uacute;dajů a že je v
+          cel&eacute;m rozsahu přij&iacute;m&aacute;te.
+        </p>
+
+        <p>
+          3. Spr&aacute;vce je opr&aacute;vněn tyto podm&iacute;nky změnit. Novou verzi podm&iacute;nek ochrany osobn&iacute;ch &uacute;dajů zveřejn&iacute; na
+          sv&yacute;ch internetov&yacute;ch str&aacute;nk&aacute;ch, př&iacute;padně V&aacute;m za&scaron;le novou verzi těchto podm&iacute;nek na e-mailovou
+          adresu, kterou jste spr&aacute;vci poskytl/a.
+        </p>
+
+        <p>Tyto podm&iacute;nky nab&yacute;vaj&iacute; &uacute;činnosti dnem 25.5.2018.</p>
+      </div>
+    </div>
+  </section>
+</Layout>
