@@ -15,6 +15,7 @@ import fetchData from "@/lib/fetchData.ts";
 import Layout from "@/layouts/Layout.astro";
 import convertDate from "@/lib/convertDate";
 import query from "@/queries/blog.js";
+import LogoImage from "@/assets/svg/hd-logo-dark.svg";
 
 // Get the page number from the URL.
 const { page } = Astro.params;
@@ -37,17 +38,14 @@ if (!blogModel) {
 const posts = blogModel;
 ---
 <Layout title={`Blog - Stranka ${page} - Human Design`} description="">
-
-	{/* Hero */}
+  {/* Hero */}
   <section class="text-petroleum-900">
     <div class="container">
-      <div class="pt-32 pb-16">
+      <div class="py-32">
         <div class="flex flex-col gap-y-4 text-center">
-          <div>
-            <h1 class="py-2 text-6xl font-bold text-center text-gradient">Human Design pro firmy a podnikání</h1>
-            <h2 class="text-petroleum-900 text-5xl font-bold text-center">Aktuality a Příspěvky</h2>
-          </div>
-          <p>Pochopte Human Design na hlubší úrovni prostřednictvím našich příspěvků.</p>
+          <img src={LogoImage.src} alt="Human Design" class="mx-auto" />
+          <h1 class="mt-8 py-2 text-6xl font-bold text-center">Aktuality a Příspěvky</h1>
+          <p class="text-xl">Pochopte Human Design na hlubší úrovni prostřednictvím našich příspěvků.</p>
         </div>
       </div>
     </div>
@@ -63,11 +61,11 @@ const posts = blogModel;
               const created = convertDate(post._created);
               return (
                 <a href={"/blog/clanek/" + post._id} class="block border border-petroleum-900/10 shadow-xl shadow-petroleum-900/10 rounded-md group">
-                  <div class="overflow-hidden">
+                  <div class="relative overflow-hidden">
                     <img
                       src={"https://humandesign-admin.occamy.cz/storage/uploads" + post.image.path}
                       alt={post.title}
-                      class="w-full max-h-72 object-cover rounded-t-md group-hover:scale-105 transition-all duration-150 ease-in-out"
+                      class="w-full max-h-72 object-cover object-top rounded-t-md group-hover:scale-105 transition-all duration-150 ease-in-out z-20"
                     />
                   </div>
                   <div class="p-4 space-y-2">
