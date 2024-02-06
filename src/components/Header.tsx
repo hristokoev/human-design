@@ -45,7 +45,7 @@ export default function Header() {
 				<div className="container flex items-center">
 
 					{/* Logo */}
-					<div className="py-4 flex items-center">
+					<div className="flex items-center">
 						<a href="/" className="md:py-4 flex items-center">
 							<img src={Logo.src} width="182" alt="Human Design" />
 							<span className="sr-only">Human Design</span>

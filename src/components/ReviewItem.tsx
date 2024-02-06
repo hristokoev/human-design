@@ -7,15 +7,31 @@
 */
 
 import { motion } from "framer-motion";
+import { Dialog, Transition } from "@headlessui/react";
+import { useState, Fragment } from "react";
 
 interface ReviewItemsProps {
-	rating: number;
+	service: string;
 	text: string;
 	name: string;
 	title: string;
 }
 
-export default function ReviewItem({ rating, text, name, title }: ReviewItemsProps) {
+export default function ReviewItem({ text, name, title, service }: ReviewItemsProps) {
+
+	let [isOpen, setIsOpen] = useState(false)
+
+	function closeModal() {
+		setIsOpen(false)
+	}
+
+	function openModal() {
+		setIsOpen(true)
+	}
+
+
+	// Limit text to 300 characters
+	const perex = text.length > 300 ? text.substring(0, 300) + "..." : text;
 
 	// Animation variants (hidden and show) for the Motion element
 	const item = {
@@ -34,32 +50,82 @@ export default function ReviewItem({ rating, text, name, title }: ReviewItemsPro
 
 	return (
 
-		<motion.div className="flex flex-col gap-y-8 card-review" variants={item}>
+		<>
 
-			{/* Render stars based on rating (int 1-5) */}
-			<div className="flex">
-				{[...Array(rating)].map((_, i) =>
-					<span key={i}>
-						<svg className="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#0b2328" viewBox="0 0 22 20">
-							<path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-						</svg>
-					</span>
-				)}
-			</div>
+			{/* Modal Window */}
+			<Transition appear show={isOpen} as={Fragment}>
+				<Dialog as="div" className="relative z-10" onClose={closeModal}>
+					<Transition.Child
+						as={Fragment}
+						enter="ease-out duration-300"
+						enterFrom="opacity-0"
+						enterTo="opacity-100"
+						leave="ease-in duration-200"
+						leaveFrom="opacity-100"
+						leaveTo="opacity-0"
+					>
+						<div className="fixed inset-0 bg-black/25" />
+					</Transition.Child>
 
-			{/* Text */}
-			<div className="grow">
-				<p className="text-sm">
-					{text}
-				</p>
-			</div>
+					<div className="fixed inset-0 overflow-y-auto">
+						<div className="flex min-h-full items-center justify-center p-4 text-center">
+							<Transition.Child
+								as={Fragment}
+								enter="ease-out duration-300"
+								enterFrom="opacity-0 scale-95"
+								enterTo="opacity-100 scale-100"
+								leave="ease-in duration-200"
+								leaveFrom="opacity-100 scale-100"
+								leaveTo="opacity-0 scale-95"
+							>
+								<Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
 
-			{/* Reviewer */}
-			<div className="flex flex-col">
-				<span className="font-bold">{name}</span>
-				<span>{title}</span>
-			</div>
-		</motion.div>
+									<div className="mt-2">
+										<p className="text-sm text-gray-500">
+											{text}
+										</p>
+									</div>
+
+									<div className="mt-4">
+										<button
+											type="button"
+											className="btn bg-petroleum-900 hover:bg-petroleum-700"
+											onClick={closeModal}
+										>
+											Zavřít
+										</button>
+									</div>
+								</Dialog.Panel>
+							</Transition.Child>
+						</div>
+					</div>
+				</Dialog>
+			</Transition>
+
+			<motion.div className="flex flex-col gap-y-4 card-review" variants={item}>
+
+				{/* Service */}
+				<div className="flex font-bold">
+					{service}
+				</div>
+
+				{/* Text */}
+				<div className="grow">
+					<p className="text-sm">
+						{perex}
+						&nbsp;
+						<button className="text-gold-400 hover:underline" onClick={openModal}>Zobrazit více</button>
+					</p>
+				</div>
+
+				{/* Reviewer */}
+				<div className="flex flex-col">
+					<span className="font-bold">{name}</span>
+					<span>{title}</span>
+				</div>
+			</motion.div>
+
+		</>
 
 	)
 }
