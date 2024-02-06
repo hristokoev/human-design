@@ -91,7 +91,7 @@ body {
 
 .card-service,
 .card-review {
-	@apply p-12 min-h-96;
+	@apply p-12 min-h-80;
 	@apply bg-white text-petroleum-900;
 	@apply rounded-3xl;
 	@apply border border-petroleum-900/10 shadow-xl shadow-petroleum-900/10;
