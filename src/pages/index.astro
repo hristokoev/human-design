@@ -19,13 +19,14 @@ import Services from "@/components/Services.tsx";
 import Reviews from "@/components/Reviews.tsx";
 import Faq from "@/components/Faq.tsx";
 import type { FaqItemProps } from "@/components/FaqItem.tsx";
+import type ReviewItemProps from "@/interfaces/ReviewItem.ts";
 import query from "@/queries/index.js";
 
 // Fetch FAQs from the CMS.
-const { faqModel } = await fetchData(query);
+const { faqModel, reviewsModel } = await fetchData(query);
 
 // Throw an error if the data is empty.
-if (!faqModel) {
+if (!faqModel || !reviewsModel) {
 	throw new Error("Failed to fetch data from CMS");
 }
 ---
@@ -34,6 +35,6 @@ if (!faqModel) {
   <Infographic01 client:load />
   <Infographic02 client:load />
   <Services client:load />
-  <Reviews client:load />
+  <Reviews reviewItems={reviewsModel as ReviewItemProps[]} client:load />
   <Faq faqItems={faqModel as FaqItemProps[]} client:load />
 </Layout>

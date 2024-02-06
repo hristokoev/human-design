@@ -14,7 +14,7 @@ export default function Counter({ value, direction = "up", }: { value: number; d
 
 	const ref = useRef<HTMLSpanElement>(null);
 	const motionValue = useMotionValue(direction === "down" ? value : 0);
-	const springValue = useSpring(motionValue, { damping: 100, stiffness: 100, duration: 0.8,  });
+	const springValue = useSpring(motionValue, { damping: 30, stiffness: 200, duration: 0.1,  });
 	const isInView = useInView(ref, { once: true, margin: "-100px" });
 
 	useEffect(() => {

@@ -2,22 +2,15 @@
 
 	Review Card Component
 	
-	TODO: Rating in float (1.5, 2.5, etc.), error handling
-
 */
 
 import { motion } from "framer-motion";
 import { Dialog, Transition } from "@headlessui/react";
 import { useState, Fragment } from "react";
 
-interface ReviewItemsProps {
-	service: string;
-	text: string;
-	name: string;
-	title: string;
-}
+import type ReviewItemProps from "@/interfaces/ReviewItem";
 
-export default function ReviewItem({ text, name, title, service }: ReviewItemsProps) {
+export default function ReviewItem({ name, title, text, perex, service }: ReviewItemProps) {
 
 	let [isOpen, setIsOpen] = useState(false)
 
@@ -29,9 +22,6 @@ export default function ReviewItem({ text, name, title, service }: ReviewItemsPr
 		setIsOpen(true)
 	}
 
-
-	// Limit text to 300 characters
-	const perex = text.length > 300 ? text.substring(0, 300) + "..." : text;
 
 	// Animation variants (hidden and show) for the Motion element
 	const item = {

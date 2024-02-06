@@ -4,6 +4,13 @@ query Query {
 		question
 		answer
 	}
+	reviewsModel {
+    name
+		title
+		text
+    perex
+		service
+  }
 }
 `;
 
