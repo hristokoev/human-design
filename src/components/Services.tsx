@@ -7,12 +7,12 @@
 import { motion } from "framer-motion";
 
 import Card02 from "@/components/Card02";
-import ImagePerson from "@/assets/images/card-person.png";
-import ImagePersons from "@/assets/images/card-persons.png";
-import ImageTeams from "@/assets/images/card-teams.png";
-import ImageAlone from "@/assets/images/card-alone.png";
-import ImageLeader from "@/assets/images/card-leader.png";
-import ImageCompany from "@/assets/images/card-company.png";
+import ImagePerson from "@/assets/svg/card-person.svg";
+import ImagePersons from "@/assets/svg/card-persons.svg";
+import ImageTeams from "@/assets/svg/card-teams.svg";
+import ImageAlone from "@/assets/svg/card-alone.svg";
+import ImageLeader from "@/assets/svg/card-leader.svg";
+import ImageCompany from "@/assets/svg/card-company.svg";
 
 export default function Services() {
 

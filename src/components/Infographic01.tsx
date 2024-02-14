@@ -9,10 +9,10 @@
 import { motion } from "framer-motion";
 
 import Card01 from "@/components/Card01";
-import ImageCard01 from "@/assets/images/card-infographic-01.png";
-import ImageCard02 from "@/assets/images/card-infographic-02.png";
-import ImageCard03 from "@/assets/images/card-infographic-03.png";
-import ImageCard04 from "@/assets/images/card-infographic-04.png";
+import ImageCard01 from "@/assets/svg/card-01.svg";
+import ImageCard02 from "@/assets/svg/card-02.svg";
+import ImageCard03 from "@/assets/svg/card-03.svg";
+import ImageCard04 from "@/assets/svg/card-04.svg";
 
 export default function Infographic01() {
 
