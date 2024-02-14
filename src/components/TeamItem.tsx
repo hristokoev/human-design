@@ -121,7 +121,7 @@ export default function TeamItem({ item }: { item: TeamItemProps }) {
 					<div className="flex flex-col items-center">
 						<div className="w-full max-w-xl hidden lg:grid grid-cols-3">
 							{item.counters?.map((counter, j) => (
-								<div className="flex flex-col items-center" key={j}>
+								<div className="flex flex-col items-center text-center" key={j}>
 									<span className="text-5xl text-gold-400 font-bold">
 										<Counter value={counter.number} direction="up" />
 									</span>
@@ -172,7 +172,7 @@ export default function TeamItem({ item }: { item: TeamItemProps }) {
 				{/* Counters */}
 				<div className="w-full max-w-xl lg:hidden flex flex-col sm:flex-row justify-between gap-8 mx-auto">
 					{item.counters?.map((counter, j) => (
-						<div className="flex flex-col items-center" key={j}>
+						<div className="flex flex-col items-center text-center" key={j}>
 							<span className="text-5xl text-gold-400 font-bold">{counter.number}</span>
 							<span className="uppercase">{counter.text}</span>
 						</div>

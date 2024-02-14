@@ -60,7 +60,7 @@ export default function MobileMenu() {
 				>
 					<ul className="flex flex-col divide-y divide-petroleum-900/25 text-lg text-center">
 						<li className="py-2"><a href="/" className="hover:text-gold-400 transition-all duration-150 ease-in-out">Domů</a></li>
-						<li className="py-2"><a href="/#sluzby" className="hover:text-gold-400 transition-all duration-150 ease-in-out">Služby</a></li>
+						<li className="py-2"><a href="/#sluzby" onClick={() => setMobileNavOpen(false)} className="hover:text-gold-400 transition-all duration-150 ease-in-out">Služby</a></li>
 						<li className="py-2"><a href="/o-nas" className="hover:text-gold-400 transition-all duration-150 ease-in-out">O Nás</a></li>
 						<li className="py-2"><a href="/blog/1" className="hover:text-gold-400 transition-all duration-150 ease-in-out">Blog</a></li>
 						<li className="py-2"><a href="/kontakt" className="hover:text-gold-400 transition-all duration-150 ease-in-out">Kontakt</a></li>

@@ -52,13 +52,13 @@ export default function Footer() {
 
 						</div>
 
-						<div className="space-y-8 w-2/5">
+						<div className="space-y-8 md:w-3/5 lg:w-2/5">
 
 							{/* Subscribe Form */}
 							<Subsctibe />
 
 							{/* Menu */}
-							<div className="px-4 mt-4 h-full">
+							<div className="lg:px-4 mt-4 h-full">
 								<ul className="flex flex-wrap gap-x-8 gap-y-4 font-medium">
 									<li><a href="/" className="hover:text-gold-400 transition-all duration-150 ease-in-out">Domů</a></li>
 									<li><a href="/#sluzby" className="hover:text-gold-400 transition-all duration-150 ease-in-out">Služby</a></li>

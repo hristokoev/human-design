@@ -47,7 +47,7 @@ export default function Subsctibe() {
 
 		<div className="flex flex-col gap-y-4">
 
-			<div className="px-4">
+			<div className="lg:px-4">
 				<p className="font-bold">Přihlašte se k našemu newsletteru ať vám nic neunikne!</p>
 				<p>Nezahltíme vaši schránku, posíláme jen občasně</p>
 			</div>
@@ -55,7 +55,7 @@ export default function Subsctibe() {
 			<div className={`p-4 ${formSubmitted && "bg-petroleum-900"} rounded-md`}>
 				{!formSubmitted ? (
 					<form className="flex flex-col sm:flex-row gap-4" onSubmit={handleSubmit(handleSubmitForm)}>
-						<input type="email" {...register("email", { required: "Toto pole je povinné.", pattern: { value: /\S+@\S+\.\S+/, message: "Prosím zadejte platný email." } })} id="email" placeholder="Zadejte váš email!" className={`grow px-4 py-2 md:min-w-96 bg-transparent border ${!errors.email?.message ? 'border-white' : 'border-red-500'} focus:outline-none`} />
+						<input type="email" {...register("email", { required: "Toto pole je povinné.", pattern: { value: /\S+@\S+\.\S+/, message: "Prosím zadejte platný email." } })} id="email" placeholder="Zadejte váš email!" className={`w-full px-4 py-2 bg-transparent border ${!errors.email?.message ? 'border-white' : 'border-red-500'} focus:outline-none`} />
 						<button className={`flex px-4 py-2 border ${!loading ? 'border-white hover:bg-white hover:text-petroleum-900' : 'cursor-not-allowed'} transition-all duration-150 ease-in-out`} type="submit" disabled={loading}>
 							{loading && (
 								<div role="status" className="mr-3">
@@ -82,7 +82,7 @@ export default function Subsctibe() {
 				)}
 			</div>
 
-			<small className="px-4">Kliknutím na “Odebírat” souhlasíte s našimi <a href="/gdpr" className="underline hover:no-underline">Zásady ochrany osobních údajů</a></small>
+			<small className="lg:px-4">Kliknutím na “Odebírat” souhlasíte s našimi <a href="/gdpr" className="underline hover:no-underline">Zásady ochrany osobních údajů</a></small>
 
 		</div>
 

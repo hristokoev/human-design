@@ -3,6 +3,9 @@ export default {
 	content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
 	theme: {
 		extend: {
+			backgroundImage: {
+				'infographic': 'url("/img/infographic.svg")',
+			},
 			colors: {
 				"petroleum": {
 					"50": "#f5f9f9",
