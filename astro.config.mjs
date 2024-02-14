@@ -11,5 +11,6 @@ export default defineConfig({
   adapter: vercel(),
 	redirects: {
 		"/blog": "/blog/1",
+		"/admin": "https://humandesign-admin.occamy.cz/",
 	}
 });
