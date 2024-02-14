@@ -79,14 +79,14 @@ body {
 	@apply p-8 mx-auto flex flex-col items-center gap-y-4;
 	@apply bg-white text-petroleum-900;
 	@apply rounded-3xl;
-	@apply border border-petroleum-900/10 shadow-xl shadow-petroleum-900/10;
+	@apply border border-petroleum-900/10 shadow-lg shadow-petroleum-900/5;
 }
 
 .card-gold {
 	@apply p-8 mx-auto flex flex-col items-center gap-y-4;
 	@apply bg-gradient-to-br from-gold-300  to-gold-500 text-white;
 	@apply rounded-3xl;
-	@apply border border-gold-900/10 shadow-xl shadow-gold-900/10;
+	@apply border border-gold-900/10 shadow-lg shadow-gold-900/5;
 }
 
 .card-service,
@@ -94,7 +94,7 @@ body {
 	@apply p-12 min-h-80;
 	@apply bg-white text-petroleum-900;
 	@apply rounded-3xl;
-	@apply border border-petroleum-900/10 shadow-xl shadow-petroleum-900/10;
+	@apply border border-petroleum-900/10 shadow-lg shadow-petroleum-900/5;
 }
 
 /* Text UI */

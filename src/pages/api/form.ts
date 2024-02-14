@@ -118,6 +118,7 @@ export const POST: APIRoute = async ({ request }) => {
 			await fetch("https://script.google.com/macros/s/" + import.meta.env.GOOGLE_APP_SCRIPT_ID + "/exec", {
 				method: "POST",
 				body: JSON.stringify({
+					action: "addForm",
 					dateAndTimeOfPost: formattedDateAndTimeOfPost,
 					firstName,
 					lastName,

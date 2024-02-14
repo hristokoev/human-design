@@ -17,6 +17,7 @@ import Infographic01 from "@/components/Infographic01.tsx";
 import Infographic02 from "@/components/Infographic02.tsx";
 import Services from "@/components/Services.tsx";
 import Reviews from "@/components/Reviews.tsx";
+import Cta from "@/components/Cta";
 import Faq from "@/components/Faq.tsx";
 import type { FaqItemProps } from "@/components/FaqItem.tsx";
 import type ReviewItemProps from "@/interfaces/ReviewItem.ts";
@@ -36,5 +37,6 @@ if (!faqModel || !reviewsModel) {
   <Infographic02 client:load />
   <Services client:load />
   <Reviews reviewItems={reviewsModel as ReviewItemProps[]} client:load />
+	<Cta client:load />
   <Faq faqItems={faqModel as FaqItemProps[]} client:load />
 </Layout>

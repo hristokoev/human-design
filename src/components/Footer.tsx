@@ -8,6 +8,7 @@
 
 import Logo from "@/assets/svg/logo.svg";
 import Occamy from "@/assets/svg/occamy_logo_white.svg";
+import Subsctibe from "@/components/Subscribe";
 
 export default function Footer() {
 
@@ -51,22 +52,13 @@ export default function Footer() {
 
 						</div>
 
-						{/* Subscribe Form */}
-						<div className="flex flex-col gap-y-4">
+						<div className="space-y-8 w-2/5">
 
-							<div>
-								<p className="font-bold">Přihlašte se k našemu newsletteru ať vám nic neunikne!</p>
-								<p>Nezahltíme vaši schránku, posíláme jen občasně</p>
-							</div>
+							{/* Subscribe Form */}
+							<Subsctibe />
 
-							<form className="flex flex-col sm:flex-row gap-4">
-								<input type="email" placeholder="Zadejte váš email!" className="grow px-4 py-2 md:min-w-96 bg-transparent border border-white" />
-								<button className="border border-white hover:bg-white hover:text-petroleum-900 px-4 py-2 transition-all duration-150 ease-in-out">Odebírat</button>
-							</form>
-
-							<small>Kliknutím na “Odebírat” souhlasíte s našimi <a href="/gdpr" className="underline hover:no-underline">Zásady ochrany osobních údajů</a></small>
-
-							<div className="mt-4 h-full">
+							{/* Menu */}
+							<div className="px-4 mt-4 h-full">
 								<ul className="flex flex-wrap gap-x-8 gap-y-4 font-medium">
 									<li><a href="/" className="hover:text-gold-400 transition-all duration-150 ease-in-out">Domů</a></li>
 									<li><a href="/#sluzby" className="hover:text-gold-400 transition-all duration-150 ease-in-out">Služby</a></li>

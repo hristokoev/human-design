@@ -71,9 +71,7 @@ export default function ReviewItem({ name, title, text, perex, service }: Review
 								<Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
 
 									<div className="mt-2">
-										<p className="text-sm text-gray-500">
-											{text}
-										</p>
+										<div className="text-sm text-gray-500" dangerouslySetInnerHTML={{ __html: text }} />
 									</div>
 
 									<div className="mt-4">
@@ -92,7 +90,7 @@ export default function ReviewItem({ name, title, text, perex, service }: Review
 				</Dialog>
 			</Transition>
 
-			<motion.div className="flex flex-col gap-y-4 card-review" variants={item}>
+			<motion.div className="mb-8 flex flex-col gap-y-4 card-review" variants={item}>
 
 				{/* Service */}
 				<div className="flex font-bold">

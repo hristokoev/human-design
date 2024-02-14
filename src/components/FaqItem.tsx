@@ -39,9 +39,7 @@ export default function FaqItem({ question, answer, id, active = false }: FaqIte
 			{/* Answer */}
 			<div id={`item-text-${id}`} role="region" aria-labelledby={`item-title-${id}`} className={`grid text-zinc-500 overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
 				<div className="overflow-hidden">
-					<p className="px-px pb-6">
-						{answer}
-					</p>
+					<div className="px-px pb-6" dangerouslySetInnerHTML={{ __html: answer }} />
 				</div>
 			</div>
 

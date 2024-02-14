@@ -56,7 +56,6 @@ export default function Reviews({ reviewItems }: { reviewItems: ReviewItemProps[
 							pagination={{
 								dynamicBullets: true,
 							}}
-							autoHeight={true}
 							modules={[Pagination]}
 							className={`mt-24 ${reviewItems.length > 3 && 'cursor-grab'}`}
 						>

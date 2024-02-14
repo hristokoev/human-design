@@ -41,7 +41,7 @@ export default function Faq({ faqItems }: { faqItems: FaqItemProps[] }) {
 						</div>
 
 						{/* FAQ Items */}
-						<div className="grow flex flex-col gap-y-4">
+						<div className="w-full grow flex flex-col gap-y-4">
 							<ul className="border-t border-petroleum-900">
 								{faqItems.map((faqItem, index) => (
 									<FaqItem key={index} question={faqItem.question} answer={faqItem.answer} id={`faqs-${index}`} active={faqItem.active} />
