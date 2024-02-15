@@ -9,7 +9,8 @@ query Query {
 		title
 		text
     perex
-		service
+		serviceText
+		serviceUrl
   }
 }
 `;

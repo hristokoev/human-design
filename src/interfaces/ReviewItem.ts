@@ -3,5 +3,6 @@ export default interface ReviewItemProps {
 	title: string;
 	text: string;
 	perex: string;
-	service: string;
+	serviceText: string;
+	serviceUrl: string;
 }

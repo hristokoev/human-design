@@ -10,7 +10,7 @@ import { useState, Fragment } from "react";
 
 import type ReviewItemProps from "@/interfaces/ReviewItem";
 
-export default function ReviewItem({ name, title, text, perex, service }: ReviewItemProps) {
+export default function ReviewItem({ name, title, text, perex, serviceText, serviceUrl }: ReviewItemProps) {
 
 	let [isOpen, setIsOpen] = useState(false)
 
@@ -93,9 +93,11 @@ export default function ReviewItem({ name, title, text, perex, service }: Review
 			<motion.div className="mb-8 flex flex-col gap-y-4 card-review" variants={item}>
 
 				{/* Service */}
+				{serviceText && serviceUrl && (
 				<div className="flex font-bold">
-					{service}
+					<a href={serviceUrl} className="text-gold-400 hover:underline">{serviceText}</a>
 				</div>
+				)}
 
 				{/* Text */}
 				<div className="grow">
