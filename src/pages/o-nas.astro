@@ -24,7 +24,7 @@ if (!teamModel) {
   <section class="text-petroleum-900">
     <div class="container">
       <div class="py-24 flex flex-col gap-32">
-        {teamModel.map((item, i) => <TeamItem item={item} client:load />)}
+        {teamModel.map(item => <TeamItem item={item} client:load />)}
       </div>
     </div>
   </section>

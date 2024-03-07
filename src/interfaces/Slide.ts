@@ -1,4 +1,4 @@
 export default interface SlideProps {
-	date: string;
-	text: string;
+  date: string;
+  text: string;
 }

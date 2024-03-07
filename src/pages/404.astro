@@ -7,10 +7,10 @@
 
 */
 
-import fetchData from "@/lib/fetchData.ts";
-import Layout from "@/layouts/Layout.astro";
-import query from "@/queries/o-nas.js";
 import Image404 from "@/assets/svg/404.svg";
+import Layout from "@/layouts/Layout.astro";
+import fetchData from "@/lib/fetchData.ts";
+import query from "@/queries/o-nas.js";
 
 // Fetch team members from the CMS.
 const { teamModel } = await fetchData(query);
